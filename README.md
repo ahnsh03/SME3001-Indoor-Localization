@@ -207,8 +207,14 @@ Pure Wi‑Fi 바닥은 V8·V9 Step A 등에서 **약 1.55 m** 전후가 반복�
 
 | 문서 | 내용 |
 |------|------|
+| [docs/SPEC_INDEX.md](docs/SPEC_INDEX.md) | **전 스크립트 명세 색인** — 파이프라인 진화(V1~V14)·수식·분석 도구 해석 |
+| [docs/SPEC_v12.md](docs/SPEC_v12.md) | **V12 단독 상세** — 기본/Strict/Fast/Fast2/Turbo/Parallel + outputs 전수 해석 |
+| [docs/SPEC_v13.md](docs/SPEC_v13.md) | **V13 단독 상세** — V13/V13-fix, Optuna·grid·predictions 해석 |
+| [docs/SPEC_v14.md](docs/SPEC_v14.md) | **V14 단독 상세** — JWT/Isotonic 실험, ablation CSV 해석 |
 | [docs/V13_FINAL_PIPELINE_SPEC.md](docs/V13_FINAL_PIPELINE_SPEC.md) | V13 최종 흐름, 실행 옵션, 선정 근거 |
 | [docs/V12_TURBO_PIPELINE_SPEC.md](docs/V12_TURBO_PIPELINE_SPEC.md) | V12 Turbo Phase A/B/C, Numba, Optuna |
+
+상세 분할: `docs/SPEC_fusion_core.md`, `SPEC_evolution_v01_v07.md`, `SPEC_evolution_v08_v11.md`, `SPEC_v12_v13_family.md`, `SPEC_analysis_and_JWT.md`.
 
 ---
 

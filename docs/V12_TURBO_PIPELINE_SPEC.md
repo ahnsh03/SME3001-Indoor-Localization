@@ -1,5 +1,7 @@
 # V12 Turbo 실내 융합 파이프라인 — 상세 명세서
 
+> **전체 코드 명세 색인**: [`SPEC_INDEX.md`](SPEC_INDEX.md) — V12 기본(`v12.py`)과 Strict·Fast·Fast2·Parallel과의 **차이·누수 여부**는 [`SPEC_v12_v13_family.md`](SPEC_v12_v13_family.md)에 정리되어 있습니다.
+
 본 문서는 `scripts/indoor_fusion_pipeline_v12_turbo.py`의 설계·동작을 팀워크스페이스용으로 정리한 것입니다. **최종 선정 코드는 V13**이며, V12 Turbo는 **같은 실험 무결성·수식 계열을 유지한 고속 베이스라인**으로 참고하면 됩니다. (V13이 본 파일의 Step B/C Numba 함수를 재사용합니다.)
 
 원문 요지는 스크립트 상단 모듈 docstring과 동일합니다.

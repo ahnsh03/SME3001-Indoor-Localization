@@ -1,5 +1,7 @@
 # V13 실내 융합 파이프라인 — 최종 프로젝트 명세서
 
+> **전체 코드 명세 색인**: [`SPEC_INDEX.md`](SPEC_INDEX.md) — V1~V14·분석 스크립트의 **진화 흐름·수식·분석 결과 해석**은 [`SPEC_v12_v13_family.md`](SPEC_v12_v13_family.md), [`SPEC_evolution_v01_v07.md`](SPEC_evolution_v01_v07.md), [`SPEC_evolution_v08_v11.md`](SPEC_evolution_v08_v11.md), [`SPEC_analysis_and_JWT.md`](SPEC_analysis_and_JWT.md) 등을 참고합니다.
+
 본 문서는 팀 워크스페이스용 **최종 선정 코드**인 `scripts/indoor_fusion_pipeline_v13.py`의 역할, 설계 원칙, 실행 방법, 산출물을 정리한 것입니다.
 
 ---
