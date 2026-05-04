@@ -293,11 +293,17 @@ def main() -> int:
     plt.close()
 
     print()
-    print(f"저장: {out_dir / 'v9_predictions.csv'}")
-    print(f"저장: {out_dir / 'v9_uwb_kill_log.csv'}")
-    print(f"저장: {out_dir / 'v9_step_cdf.png'}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(
+        Path(__file__),
+        main,
+        output_artifact_include_prefixes=("v9_",),
+        output_artifact_exclude_prefixes=("v9_strict_",),
+    )

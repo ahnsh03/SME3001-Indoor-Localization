@@ -1,0 +1,36 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "indoor_fusion_pipeline_v1_20260504T122221Z",
+  "script_stem": "indoor_fusion_pipeline_v1",
+  "started_utc": "2026-05-04T12:22:21.388311+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project",
+  "argv": [
+    "scripts\\indoor_fusion_pipeline_v1.py"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 8.3354,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\indoor_fusion_pipeline_v1_20260504T122221Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\v1_validation_error_cdf.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 59300
+    },
+    {
+      "path": "outputs\\v1_validation_error_vector_map.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 312484
+    },
+    {
+      "path": "outputs\\v1_validation_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 27306
+    }
+  ]
+}

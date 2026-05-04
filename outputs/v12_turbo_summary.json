@@ -1,6 +1,6 @@
 {
   "pipeline": "V12 Turbo",
-  "wall_clock_sec": 27.686145199993916,
+  "wall_clock_sec": 20.00160060000053,
   "optuna_n_trials": 35,
   "optuna_n_jobs": -1,
   "matplotlib_artifacts_saved": true,
@@ -8,18 +8,18 @@
   "train_kfold_splits": 3,
   "train_cv_metrics_at_selection": {
     "phase_A_proxy_mean_RMSE_A_m": 2.651844287718037,
-    "mean_CV_RMSE_step_C_m": 2.5335502850861
+    "mean_CV_RMSE_step_C_m": 2.531067467547146
   },
   "validation_single_forward_metrics": {
     "step_A_RMSE_m": 1.51037249944006,
     "step_A_MAE_m": 1.1956694614183145,
-    "step_B_RMSE_m": 1.4449470909255426,
-    "step_B_MAE_m": 1.147275112941653,
-    "step_C_RMSE_m": 1.4524824172993116,
-    "step_C_MAE_m": 1.150890430516965,
-    "delta_RMSE_A_to_B_m": 0.06542540851451739,
-    "delta_RMSE_B_to_C_m": -0.007535326373768969,
-    "delta_RMSE_A_to_C_m": 0.05789008214074842
+    "step_B_RMSE_m": 1.4442993299891937,
+    "step_B_MAE_m": 1.152017639629346,
+    "step_C_RMSE_m": 1.4534832696280038,
+    "step_C_MAE_m": 1.1565588201476082,
+    "delta_RMSE_A_to_B_m": 0.06607316945086628,
+    "delta_RMSE_B_to_C_m": -0.009183939638810035,
+    "delta_RMSE_A_to_C_m": 0.05688922981205624
   },
   "selected_hyperparameters": {
     "wifi_calibration_kind": "identity",
@@ -28,10 +28,10 @@
     "wifi_calibration_ransac_residual_thresh": 4.0,
     "feat_mode": "bias_sub",
     "huber_f_scale_wifi_only_trilateration": 1.0,
-    "uwb_geometric_gate_threshold_m": 1.6855492749881424,
-    "uwb_variance_inflate_multiplier": 13.828037453786798,
-    "huber_f_scale_fusion_trilateration": 1.2265320262710204,
-    "irls_residual_threshold_m": 3.0989924112262712,
+    "uwb_geometric_gate_threshold_m": 1.6302998925299865,
+    "uwb_variance_inflate_multiplier": 15.517335384987197,
+    "huber_f_scale_fusion_trilateration": 1.349408032274331,
+    "irls_residual_threshold_m": 2.752756293380619,
     "irls_max_iterations": 2,
     "phase_A_top_K_evaluated": 3,
     "phase_A_rank_selected": 2

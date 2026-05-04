@@ -510,14 +510,12 @@ def main() -> int:
     pdf["ErrA_m"], pdf["ErrB_m"], pdf["ErrC_m"] = ea_val, eb_val, ec_val
     pdf.to_csv(out_dir / "v10_opt_predictions.csv", index=False, encoding="utf-8-sig")
 
-    print(f"저장: {out_dir / 'v10_opt_threshold_search.png'}")
-    print(f"저장: {out_dir / 'v10_opt_fusion_stats.csv'}")
-    print(f"저장: {out_dir / 'v10_opt_error_cdf.png'}")
-    print(f"저장: {out_dir / 'v10_opt_run_summary.json'}")
-    print(f"저장: {out_dir / 'v10_opt_predictions.csv'}")
-
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v10_opt_",))

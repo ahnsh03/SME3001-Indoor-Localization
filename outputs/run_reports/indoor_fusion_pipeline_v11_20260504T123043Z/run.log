@@ -1,0 +1,38 @@
+# run_id=indoor_fusion_pipeline_v11_20260504T123043Z
+# started_utc=2026-05-04T12:30:43.876548+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v11.py']
+
+
+[V11] 학습행: 270 | 검증행: 100
+
+========================================================================
+V11 검증 세트 성능 (Pure Wi‑Fi · Huber/RANSAC 보정 · IRLS · Multi‑feature KNN)
+========================================================================
+  Step A (Pure Wi‑Fi + 고정 bias):           RMSE = 1.5532 m | MAE = 1.1172 m
+  Step B (강건 선형 거리 보정 + 6AP 삼변):   RMSE = 1.5567 m | MAE = 1.1328 m
+  Step C (IRLS 가중 Bounded Huber 삼변):    RMSE = 1.5549 m | MAE = 1.1290 m
+  Step D (다중피처 K‑NN Δx,Δy):             RMSE = 1.5549 m | MAE = 1.1290 m
+========================================================================
+
+검증 RMSE/MAE 개선 폭 (양수 = 해당 스텝이 이전 대비 개선)
+  Step A → B  : ΔRMSE = -0.0035 m | MAE 1.1172 → 1.1328
+  Step B → C  : ΔRMSE = +0.0019 m | MAE 1.1328 → 1.1290
+  Step C → D  : ΔRMSE = +0.0000 m | MAE 1.1290 → 1.1290
+  Step A → D  : ΔRMSE = -0.0016 m | MAE 1.1172 → 1.1290
+
+  [그리드 선택 요약] Step B=검증 RMSE(6AP 보정 삼변) 최소 → Step C=IRLS 임계·반복 최소 → Step D=K·피처
+        Huber f_scale=1.35, calib=identity (항등 거리 매핑 (A=1, Train 미적합)) | feat=raw | val StepB RMSE=1.5567 m
+        IRLS_thresh=2.4 m, iters=2 | val StepC RMSE(ref)=1.5549 m | KNN_K=— log1p_var=False
+
+========================================================================
+[indoor_fusion_pipeline_v11] 산출물 요약 (총 7개)
+------------------------------------------------------------------------
+  outputs\v11_calibration_grid_log.csv  (3,516 bytes)
+  outputs\v11_cdf_steps.png  (95,134 bytes)
+  outputs\v11_irls_grid_log.csv  (708 bytes)
+  outputs\v11_knn_grid_log.csv  (970 bytes)
+  outputs\v11_predictions.csv  (28,042 bytes)
+  outputs\v11_robust_calibration_wifi.csv  (231 bytes)
+  outputs\v11_summary.json  (1,875 bytes)
+========================================================================

@@ -1,0 +1,33 @@
+# run_id=indoor_fusion_pipeline_v12_turbo_20260504T125641Z
+# started_utc=2026-05-04T12:56:41.077166+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v12_turbo.py']
+
+
+[V12 Turbo] 학습 270행 | 검증 100행 | Train K-Fold=3
+[V12 Turbo] Phase B/C용 Train K-Fold 캐시(NumPy) 구축…
+C:\Users\ahnsh\AppData\Local\Programs\Python\Python310\lib\site-packages\optuna\_experimental.py:33: ExperimentalWarning: Argument ``constant_liar`` is an experimental feature. The interface can change in the future.
+  optuna_warn(
+
+========================================================================
+V12 Turbo — Optuna(Train CV) | 검증 단일 Forward
+========================================================================
+  [Train CV 목표] Step C 평균 RMSE = 2.5311 m
+  [Validation] Step A RMSE=1.5104 m | Step B RMSE=1.4443 m | Step C RMSE=1.4535 m
+  [Wall-clock] 총 20.00 s (목표: 10 s 미만)
+========================================================================
+[선택 HP] calib=identity, feat=bias_sub, huber_f_wifi=1.0, gate=1.630, uwb_var_inflate=15.517335384987197, huber_f_fusion=1.349408032274331, IRLS_thresh=2.75, IRLS_iter=2, phase_a_rank=2
+
+========================================================================
+[indoor_fusion_pipeline_v12_turbo] 산출물 요약 (총 9개)
+------------------------------------------------------------------------
+  outputs\v12_turbo_cdf_steps.png  (44,134 bytes)
+  outputs\v12_turbo_grid_phaseA.csv  (504 bytes)
+  outputs\v12_turbo_map_error_vectors_stepC.png  (108,381 bytes)
+  outputs\v12_turbo_map_stepC_pairwise_truth_pred.png  (121,278 bytes)
+  outputs\v12_turbo_map_true_vs_predicted_steps.png  (122,892 bytes)
+  outputs\v12_turbo_optuna_trials.csv  (3,571 bytes)
+  outputs\v12_turbo_predictions.csv  (17,736 bytes)
+  outputs\v12_turbo_summary.json  (3,194 bytes)
+  outputs\v12_turbo_wifi_calibration_coefs.csv  (121 bytes)
+========================================================================

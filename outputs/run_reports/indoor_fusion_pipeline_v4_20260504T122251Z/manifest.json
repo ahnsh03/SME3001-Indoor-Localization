@@ -1,0 +1,60 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "indoor_fusion_pipeline_v4_20260504T122251Z",
+  "script_stem": "indoor_fusion_pipeline_v4",
+  "started_utc": "2026-05-04T12:22:51.010394+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project",
+  "argv": [
+    "scripts\\indoor_fusion_pipeline_v4.py"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 2.7246,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\indoor_fusion_pipeline_v4_20260504T122251Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\v4_confidence_map.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 81425
+    },
+    {
+      "path": "outputs\\v4_error_cdf.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 50576
+    },
+    {
+      "path": "outputs\\v4_fusion_rule_by_anchor.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 1033
+    },
+    {
+      "path": "outputs\\v4_per_sample_diagnostics.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 35733
+    },
+    {
+      "path": "outputs\\v4_phase_aggregate.json",
+      "kind": "file",
+      "note": "",
+      "bytes": 399
+    },
+    {
+      "path": "outputs\\v4_predictions_with_phase_columns.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 54700
+    },
+    {
+      "path": "outputs\\v4_validation_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 9965
+    }
+  ]
+}

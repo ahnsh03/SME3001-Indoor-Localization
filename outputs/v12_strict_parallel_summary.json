@@ -1,12 +1,12 @@
 {
   "pipeline": "V12 Strict Parallel",
-  "K_FOLD_SPLITS_global": 1,
-  "effective_train_cv_splits": 1,
-  "cv_split_mode": "K1_no_fold_self_score_on_train",
+  "K_FOLD_SPLITS_global": null,
+  "effective_train_cv_splits": 3,
+  "cv_split_mode": "kfold_auto",
   "parallel_workers": 8,
   "train_cv_metrics_at_selection": {
-    "phase_A_proxy_mean_RMSE_A_m": 2.6987717335022903,
-    "mean_CV_RMSE_step_C_m": 2.5494966524489264
+    "phase_A_proxy_mean_RMSE_A_m": 2.651844287718037,
+    "mean_CV_RMSE_step_C_m": 2.5091783519388446
   },
   "validation_single_forward_metrics": {
     "step_A_RMSE_m": 1.51037249944006,

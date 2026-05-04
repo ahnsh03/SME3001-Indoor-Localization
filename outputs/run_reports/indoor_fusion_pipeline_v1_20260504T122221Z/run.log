@@ -1,0 +1,19 @@
+# run_id=indoor_fusion_pipeline_v1_20260504T122221Z
+# started_utc=2026-05-04T12:22:21.388311+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v1.py']
+
+V1: 학습 270행 (median_test_kgh_corrected.csv) · 검증 100행 (median_validation.csv)
+=== Validation (Wi-Fi only 삼변, UWB 미사용 · V1 알고리즘) ===
+Wi-Fi-only RMSE: 2.0355 m | MAE: 1.4133 m
+=== Validation Metrics ===
+RMSE: 7.3068 m
+MAE : 6.2325 m
+
+========================================================================
+[indoor_fusion_pipeline_v1] 산출물 요약 (총 3개)
+------------------------------------------------------------------------
+  outputs\v1_validation_error_cdf.png  (59,300 bytes)
+  outputs\v1_validation_error_vector_map.png  (312,484 bytes)
+  outputs\v1_validation_predictions.csv  (27,306 bytes)
+========================================================================

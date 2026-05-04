@@ -43,4 +43,8 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main)

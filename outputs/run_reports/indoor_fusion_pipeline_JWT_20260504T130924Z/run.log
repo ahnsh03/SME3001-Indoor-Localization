@@ -1,0 +1,58 @@
+# run_id=indoor_fusion_pipeline_JWT_20260504T130924Z
+# started_utc=2026-05-04T13:09:24.101673+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_JWT.py']
+
+
+[JWT] train 피팅 → validation 평가
+  학습: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\data\train\median_test_kgh_corrected.csv
+  검증: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\data\validation\median_validation.csv
+  저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\jwt_wifi_corrected_outlier_score_position_rmse.xlsx
+
+완료 — 엑셀 저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\jwt_wifi_corrected_outlier_score_position_rmse.xlsx
+
+── 학습 | 거리 보정 (in-sample, 핵심 열만 — 전체는 엑셀·--verbose) ──
+       WiFi기기 유효개수 원본_거리_RMSE 보정후_거리_RMSE 거리_RMSE_개선량
+        SW_11  267     2.7539      1.9221      0.8318
+SW_first_team  269     2.3857      1.6231      0.7626
+          볼링공  266     2.0530      1.5267      0.5263
+         SW_4  260     9.0038      1.9237      7.0800
+         SW_6  263     1.8489      1.4655      0.3833
+         SW_5  269     2.0665      1.8442      0.2223
+
+── 학습 | Score RANSAC (핵심 열만) ──
+       WiFi기기 유효개수 Score_RANSAC_기울기 RANSAC_score_평균 RANSAC_score_P90
+        SW_11  267           1.0253          0.5852           1.7619
+SW_first_team  269           1.0044          0.6067           1.4278
+          볼링공  266           1.0154          0.4817           1.4997
+         SW_4  260           0.9993          0.6080           1.7754
+         SW_6  263           1.0133          0.5271           1.5454
+         SW_5  269           0.9836          0.6077           1.7171
+
+── 검증 | 거리 RMSE 비교 ──
+           구분 유효개수 원본_거리_RMSE 보정후_거리_RMSE 보정후_soft_weighted_거리_RMSE 보정후_hard제거_거리_RMSE 원본_거리_MAE 보정후_거리_MAE 원본_평균절대오차율 보정후_평균절대오차율 보정후_soft_평균weight
+           전체  588     1.9234      1.3916                 0.9074                0.7688    1.1870     1.0458     0.1688      0.1773            0.5324
+        SW_11   99     1.8970      1.1692                 0.8922                0.8923    1.3219     0.9454     0.1268      0.1097            0.5702
+SW_first_team   99     3.1013      1.7981                 1.1557                0.8345    1.6291     1.4336     0.1929      0.1906            0.4389
+          볼링공   94     1.7651      1.3179                 0.8364                0.6550    1.1971     0.9787     0.1818      0.1827            0.5534
+         SW_4   99     1.3670      1.2859                 0.8994                0.7696    1.0629     1.0256     0.1496      0.1759            0.5097
+         SW_6   98     1.3275      1.1697                 0.7722                0.6974    0.9360     0.8578     0.1543      0.1642            0.5811
+         SW_5   99     1.4779      1.4982                 0.9012                0.7362    0.9729     1.0287     0.2082      0.2410            0.5427
+
+── 검증 | 위치 RMSE 비교 ──
+              방식 유효행수 위치_RMSE 위치_MAE 위치_P90 위치_최대오차
+      원본거리_Huber   99  2.1997 1.5951 3.8352  7.4216
+      보정거리_Huber   99  2.0051 1.4914 2.9637  7.3565
+보정거리_soft_weight   99  1.5981 1.0999 2.4558  6.9982
+보정거리_hard_remove   99  3.6565 1.7822 3.4223 19.1719
+
+── 검증 | 동일행 위치 비교 ──
+비교기준 행수 원본_RMSE 보정_RMSE 보정_soft_RMSE 보정_hard_RMSE 보정_RMSE감소량 보정_soft_RMSE감소량 보정_hard_RMSE감소량 원본_MAE 보정_MAE 보정_soft_MAE 원본_P90 보정_P90 보정_soft_P90
+ 동일행 99  2.1997  2.0051       1.5981       3.6565     0.1946          0.6016         -1.4568 1.5951 1.4914      1.0999 3.8352 2.9637      2.4558
+(--verbose 로 학습 과정 로그·전열 표 출력)
+
+========================================================================
+[indoor_fusion_pipeline_JWT] 산출물 요약 (총 1개)
+------------------------------------------------------------------------
+  outputs\jwt_wifi_corrected_outlier_score_position_rmse.xlsx  (459,384 bytes)
+========================================================================

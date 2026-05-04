@@ -1,0 +1,48 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "indoor_fusion_pipeline_v9_strict_20260504T122436Z",
+  "script_stem": "indoor_fusion_pipeline_v9_strict",
+  "started_utc": "2026-05-04T12:24:36.801987+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project",
+  "argv": [
+    "scripts\\indoor_fusion_pipeline_v9_strict.py"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 103.2349,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\indoor_fusion_pipeline_v9_strict_20260504T122436Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\v9_strict_gate_grid_trainCV.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 1003
+    },
+    {
+      "path": "outputs\\v9_strict_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 14868
+    },
+    {
+      "path": "outputs\\v9_strict_step_cdf.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 85441
+    },
+    {
+      "path": "outputs\\v9_strict_summary.json",
+      "kind": "file",
+      "note": "",
+      "bytes": 564
+    },
+    {
+      "path": "outputs\\v9_strict_uwb_kill_log.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 221
+    }
+  ]
+}

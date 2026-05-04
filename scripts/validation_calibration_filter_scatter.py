@@ -310,7 +310,6 @@ def run_plot() -> None:
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(OUT_PATH, dpi=160)
     plt.close(fig)
-    print(f"저장: {OUT_PATH}")
 
 
 def main() -> int:
@@ -319,4 +318,8 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("validation_calibration",))

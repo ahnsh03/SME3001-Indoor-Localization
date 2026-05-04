@@ -1,0 +1,24 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "indoor_fusion_pipeline_JWT_20260504T130924Z",
+  "script_stem": "indoor_fusion_pipeline_JWT",
+  "started_utc": "2026-05-04T13:09:24.101673+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project",
+  "argv": [
+    "scripts\\indoor_fusion_pipeline_JWT.py"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 21.1953,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\indoor_fusion_pipeline_JWT_20260504T130924Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\jwt_wifi_corrected_outlier_score_position_rmse.xlsx",
+      "kind": "file",
+      "note": "",
+      "bytes": 459384
+    }
+  ]
+}

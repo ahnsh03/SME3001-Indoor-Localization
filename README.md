@@ -26,6 +26,7 @@ midterm_project/
 │   ├── fusion_realtime_sanitize.py    # 로드·헤더 정규화·Wi‑Fi 분산 캡·Phase1 바이어스·경로 해석
 │   ├── fusion_turbo_numba_core.py     # V12 Turbo와 동치 Step B/C Numba 배치 (v13_fix 등에서 재사용)
 │   ├── fusion_data_audit.py           # Train/Val sanitize 후 행 수 등 간단 감사
+│   ├── script_run_io.py               # 실행 로그 tee + 산출물 manifest 공통 엔트리 유틸
 │   ├── indoor_fusion_pipeline_v1.py … v3.py   # 학습형 잔차(K‑NN 등) 초기 라인
 │   ├── indoor_fusion_pipeline_v4.py … v7.py   # K‑NN 비의존·Ridge·다단계 기하·그리드
 │   ├── indoor_fusion_pipeline_v8.py           # Wi‑Fi/UWB 애블레이션·공통 설정 허브
@@ -75,8 +76,9 @@ midterm_project/
 | 파일 | 역할 |
 |------|------|
 | `fusion_realtime_sanitize.py` | median/variance 로드, 컬럼 정규화, Wi‑Fi 분산 상한, **PHASE1 / HARDWARE_CALIB** 바이어스, `resolve_*_paths`. 행 단위 `drop` 없이 전 행 유지하는 설계가 기본이다. |
-| `fusion_turbo_numba_core.py` | Turbo Step B/C와 동치 **Numba** 배치 삼변·패킹. `v13_fix` 등에서 `v12_turbo` 소스 의존 없이 사용한다. |
+| `fusion_turbo_numba_core.py` | Turbo Step B/C와 동치 **Numba** 배치 삼변·패킹. `v13_fix` 등에서 `v12_turbo` 소스 의존 없이 사용한다. 단독 실행 시 smoke JSON(`fusion_turbo_numba_core_smoke.json`)을 남긴다. |
 | `fusion_data_audit.py` | 표준 경로로 읽은 뒤 sanitize 후 **행 수** 등을 출력한다. |
+| `script_run_io.py` | 각 스크립트 `__main__` 공통 엔트리. 콘솔 출력 tee, `outputs/run_reports/<run_id>/run.log` 저장, 산출물/메타를 `manifest.json`으로 기록한다. |
 | `sensor_spatial_profiler.py` | Train 공간 EDA PNG, UWB 순차 필터, Robust bias CSV. 인자: `all` / `spatial` / `uwb` 등(스크립트 헬프 참고). |
 | `validation_calibration_filter_scatter.py` | 검증 median 기준 True vs 측정 거리 산점도(필터 단계별 비교 PNG). |
 | `indoor_fusion_pipeline_JWT.py` | RANSAC·Isotonic 등 **JWT Wi‑Fi 보정**을 레포 데이터 규격에 맞춘 단독 평가. |
@@ -115,6 +117,7 @@ midterm_project/
 Set-Location "C:\path\to\midterm_project"
 
 py -3 scripts\fusion_data_audit.py
+py -3 scripts\fusion_turbo_numba_core.py   # 라이브러리 smoke 로그/JSON 기록
 
 py -3 scripts\indoor_fusion_pipeline_v1.py
 py -3 scripts\indoor_fusion_pipeline_v2.py
@@ -173,6 +176,7 @@ py -3 -m pip install pandas numpy scipy scikit-learn matplotlib openpyxl numba o
 - **요약 JSON:** `outputs/v*_summary.json`, `v*_run_summary.json`, `v13_fix_summary.json` 등. **`integrity` 또는 `objective` 필드**로 튜닝에 검증 라벨이 쓰였는지 구분한다.
 - **그리드·로그:** `v12_*_grid_phaseA.csv`, `v12_turbo_optuna_trials.csv`, `v9_uwb_kill_log.csv` 등.
 - **PNG:** CDF·오차맵 등은 스크립트·플래그에 따라 생성된다(예: `v12_cdf_steps.png`, `v9_step_cdf.png`, `v13_*_map_*.png`). 실행 후 `outputs/` 목록을 확인한다.
+- **실행 리포트(run_reports):** 모든 실행 가능한 스크립트는 `outputs/run_reports/<script>_<UTC시각>/`에 `run.log`와 `manifest.json`을 남긴다. `manifest.json`에는 `argv`, 실행시간, 종료코드, 산출물 목록(파일 크기 포함)이 들어간다.
 
 최종 수치·무결성 문구는 **`outputs/v13_summary.json`** 및 **`docs/V13_FINAL_PIPELINE_SPEC.md`** 를 우선한다.
 

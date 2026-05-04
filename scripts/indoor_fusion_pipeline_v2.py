@@ -392,7 +392,7 @@ class WifiUwbFusionLocalizerV2:
         plt.close()
 
 
-def main() -> None:
+def main() -> int:
     cfg = Config(
         grid_size_m=0.6,
         epsilon=1e-4,
@@ -494,10 +494,12 @@ def main() -> None:
         out_path=cdf_path,
     )
 
-    print(f"Saved: {pred_path}")
-    print(f"Saved: {report_path}")
-    print(f"Saved: {cdf_path}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v2_",))

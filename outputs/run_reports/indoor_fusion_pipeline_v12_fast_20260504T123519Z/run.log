@@ -1,0 +1,27 @@
+# run_id=indoor_fusion_pipeline_v12_fast_20260504T123519Z
+# started_utc=2026-05-04T12:35:19.304983+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v12_fast.py']
+
+
+[V12 Fast] 학습 270행 | 검증 100행 | K-Fold=2 (무결성)
+[V12 Fast] Train CV 캐시 + 축소 그리드로 Phase B/C 탐색…
+
+========================================================================
+V12 Fast — 완료 (18.8s) | Train CV만으로 HP | 검증 단일 평가
+========================================================================
+  [Train CV] Step C 평균 RMSE (선택) = 2.5504 m
+  [Validation] Step A  RMSE=1.5104 m  MAE=1.1957 m
+  [Validation] Step B  RMSE=1.6082 m  MAE=1.1941 m
+  [Validation] Step C  RMSE=1.6099 m  MAE=1.1911 m
+========================================================================
+
+========================================================================
+[indoor_fusion_pipeline_v12_fast] 산출물 요약 (총 5개)
+------------------------------------------------------------------------
+  outputs\v12_fast_grid_phaseA.csv  (161 bytes)
+  outputs\v12_fast_grid_phaseBC.csv  (545 bytes)
+  outputs\v12_fast_predictions.csv  (18,686 bytes)
+  outputs\v12_fast_summary.json  (2,299 bytes)
+  outputs\v12_fast_wifi_calibration_coefs.csv  (121 bytes)
+========================================================================

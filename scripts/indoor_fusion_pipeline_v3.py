@@ -394,7 +394,7 @@ class WifiUwbFusionLocalizerV3:
         plt.close()
 
 
-def main() -> None:
+def main() -> int:
     cfg = Config()
     localizer = WifiUwbFusionLocalizerV3(cfg)
 
@@ -477,12 +477,12 @@ def main() -> None:
     localizer.plot_cdf_comparison(metrics["A"]["Errors"], metrics["B"]["Errors"], cdf_path)
     localizer.plot_multistage_map(val_b, map_path)
 
-    print(f"\nSaved: {pred_path}")
-    print(f"Saved: {report_path}")
-    print(f"Saved: {node_path}")
-    print(f"Saved: {cdf_path}")
-    print(f"Saved: {map_path}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v3_",))

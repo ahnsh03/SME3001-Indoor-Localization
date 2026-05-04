@@ -360,11 +360,9 @@ def print_and_save_v4_diagnostics(loc: FusionLocalizerV4, diag: pd.DataFrame, ou
     }
     agg_path = out_dir / "v4_phase_aggregate.json"
     agg_path.write_text(json.dumps(agg, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"\n저장: {agg_path}")
 
     wide_path = out_dir / "v4_per_sample_diagnostics.csv"
     diag.to_csv(wide_path, index=False)
-    print(f"저장: {wide_path}")
 
     # 앵커별 Phase2 규칙 CSV (참고용)
     rows = []
@@ -373,7 +371,6 @@ def print_and_save_v4_diagnostics(loc: FusionLocalizerV4, diag: pd.DataFrame, ou
         for rule, cnt in vc.items():
             rows.append({"anchor_index": i, "fusion_rule": rule, "count": int(cnt)})
     pd.DataFrame(rows).to_csv(out_dir / "v4_fusion_rule_by_anchor.csv", index=False)
-    print(f"저장: {out_dir / 'v4_fusion_rule_by_anchor.csv'}")
 
 
 def main() -> int:
@@ -422,7 +419,6 @@ def main() -> int:
     if len(diag):
         merged = pd.concat([pred_df.reset_index(drop=True), diag.reset_index(drop=True)], axis=1)
         merged.to_csv(out_dir / "v4_predictions_with_phase_columns.csv", index=False)
-        print(f"저장: {out_dir / 'v4_predictions_with_phase_columns.csv'}")
         print_and_save_v4_diagnostics(loc, diag, out_dir)
 
     fin = (
@@ -460,7 +456,6 @@ def main() -> int:
     )
     csv_path = out_dir / "v4_validation_predictions.csv"
     save.to_csv(csv_path, index=False)
-    print(f"\n저장: {csv_path}")
 
     err_sorted = np.sort(err)
     cdf = np.arange(1, len(err_sorted) + 1) / len(err_sorted)
@@ -476,7 +471,6 @@ def main() -> int:
     cdf_path = out_dir / "v4_error_cdf.png"
     plt.savefig(cdf_path, dpi=160)
     plt.close()
-    print(f"저장: {cdf_path}")
 
     plt.figure(figsize=(9, 6.5))
     plt.scatter(save["True_X"], save["True_Y"], c="blue", s=36, alpha=0.85, label="True", zorder=2)
@@ -512,10 +506,13 @@ def main() -> int:
     map_path = out_dir / "v4_confidence_map.png"
     plt.savefig(map_path, dpi=160)
     plt.close()
-    print(f"저장: {map_path}")
 
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v4_",))

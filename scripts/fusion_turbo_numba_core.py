@@ -10,7 +10,9 @@ TRILAT_GN_ITERS: 삼변 Gauss‑Newton 반복.
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Dict, Tuple
 
 import numpy as np
@@ -599,3 +601,26 @@ def batch_step_b_preds_flat(
             preds[k, 0] = xyf[0]
             preds[k, 1] = xyf[1]
     return preds
+
+
+def _smoke_main() -> int:
+    """라이브러리 모듈: K-Fold 분할 수 규칙만 기록(융합 수치 경로 미실행)."""
+    root = Path(__file__).resolve().parent.parent
+    out = root / "outputs"
+    out.mkdir(parents=True, exist_ok=True)
+    rows = [{"n_samples": n, "n_splits": resolve_kfold_n_splits(n)} for n in (2, 5, 6, 34, 35, 36, 70, 100, 200)]
+    payload = {"module": "fusion_turbo_numba_core", "resolve_kfold_n_splits": rows}
+    path = out / "fusion_turbo_numba_core_smoke.json"
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    print("fusion_turbo_numba_core: smoke JSON 기록 완료 (resolve_kfold_n_splits 표만).")
+    return 0
+
+
+if __name__ == "__main__":
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(
+        Path(__file__),
+        _smoke_main,
+        output_artifact_include_prefixes=("fusion_turbo_numba_core_",),
+    )

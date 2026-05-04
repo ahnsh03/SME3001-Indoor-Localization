@@ -860,15 +860,6 @@ def main() -> int:
     save_v12_error_vectors_step_c(out_dir, tx, ty, preds_c_final, ec)
     save_v12_combined_truth_pred_scatter_step_c(out_dir, tx, ty, preds_c_final, ec)
 
-    print(f"\n저장: {out_dir / 'v12_predictions.csv'}")
-    print(f"저장: {out_dir / 'v12_summary.json'}")
-    print(f"저장: {out_dir / 'v12_cdf_steps.png'}")
-    print(f"저장: {out_dir / 'v12_map_true_vs_predicted_steps.png'}")
-    print(f"저장: {out_dir / 'v12_map_error_vectors_stepC.png'}")
-    print(f"저장: {out_dir / 'v12_map_stepC_pairwise_truth_pred.png'}")
-    print(f"저장: {out_dir / 'v12_grid_phaseA.csv'}")
-    print(f"저장: {out_dir / 'v12_grid_phaseBC.csv'}")
-
     # 보정 계수 표 (canon 이름)
     rows_coef = [{"wifi_canon_ap": k, "A": v[0], "B": v[1]} for k, v in best_pack["coeffs"].items()]
     pd.DataFrame(rows_coef).to_csv(out_dir / "v12_wifi_calibration_coefs.csv", index=False, encoding="utf-8-sig")
@@ -877,4 +868,18 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(
+        Path(__file__),
+        main,
+        output_artifact_include_prefixes=("v12_",),
+        output_artifact_exclude_prefixes=(
+            "v12_fast",
+            "v12_fast2",
+            "v12_strict",
+            "v12_turbo",
+        ),
+    )

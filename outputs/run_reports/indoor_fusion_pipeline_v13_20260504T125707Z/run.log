@@ -1,0 +1,28 @@
+# run_id=indoor_fusion_pipeline_v13_20260504T125707Z
+# started_utc=2026-05-04T12:57:07.549966+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v13.py']
+
+
+[V13] 학습 270행 | 검증 100행 | K-Fold=3
+[V13] 캘리브 캐시 13개 (운용점 우선 병합 + Step A CV 보충) | V13_TOP_CALIB_RANKS=0
+
+========================================================================
+V13 — Fast2 Step A + Turbo Numba / Optuna (Train CV 선택)
+========================================================================
+  [Train CV] mean Step C RMSE = 2.5287 m
+  [Validation] A=1.4665 m | B=1.4119 m | C=1.4164 m
+  [Wall-clock] 151.07 s
+========================================================================
+
+========================================================================
+[indoor_fusion_pipeline_v13] 산출물 요약 (총 7개)
+------------------------------------------------------------------------
+  outputs\v13_cdf_steps.png  (38,177 bytes)
+  outputs\v13_grid_phaseA_calib_catalog.csv  (642 bytes)
+  outputs\v13_map_true_vs_predicted_steps.png  (116,620 bytes)
+  outputs\v13_optuna_trials.csv  (3,398 bytes)
+  outputs\v13_predictions.csv  (17,842 bytes)
+  outputs\v13_summary.json  (2,973 bytes)
+  outputs\v13_wifi_calibration_coefs.csv  (121 bytes)
+========================================================================

@@ -1,0 +1,12 @@
+# run_id=fusion_turbo_numba_core_20260504T122218Z
+# started_utc=2026-05-04T12:22:18.715596+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\fusion_turbo_numba_core.py']
+
+fusion_turbo_numba_core: smoke JSON 기록 완료 (resolve_kfold_n_splits 표만).
+
+========================================================================
+[fusion_turbo_numba_core] 산출물 요약 (총 1개)
+------------------------------------------------------------------------
+  outputs\fusion_turbo_numba_core_smoke.json  (618 bytes)
+========================================================================

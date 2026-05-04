@@ -707,10 +707,12 @@ def main() -> int:
         f"KNN_k={cfg_a.knn_k}, gate={best_bc['gate']:.3f}, inflate={best_bc['uinf']}, "
         f"hf_fus={best_bc['hf_fus']}, IRLS={best_bc['irls_thresh']:.2f}"
     )
-    print(f"\n저장: {out_dir / f'{ART_PREFIX}_summary.json'}")
-    print(f"저장: {out_dir / f'{ART_PREFIX}_predictions.csv'}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v12_fast2_",))

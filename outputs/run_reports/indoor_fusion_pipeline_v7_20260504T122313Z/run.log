@@ -1,0 +1,51 @@
+# run_id=indoor_fusion_pipeline_v7_20260504T122313Z
+# started_utc=2026-05-04T12:23:13.238175+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v7.py']
+
+  데이터 행 수: Train(all rows)=270 | 검증 len=100
+
+========================================================================
+V7 Validation — Wi-Fi only (Step A와 동일 전처리·가중·bounds, UWB 미사용)
+========================================================================
+  Wi-Fi-only RMSE = 1.5538 m  |  MAE = 1.1192 m
+========================================================================
+
+
+========================================================================
+V7 Validation — Step별 RMSE / MAE (m)
+========================================================================
+  Step A: RMSE = 3.7953 m  |  MAE = 2.7007 m  |  A (V6-style linear W + offset + var cap + bounds)
+  Step B: RMSE = 3.8870 m  |  MAE = 2.8131 m  |  B (+ Log1p variance weight)
+  Step C: RMSE = 3.5266 m  |  MAE = 2.3915 m  |  C (+ HBB, optimal alpha)
+  Step D: RMSE = 3.6150 m  |  MAE = 2.4859 m  |  D (+ distance decay, optimal beta)
+
+  [Step C] 선택 alpha = 1.2  (alpha 그리드에서 검증 RMSE 최소)
+  [Step D] 선택 beta = 0.01  (beta 그리드, alpha 고정 시 검증 RMSE 최소)
+  [참고] D_full_grid 전역 최소: alpha=1.2, beta=0.01, RMSE=3.6150 m
+========================================================================
+
+Step D 기준 Worst 오차 노드 Top 10
+------------------------------------------------------------------------
+  Node(0, 30) | True (0.00, 18.00) m | error = 15.617 m
+  Node(20, 0) | True (12.00, 0.00) m | error = 13.555 m
+  Node(15, 0) | True (9.00, 0.00) m | error = 8.775 m
+  Node(20, 20) | True (12.00, 12.00) m | error = 8.678 m
+  Node(14, 15) | True (8.40, 9.00) m | error = 7.476 m
+  Node(15, 20) | True (9.00, 12.00) m | error = 7.095 m
+  Node(10, 30) | True (6.00, 18.00) m | error = 6.388 m
+  Node(3, 21) | True (1.80, 12.60) m | error = 6.361 m
+  Node(1, 0) | True (0.60, 0.00) m | error = 6.198 m
+  Node(15, 9) | True (9.00, 5.40) m | error = 5.918 m
+
+
+========================================================================
+[indoor_fusion_pipeline_v7] 산출물 요약 (총 6개)
+------------------------------------------------------------------------
+  outputs\v7_error_vector_map.png  (367,894 bytes)
+  outputs\v7_grid_search_trace.csv  (2,077 bytes)
+  outputs\v7_kill_log_bar.png  (86,151 bytes)
+  outputs\v7_predictions.csv  (29,868 bytes)
+  outputs\v7_sensor_kill_log.csv  (219 bytes)
+  outputs\v7_step_cdf.png  (111,457 bytes)
+========================================================================

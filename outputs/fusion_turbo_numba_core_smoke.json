@@ -1,0 +1,41 @@
+{
+  "module": "fusion_turbo_numba_core",
+  "resolve_kfold_n_splits": [
+    {
+      "n_samples": 2,
+      "n_splits": 2
+    },
+    {
+      "n_samples": 5,
+      "n_splits": 2
+    },
+    {
+      "n_samples": 6,
+      "n_splits": 3
+    },
+    {
+      "n_samples": 34,
+      "n_splits": 3
+    },
+    {
+      "n_samples": 35,
+      "n_splits": 3
+    },
+    {
+      "n_samples": 36,
+      "n_splits": 3
+    },
+    {
+      "n_samples": 70,
+      "n_splits": 3
+    },
+    {
+      "n_samples": 100,
+      "n_splits": 3
+    },
+    {
+      "n_samples": 200,
+      "n_splits": 5
+    }
+  ]
+}

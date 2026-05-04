@@ -1,0 +1,38 @@
+# run_id=indoor_fusion_pipeline_v9_20260504T122411Z
+# started_utc=2026-05-04T12:24:11.664501+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v9.py']
+
+  V9 데이터 행 수: 검증 len=100
+
+========================================================================
+V9 — Step A: Pure Wi-Fi (validation)
+========================================================================
+  RMSE = 1.5538 m   |   MAE = 1.1192 m
+========================================================================
+
+V9 — Step B: Wi-Fi guided UWB gating + fusion (validation)
+  선택 gate_threshold = 1.54 m
+  RMSE = 1.4671 m   |   MAE = 1.1644 m
+
+Step B 기준 Worst 오차 노드 Top 10
+------------------------------------------------------------------------
+  Node(3, 21) | True (1.80, 12.60) m | error = 4.393 m
+  Node(10, 16) | True (6.00, 9.60) m | error = 3.435 m
+  Node(4, 20) | True (2.40, 12.00) m | error = 3.149 m
+  Node(13, 30) | True (7.80, 18.00) m | error = 3.077 m
+  Node(15, 30) | True (9.00, 18.00) m | error = 2.804 m
+  Node(19, 27) | True (11.40, 16.20) m | error = 2.784 m
+  Node(11, 30) | True (6.60, 18.00) m | error = 2.753 m
+  Node(10, 22) | True (6.00, 13.20) m | error = 2.683 m
+  Node(18, 3) | True (10.80, 1.80) m | error = 2.590 m
+  Node(10, 30) | True (6.00, 18.00) m | error = 2.581 m
+
+
+========================================================================
+[indoor_fusion_pipeline_v9] 산출물 요약 (총 3개)
+------------------------------------------------------------------------
+  outputs\v9_predictions.csv  (14,893 bytes)
+  outputs\v9_step_cdf.png  (79,645 bytes)
+  outputs\v9_uwb_kill_log.csv  (221 bytes)
+========================================================================

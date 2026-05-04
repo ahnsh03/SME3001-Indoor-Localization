@@ -383,7 +383,7 @@ class WifiUwbFusionLocalizer:
         plt.close()
 
 
-def main() -> None:
+def main() -> int:
     cfg = Config(
         grid_size_m=0.6,
         epsilon=1e-4,
@@ -455,10 +455,12 @@ def main() -> None:
     localizer.plot_error_vector_map(val_final, out_path=map_path)
 
     val_final.to_csv(pred_path, index=False)
-    print(f"Saved: {pred_path}")
-    print(f"Saved: {cdf_path}")
-    print(f"Saved: {map_path}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v1_",))

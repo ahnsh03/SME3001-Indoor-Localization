@@ -974,9 +974,17 @@ def main() -> int:
     else:
         print("[V13] --no-plots: PNG 생략", flush=True)
 
-    print(f"\n저장: {out_dir / f'{ART_PREFIX}_summary.json'}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(
+        Path(__file__),
+        main,
+        output_artifact_include_prefixes=("v13_",),
+        output_artifact_exclude_prefixes=("v13_fix_",),
+    )

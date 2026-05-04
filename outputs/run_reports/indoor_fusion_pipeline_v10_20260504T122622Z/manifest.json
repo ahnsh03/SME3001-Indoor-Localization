@@ -1,0 +1,72 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "indoor_fusion_pipeline_v10_20260504T122622Z",
+  "script_stem": "indoor_fusion_pipeline_v10",
+  "started_utc": "2026-05-04T12:26:22.914507+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project",
+  "argv": [
+    "scripts\\indoor_fusion_pipeline_v10.py"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 125.2677,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\indoor_fusion_pipeline_v10_20260504T122622Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\v10_calibration_linear_wifi.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 358
+    },
+    {
+      "path": "outputs\\v10_cdf_steps.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 117992
+    },
+    {
+      "path": "outputs\\v10_confidence_map.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 370300
+    },
+    {
+      "path": "outputs\\v10_error_vectors_true_to_pred.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 253038
+    },
+    {
+      "path": "outputs\\v10_knn_sweep_logs.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 629
+    },
+    {
+      "path": "outputs\\v10_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 33194
+    },
+    {
+      "path": "outputs\\v10_rmse_bar.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 46047
+    },
+    {
+      "path": "outputs\\v10_run_summary.json",
+      "kind": "file",
+      "note": "",
+      "bytes": 1516
+    },
+    {
+      "path": "outputs\\v10_validation_diagnostic_bundle.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 7336
+    }
+  ]
+}

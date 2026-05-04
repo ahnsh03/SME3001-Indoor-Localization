@@ -395,7 +395,6 @@ def main() -> int:
             json.dumps(loc._ridge_report, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
-        print("저장:", out_dir / "v5_train_ridge_report.json")
 
     fin = (
         np.isfinite(va_pred["True_X"].values.astype(float))
@@ -424,11 +423,9 @@ def main() -> int:
     ].copy()
     save["Error_m"] = position_errors(save["True_X"].values, save["True_Y"].values, save["Pred_X"].values, save["Pred_Y"].values)
     save.to_csv(out_dir / "v5_validation_predictions.csv", index=False)
-    print("저장:", out_dir / "v5_validation_predictions.csv")
 
     if hasattr(loc, "_eval_diag") and len(loc._eval_diag):
         loc._eval_diag.to_csv(out_dir / "v5_validation_fusion_summary.csv", index=False)
-        print("저장:", out_dir / "v5_validation_fusion_summary.csv")
 
     err_sorted = np.sort(err)
     cdf = np.arange(1, len(err_sorted) + 1) / max(len(err_sorted), 1)
@@ -443,7 +440,6 @@ def main() -> int:
     plt.tight_layout()
     plt.savefig(out_dir / "v5_error_cdf.png", dpi=160)
     plt.close()
-    print("저장:", out_dir / "v5_error_cdf.png")
 
     plt.figure(figsize=(9, 6.5))
     plt.scatter(save["True_X"], save["True_Y"], c="blue", s=36, alpha=0.85, label="True", zorder=2)
@@ -459,10 +455,13 @@ def main() -> int:
     plt.title("V5 confidence map")
     plt.savefig(out_dir / "v5_confidence_map.png", dpi=160)
     plt.close()
-    print("저장:", out_dir / "v5_confidence_map.png")
 
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v5_",))

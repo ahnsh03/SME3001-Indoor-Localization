@@ -1,0 +1,60 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "indoor_fusion_pipeline_v11_20260504T123043Z",
+  "script_stem": "indoor_fusion_pipeline_v11",
+  "started_utc": "2026-05-04T12:30:43.876548+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project",
+  "argv": [
+    "scripts\\indoor_fusion_pipeline_v11.py"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 89.0707,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\indoor_fusion_pipeline_v11_20260504T123043Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\v11_calibration_grid_log.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 3516
+    },
+    {
+      "path": "outputs\\v11_cdf_steps.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 95134
+    },
+    {
+      "path": "outputs\\v11_irls_grid_log.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 708
+    },
+    {
+      "path": "outputs\\v11_knn_grid_log.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 970
+    },
+    {
+      "path": "outputs\\v11_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 28042
+    },
+    {
+      "path": "outputs\\v11_robust_calibration_wifi.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 231
+    },
+    {
+      "path": "outputs\\v11_summary.json",
+      "kind": "file",
+      "note": "",
+      "bytes": 1875
+    }
+  ]
+}

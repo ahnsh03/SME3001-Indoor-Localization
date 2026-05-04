@@ -1,0 +1,33 @@
+# run_id=indoor_fusion_pipeline_v3_20260504T122244Z
+# started_utc=2026-05-04T12:22:44.135967+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v3.py']
+
+V3: 학습 270행 (median_test_kgh_corrected.csv) · 검증 100행 (median_validation.csv)
+=== Validation (Wi-Fi only 삼변, UWB 미사용 · V3 알고리즘) ===
+Wi-Fi-only RMSE: 1.4880 m | MAE: 1.1716 m
+=== V3 Step-by-Step Validation Performance ===
+Step A [Pure Math]    RMSE: 4.1270 m | MAE: 3.0544 m
+Step B [Final Hybrid] RMSE: 4.3937 m | MAE: 3.3857 m
+
+=== Worst 10 Nodes by Step B Error ===
+Node(0, 30) | StepA: 15.696 m -> StepB: 16.817 m
+Node(20, 0) | StepA: 16.214 m -> StepB: 14.698 m
+Node(18, 27) | StepA: 1.914 m -> StepB: 8.970 m
+Node(20, 20) | StepA: 8.725 m -> StepB: 8.712 m
+Node(3, 21) | StepA: 6.939 m -> StepB: 8.178 m
+Node(15, 20) | StepA: 7.146 m -> StepB: 7.718 m
+Node(15, 0) | StepA: 7.576 m -> StepB: 7.472 m
+Node(14, 15) | StepA: 7.543 m -> StepB: 7.412 m
+Node(20, 10) | StepA: 5.556 m -> StepB: 7.375 m
+Node(20, 12) | StepA: 6.216 m -> StepB: 6.604 m
+
+========================================================================
+[indoor_fusion_pipeline_v3] 산출물 요약 (총 5개)
+------------------------------------------------------------------------
+  outputs\v3_node_error_analysis.csv  (3,817 bytes)
+  outputs\v3_step_rmse_report.csv  (129 bytes)
+  outputs\v3_validation_error_cdf_stepA_stepB.png  (85,366 bytes)
+  outputs\v3_validation_multistage_map.png  (209,777 bytes)
+  outputs\v3_validation_predictions.csv  (9,390 bytes)
+========================================================================

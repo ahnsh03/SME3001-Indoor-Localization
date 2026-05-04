@@ -530,10 +530,12 @@ def main() -> int:
             f"True ({r['True_X']:.2f}, {r['True_Y']:.2f}) m | error = {r['_e']:.3f} m"
         )
     print()
-    print(f"저장: {out_dir / 'v8_predictions.csv'}")
-    print(f"저장: {out_dir / 'v8_step_cdf.png'}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v8_",))

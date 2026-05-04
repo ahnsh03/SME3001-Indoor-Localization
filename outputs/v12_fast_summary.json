@@ -1,7 +1,7 @@
 {
   "pipeline": "V12 Fast",
   "integrity": "Same as V12 Strict: HP from train K-fold CV only; validation labels once at end. Smaller grids and K<=2 for speed; plots optional via V12_FAST_PLOTS=1.",
-  "runtime_seconds": 38.363,
+  "runtime_seconds": 18.763,
   "train_kfold_splits": 2,
   "fast_grid": {
     "gate_threshold_m": [

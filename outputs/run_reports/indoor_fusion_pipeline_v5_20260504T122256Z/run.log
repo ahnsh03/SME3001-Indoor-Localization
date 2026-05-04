@@ -1,0 +1,24 @@
+# run_id=indoor_fusion_pipeline_v5_20260504T122256Z
+# started_utc=2026-05-04T12:22:56.463616+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v5.py']
+
+V5 행 수: Train=270 검증 len=100
+
+=== V5 Validation (Wi-Fi only 삼변, UWB 미사용 · 동일 보정+log1p 가중) ===
+Wi-Fi-only RMSE: 11.1532 m | MAE: 10.2643 m
+
+=== V5 (validation) ===
+Ridge 보정 활성: True
+전체 RMSE: 7.4737 m | MAE: 6.8002 m (n=100)
+Confidence="High"만 RMSE: 2.6477 m (n=12)
+
+========================================================================
+[indoor_fusion_pipeline_v5] 산출물 요약 (총 5개)
+------------------------------------------------------------------------
+  outputs\v5_confidence_map.png  (76,095 bytes)
+  outputs\v5_error_cdf.png  (39,072 bytes)
+  outputs\v5_train_ridge_report.json  (200 bytes)
+  outputs\v5_validation_fusion_summary.csv  (2,965 bytes)
+  outputs\v5_validation_predictions.csv  (13,488 bytes)
+========================================================================

@@ -1,0 +1,38 @@
+# run_id=indoor_fusion_pipeline_v8_20260504T122402Z
+# started_utc=2026-05-04T12:24:02.013452+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v8.py']
+
+
+========================================================================
+V8 Validation — Ablation + Top-K (선형 W=1/(Var+Bias), HBB α=1.2)
+  데이터 행 수: Train 패킹=270 · 검증=100 (로드 후 행 삭제 없음)
+========================================================================
+  Step A [Pure Wi-Fi]: RMSE = 1.5538 m  |  MAE = 1.1192 m
+  Step B [Pure UWB]: RMSE = 7.1102 m  |  MAE = 6.0609 m
+  Step C [Hybrid + HBB (V7 baseline)]: RMSE = 3.5083 m  |  MAE = 2.3518 m
+  Step D [Top-K (K=7, grid [4, 5, 6, 7])]: RMSE = 3.7024 m  |  MAE = 2.6683 m
+
+  [Step D] 검증 RMSE 최소 K = 7
+========================================================================
+
+Step D 기준 Worst 오차 노드 Top 10
+------------------------------------------------------------------------
+  Node(0, 30) | True (0.00, 18.00) m | error = 14.958 m
+  Node(15, 0) | True (9.00, 0.00) m | error = 9.908 m
+  Node(15, 5) | True (9.00, 3.00) m | error = 9.877 m
+  Node(20, 20) | True (12.00, 12.00) m | error = 8.449 m
+  Node(15, 0) | True (9.00, 0.00) m | error = 7.995 m
+  Node(14, 15) | True (8.40, 9.00) m | error = 7.543 m
+  Node(20, 25) | True (12.00, 15.00) m | error = 7.155 m
+  Node(15, 20) | True (9.00, 12.00) m | error = 7.091 m
+  Node(1, 0) | True (0.60, 0.00) m | error = 6.563 m
+  Node(10, 30) | True (6.00, 18.00) m | error = 6.294 m
+
+
+========================================================================
+[indoor_fusion_pipeline_v8] 산출물 요약 (총 2개)
+------------------------------------------------------------------------
+  outputs\v8_predictions.csv  (29,681 bytes)
+  outputs\v8_step_cdf.png  (119,847 bytes)
+========================================================================

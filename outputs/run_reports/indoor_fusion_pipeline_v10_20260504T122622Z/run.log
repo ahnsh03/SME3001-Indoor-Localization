@@ -1,0 +1,44 @@
+# run_id=indoor_fusion_pipeline_v10_20260504T122622Z
+# started_utc=2026-05-04T12:26:22.914507+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v10.py']
+
+
+[V10] 학습행: 270 | 검증행: 100
+
+  [Calibration grid] 선택: Huber f_scale=1.35, ridge_lambda=96.0, feature=bias_sub | 검증 Step C 참조 RMSE=1.7955
+
+  [KNN 검증 후보 요약]
+        · 검증 홀드아웃 전용 최적 K=28 → RMSE 1.7387 m
+        · 최종 선택 전략: VAL_GRID_HOLDOUT
+        · 최종 Step D RMSE=1.7387 m (baseline Step C RMSE=1.7955)
+
+========================================================================
+V10 검증 세트 성능 요약 / Wi‑Fi only / UWB 없음
+========================================================================
+  Step A (Pure Wi‑Fi, 고정 Robust bias):  RMSE = 1.5532 m | MAE = 1.1172 m
+  Step B (선형 거리 보정 후 6 AP 삼변):     RMSE = 1.5933 m | MAE = 1.2163 m
+  Step C (+ LOO‑5 최적 잔차 조합):         RMSE = 1.7955 m | MAE = 1.4789 m
+  Step D (+ K‑NN Δx,Δy 보정만):           RMSE = 1.7387 m | MAE = 1.4654 m
+========================================================================
+
+검증 RMSE 개선 폭:
+  Step A − Step B : -0.0401 m  (+면 B개선)
+  Step B − Step C : -0.2022 m  (+면 C개선)
+  Step C − Step D : 0.0568 m  (+면 D개선)
+  최종 Δ(Step D vs Step A): -0.1855 m
+
+
+========================================================================
+[indoor_fusion_pipeline_v10] 산출물 요약 (총 9개)
+------------------------------------------------------------------------
+  outputs\v10_calibration_linear_wifi.csv  (358 bytes)
+  outputs\v10_cdf_steps.png  (117,992 bytes)
+  outputs\v10_confidence_map.png  (370,300 bytes)
+  outputs\v10_error_vectors_true_to_pred.png  (253,038 bytes)
+  outputs\v10_knn_sweep_logs.csv  (629 bytes)
+  outputs\v10_predictions.csv  (33,194 bytes)
+  outputs\v10_rmse_bar.png  (46,047 bytes)
+  outputs\v10_run_summary.json  (1,516 bytes)
+  outputs\v10_validation_diagnostic_bundle.csv  (7,336 bytes)
+========================================================================

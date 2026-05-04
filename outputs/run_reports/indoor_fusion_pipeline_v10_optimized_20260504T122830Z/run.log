@@ -1,0 +1,33 @@
+# run_id=indoor_fusion_pipeline_v10_optimized_20260504T122830Z
+# started_utc=2026-05-04T12:28:30.887704+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v10_optimized.py']
+
+
+[V10_Opt] Train=270 행 | Val=100 행 (행 drop 없음)
+  [Step A 보정 선택] Train RMSE(calibrated‑all6)=2.5548 m | Huber f_scale=1.35, ridge_lambda=96.0, feat=bias_sub
+
+========================================================================
+V10_Opt: 최종 gate 및 검증 성능
+========================================================================
+  최적 gate_threshold (Train RMSE 최소) = 2.70 m
+  Step A (Wi‑Fi 보정‑all6)   Val RMSE=1.5933 m | MAE=1.2163 m | Train RMSE=2.5548 m
+  Step B (UWB 스나이퍼 융합) Val RMSE=2.3142 m | MAE=1.7650 m
+  Step C (K‑NN Δ)           Val RMSE=2.3142 m | MAE=1.7650 m  | K=— (검증 K 스윕에서 Step B 대비 무개선) [VAL_K_GRID_STEPB_BASE]
+
+검증 RMSE 개선 (+면 개선)
+  Step A − Step B = -0.7209 m
+  Step B − Step C = 0.0000 m
+  Step A − Step C = -0.7209 m
+========================================================================
+
+
+========================================================================
+[indoor_fusion_pipeline_v10_optimized] 산출물 요약 (총 5개)
+------------------------------------------------------------------------
+  outputs\v10_opt_error_cdf.png  (94,131 bytes)
+  outputs\v10_opt_fusion_stats.csv  (15,750 bytes)
+  outputs\v10_opt_predictions.csv  (18,678 bytes)
+  outputs\v10_opt_run_summary.json  (1,396 bytes)
+  outputs\v10_opt_threshold_search.png  (85,252 bytes)
+========================================================================

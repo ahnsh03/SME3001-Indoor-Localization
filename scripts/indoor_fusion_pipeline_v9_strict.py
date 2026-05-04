@@ -204,13 +204,12 @@ def main() -> int:
     print(f"  [Validation] Step A  RMSE={rmse_a:.4f} m  MAE={mae_a:.4f} m")
     print(f"  [Validation] Step B  RMSE={rmse_b:.4f} m  MAE={mae_b:.4f} m")
     print("=" * 72)
-    print(f"\n저장: {out_dir / f'{ART_PREFIX}_summary.json'}")
-    print(f"저장: {out_dir / f'{ART_PREFIX}_predictions.csv'}")
-    print(f"저장: {out_dir / f'{ART_PREFIX}_uwb_kill_log.csv'}")
-    print(f"저장: {out_dir / f'{ART_PREFIX}_gate_grid_trainCV.csv'}")
-    print(f"저장: {out_dir / f'{ART_PREFIX}_step_cdf.png'}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v9_strict_",))

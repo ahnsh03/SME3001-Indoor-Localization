@@ -309,12 +309,17 @@ def main() -> int:
     print(f"  [Validation] Step B  RMSE={rmse_b:.4f} m  MAE={mae_b:.4f} m")
     print(f"  [Validation] Step C  RMSE={rmse_c:.4f} m  MAE={mae_c:.4f} m")
     print("=" * 72)
-    print(f"저장: {out_dir / f'{ART_PREFIX}_summary.json'}")
-    print(f"저장: {out_dir / f'{ART_PREFIX}_predictions.csv'}")
-    if want_plots:
-        print(f"저장: {out_dir / f'{ART_PREFIX}_cdf_steps.png'}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(
+        Path(__file__),
+        main,
+        output_artifact_include_prefixes=("v12_fast_",),
+        output_artifact_exclude_prefixes=("v12_fast2_",),
+    )

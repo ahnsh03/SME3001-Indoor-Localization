@@ -1,0 +1,40 @@
+# run_id=indoor_fusion_pipeline_v6_20260504T122306Z
+# started_utc=2026-05-04T12:23:06.070337+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v6.py']
+
+  데이터 행 수: Train(all rows)=270 | 검증 len=100
+
+=== V6 Validation — Wi-Fi only (프로파일 오프셋 + Var≤6 + bounds, UWB 미사용) ===
+  Wi-Fi-only RMSE = 1.5538 m  |  MAE = 1.1192 m
+
+
+========================================================================
+V6 Validation — Step별 RMSE / MAE (m)
+========================================================================
+  Step A:  RMSE = 3.7901 m  |  MAE = 2.6945 m
+  Step B:  RMSE = 3.9649 m  |  MAE = 2.8338 m
+  Step C:  RMSE = 3.7953 m  |  MAE = 2.7007 m
+  Step D:  RMSE = 3.9589 m  |  MAE = 2.7863 m
+========================================================================
+
+Step D 기준 Worst 오차 노드 Top 10 (그리드 Node_x, Node_y / True X,Y / 오차 m)
+------------------------------------------------------------------------
+  Node(20, 0) | True (12.00, 0.00) m | error = 16.986 m
+  Node(0, 30) | True (0.00, 18.00) m | error = 14.753 m
+  Node(15, 0) | True (9.00, 0.00) m | error = 9.663 m
+  Node(20, 20) | True (12.00, 12.00) m | error = 8.449 m
+  Node(14, 15) | True (8.40, 9.00) m | error = 7.880 m
+  Node(15, 20) | True (9.00, 12.00) m | error = 7.303 m
+  Node(20, 25) | True (12.00, 15.00) m | error = 7.154 m
+  Node(3, 21) | True (1.80, 12.60) m | error = 7.137 m
+  Node(10, 30) | True (6.00, 18.00) m | error = 6.715 m
+  Node(20, 12) | True (12.00, 7.20) m | error = 6.305 m
+
+
+========================================================================
+[indoor_fusion_pipeline_v6] 산출물 요약 (총 2개)
+------------------------------------------------------------------------
+  outputs\v6_step_comparison_cdf.png  (117,617 bytes)
+  outputs\v6_validation_predictions.csv  (24,214 bytes)
+========================================================================

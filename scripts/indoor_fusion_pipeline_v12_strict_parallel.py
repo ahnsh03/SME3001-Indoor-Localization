@@ -634,10 +634,12 @@ def main() -> int:
     save_error_vectors_parallel(out_dir, tx, ty, preds_c_final, ec)
     save_pairwise_parallel(out_dir, tx, ty, preds_c_final, ec)
 
-    print(f"\n저장: {out_dir / f'{ART_PREFIX}_summary.json'}")
-    print(f"저장: {out_dir / f'{ART_PREFIX}_predictions.csv'}")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v12_strict_parallel_",))

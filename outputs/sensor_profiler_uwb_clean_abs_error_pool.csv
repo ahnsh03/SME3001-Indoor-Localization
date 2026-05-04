@@ -1,0 +1,2 @@
+﻿n_clean_records,abs_error_mae,abs_error_median,abs_error_p90,abs_error_p95,abs_error_p99,abs_error_max,note
+707,2.827341358205799,2.0296575181789316,6.826916943063928,7.952193542792886,10.226985522143481,13.258449416631978,Ranging |measured-true| on sequential-filter Clean UWB; V9 gate is |geom-d_meas| not identical

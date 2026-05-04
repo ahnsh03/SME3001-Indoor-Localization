@@ -1,0 +1,31 @@
+# run_id=indoor_fusion_pipeline_v14_20260504T130233Z
+# started_utc=2026-05-04T13:02:33.849609+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v14.py']
+
+
+[V14] 학습 270행 | 검증 100행 | Train K-Fold=3
+[V14] Train K-Fold 캐시(폴드 DF + NumPy TE 블록) 구축…
+C:\Users\ahnsh\AppData\Local\Programs\Python\Python310\lib\site-packages\optuna\_experimental.py:33: ExperimentalWarning: Argument ``constant_liar`` is an experimental feature. The interface can change in the future.
+  optuna_warn(
+
+========================================================================
+V14 — V12 안심/게이트 + JWT(Isotonic·Score·삼각) Wi‑Fi 가중 | 검증 단일 Forward
+========================================================================
+  [Train CV] Step C 평균 RMSE = 2.4955 m
+  [Validation] Step A RMSE=1.5104 m | Step B RMSE=1.8263 m | Step C RMSE=1.8400 m
+  [Wall-clock] 총 394.71 s
+========================================================================
+[선택 HP]  JWT_soft=ON, rank=2, iso_mask=0, w_JWT_tri=2.970, w_JWT_ransac=5.464, gate=2.23, calib=identity, feat=bias_sub, huber_f_wifi=1.0
+
+========================================================================
+[indoor_fusion_pipeline_v14] 산출물 요약 (총 7개)
+------------------------------------------------------------------------
+  outputs\v14_cdf_steps.png  (40,708 bytes)
+  outputs\v14_grid_phaseA.csv  (468 bytes)
+  outputs\v14_map_true_vs_predicted_steps.png  (132,153 bytes)
+  outputs\v14_optuna_trials.csv  (7,214 bytes)
+  outputs\v14_predictions.csv  (17,615 bytes)
+  outputs\v14_summary.json  (2,882 bytes)
+  outputs\v14_wifi_calibration_meta.json  (433 bytes)
+========================================================================

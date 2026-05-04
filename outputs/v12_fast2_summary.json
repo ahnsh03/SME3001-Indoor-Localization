@@ -2,7 +2,7 @@
   "pipeline": "V12 Fast2",
   "reference_cheating_baseline": "outputs/v12_summary.json tuned hyperparameters on validation labels (biased). Fast2 never uses validation True_X/Y for selection.",
   "integrity": "Step A bundle + Phase B/C selected only by train K-fold CV; validation used once.",
-  "runtime_seconds": 413.865,
+  "runtime_seconds": 764.323,
   "train_kfold_splits": 2,
   "train_cv_step_A_mean_RMSE_m": 2.5818017063970595,
   "train_cv_step_A_pool_min_RMSE_m": 2.5777482270413206,

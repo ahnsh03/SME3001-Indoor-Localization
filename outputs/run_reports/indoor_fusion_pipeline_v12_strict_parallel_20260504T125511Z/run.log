@@ -1,0 +1,32 @@
+# run_id=indoor_fusion_pipeline_v12_strict_parallel_20260504T125511Z
+# started_utc=2026-05-04T12:55:11.278143+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v12_strict_parallel.py']
+
+
+[V12 Strict Parallel] 학습 270행 | 검증 100행 | effective_splits=3 (kfold_auto) | K_FOLD_SPLITS=None | workers=8
+[V12 Strict Parallel] Phase B/C 폴드 캐시 구축 중…
+[V12 Strict Parallel] Phase B/C 그리드 병렬 평가 (workers=8)…
+
+========================================================================
+V12 Strict Parallel — Train CV(또는 K=1 자기채점) | 검증 단일 Forward
+========================================================================
+  [Train 목표] Step C 평균 RMSE = 2.5092 m  |  모드: kfold_auto
+  [Validation] Step A  RMSE=1.5104 m  MAE=1.1957 m
+  [Validation] Step B  RMSE=1.6082 m  MAE=1.1941 m
+  [Validation] Step C  RMSE=1.6086 m  MAE=1.1935 m
+========================================================================
+
+========================================================================
+[indoor_fusion_pipeline_v12_strict_parallel] 산출물 요약 (총 9개)
+------------------------------------------------------------------------
+  outputs\v12_strict_parallel_cdf_steps.png  (84,783 bytes)
+  outputs\v12_strict_parallel_grid_phaseA.csv  (630 bytes)
+  outputs\v12_strict_parallel_grid_phaseBC.csv  (7,615 bytes)
+  outputs\v12_strict_parallel_map_error_vectors_stepC.png  (222,945 bytes)
+  outputs\v12_strict_parallel_map_stepC_pairwise_truth_pred.png  (253,849 bytes)
+  outputs\v12_strict_parallel_map_true_vs_predicted_steps.png  (243,154 bytes)
+  outputs\v12_strict_parallel_predictions.csv  (18,685 bytes)
+  outputs\v12_strict_parallel_summary.json  (1,762 bytes)
+  outputs\v12_strict_parallel_wifi_calibration_coefs.csv  (121 bytes)
+========================================================================

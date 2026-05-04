@@ -1,5 +1,5 @@
 ﻿feat_mode,calib_kind,huber_f_wifi,train_CV_mean_RMSE_A_m,train_CV_mean_RMSE_A_note,kfold_splits,cv_split_mode
-bias_sub,identity,1.0,2.6987717335022903,V3-equivalent Wi-Fi-only (K>=2: K-fold mean; K=1: self-score on full train),1,K1_no_fold_self_score_on_train
-bias_sub,identity,1.35,2.6987717335022903,V3-equivalent Wi-Fi-only (K>=2: K-fold mean; K=1: self-score on full train),1,K1_no_fold_self_score_on_train
-bias_sub,huber,1.0,2.6987717335022903,V3-equivalent Wi-Fi-only (K>=2: K-fold mean; K=1: self-score on full train),1,K1_no_fold_self_score_on_train
-bias_sub,huber,1.35,2.6987717335022903,V3-equivalent Wi-Fi-only (K>=2: K-fold mean; K=1: self-score on full train),1,K1_no_fold_self_score_on_train
+bias_sub,identity,1.0,2.651844287718037,V3-equivalent Wi-Fi-only (K>=2: K-fold mean; K=1: self-score on full train),3,kfold_auto
+bias_sub,identity,1.35,2.651844287718037,V3-equivalent Wi-Fi-only (K>=2: K-fold mean; K=1: self-score on full train),3,kfold_auto
+bias_sub,huber,1.0,2.651844287718037,V3-equivalent Wi-Fi-only (K>=2: K-fold mean; K=1: self-score on full train),3,kfold_auto
+bias_sub,huber,1.35,2.651844287718037,V3-equivalent Wi-Fi-only (K>=2: K-fold mean; K=1: self-score on full train),3,kfold_auto

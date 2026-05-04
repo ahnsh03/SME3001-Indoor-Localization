@@ -1,0 +1,53 @@
+# run_id=indoor_fusion_pipeline_v4_20260504T122251Z
+# started_utc=2026-05-04T12:22:51.010394+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v4.py']
+
+V4 입력 행 수(유실 없음): 100
+
+=== V4 Wi-Fi-only (UWB 미사용, phase1 Wi-Fi + phase3) — validation ===
+Wi-Fi-only RMSE: 11.5582 m | MAE: 10.6160 m (n=99)
+
+
+--- V4 단계별 진단 요약 ---
+
+  Phase1 앵커0: UWB 유효 67/100, Wi-Fi 유효 96/100
+  Phase1 앵커1: UWB 유효 76/100, Wi-Fi 유효 98/100
+  Phase1 앵커2: UWB 유효 79/100, Wi-Fi 유효 97/100
+  Phase1 앵커3: UWB 유효 67/100, Wi-Fi 유효 96/100
+  Phase1 앵커4: UWB 유효 68/100, Wi-Fi 유효 97/100
+  Phase1 앵커5: UWB 유효 65/100, Wi-Fi 유효 90/100
+
+  Phase2 융합 규칙 빈도 (앵커×샘플):
+    soft_logvar: 203
+    wifi_only_uwb_dead_or_var: 190
+    asym_wifi_dom_underest: 94
+    asym_uwb_dom_multipath: 63
+    uwb_only_wifi_dead_or_bad_var: 31
+    nan_both_or_no_wifi: 18
+    nan_soft_weight: 1
+
+  샘플당 유효 d_fused 개수 분포:
+3     1
+4     2
+5    12
+6    85
+
+  Phase3: 삼변측량 가능 샘플 (n_fused>=3): 100/100
+
+=== V4 (validation) ===
+
+전체 RMSE: 10.5057 m | MAE: 9.6793 m  (n=100)
+Confidence="High"만 RMSE: 7.6076 m  (n=23)
+
+========================================================================
+[indoor_fusion_pipeline_v4] 산출물 요약 (총 7개)
+------------------------------------------------------------------------
+  outputs\v4_confidence_map.png  (81,425 bytes)
+  outputs\v4_error_cdf.png  (50,576 bytes)
+  outputs\v4_fusion_rule_by_anchor.csv  (1,033 bytes)
+  outputs\v4_per_sample_diagnostics.csv  (35,733 bytes)
+  outputs\v4_phase_aggregate.json  (399 bytes)
+  outputs\v4_predictions_with_phase_columns.csv  (54,700 bytes)
+  outputs\v4_validation_predictions.csv  (9,965 bytes)
+========================================================================

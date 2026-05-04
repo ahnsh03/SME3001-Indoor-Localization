@@ -1,0 +1,48 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "indoor_fusion_pipeline_v5_20260504T122256Z",
+  "script_stem": "indoor_fusion_pipeline_v5",
+  "started_utc": "2026-05-04T12:22:56.463616+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project",
+  "argv": [
+    "scripts\\indoor_fusion_pipeline_v5.py"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 6.8263,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\indoor_fusion_pipeline_v5_20260504T122256Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\v5_confidence_map.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 76095
+    },
+    {
+      "path": "outputs\\v5_error_cdf.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 39072
+    },
+    {
+      "path": "outputs\\v5_train_ridge_report.json",
+      "kind": "file",
+      "note": "",
+      "bytes": 200
+    },
+    {
+      "path": "outputs\\v5_validation_fusion_summary.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 2965
+    },
+    {
+      "path": "outputs\\v5_validation_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 13488
+    }
+  ]
+}

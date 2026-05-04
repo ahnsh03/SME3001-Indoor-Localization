@@ -1,0 +1,37 @@
+# run_id=indoor_fusion_pipeline_v12_strict_20260504T124827Z
+# started_utc=2026-05-04T12:48:27.734142+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v12_strict.py']
+
+
+[V12 Strict] 학습 270행 | 검증 100행 | Train K-Fold=3
+[V12 Strict] Phase B/C용 Train K-Fold 캐시 구축 중…
+
+========================================================================
+V12 Strict — 하이퍼파라미터: Train K-Fold CV만 사용 | 검증: 단일 Forward 평가
+========================================================================
+  [Train CV 목표] Step C 평균 RMSE (선택 기준) = 2.5092 m
+  [Validation 단일 평가] Step A  RMSE=1.5104 m  MAE=1.1957 m
+  [Validation 단일 평가] Step B  RMSE=1.6082 m  MAE=1.1941 m
+  [Validation 단일 평가] Step C  RMSE=1.6086 m  MAE=1.1935 m
+========================================================================
+검증 RMSE 개선폭 (양수 = 이전 단계 대비 개선)
+  A → B: ΔRMSE -0.0978 m   | MAE 1.1957 → 1.1941
+  B → C: ΔRMSE -0.0004 m   | MAE 1.1941 → 1.1935
+  A → C: ΔRMSE -0.0982 m   | MAE 1.1957 → 1.1935
+
+[선택 하이퍼파라미터 — Train CV로만 결정] calib=identity, feat=bias_sub, huber_f_wifi=1.0, gate=1.550 m, uwb_var_inflate=24.0, huber_f_fusion=1.35, IRLS_thresh=3.10, IRLS_iter=2
+
+========================================================================
+[indoor_fusion_pipeline_v12_strict] 산출물 요약 (총 9개)
+------------------------------------------------------------------------
+  outputs\v12_strict_cdf_steps.png  (87,072 bytes)
+  outputs\v12_strict_grid_phaseA.csv  (504 bytes)
+  outputs\v12_strict_grid_phaseBC.csv  (7,615 bytes)
+  outputs\v12_strict_map_error_vectors_stepC.png  (227,879 bytes)
+  outputs\v12_strict_map_stepC_pairwise_truth_pred.png  (260,926 bytes)
+  outputs\v12_strict_map_true_vs_predicted_steps.png  (248,794 bytes)
+  outputs\v12_strict_predictions.csv  (18,685 bytes)
+  outputs\v12_strict_summary.json  (3,794 bytes)
+  outputs\v12_strict_wifi_calibration_coefs.csv  (121 bytes)
+========================================================================

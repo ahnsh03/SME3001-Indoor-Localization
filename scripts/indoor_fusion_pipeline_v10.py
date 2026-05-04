@@ -1100,18 +1100,17 @@ def main() -> int:
 
     pred.to_csv(out_dir / "v10_predictions.csv", index=False, encoding="utf-8-sig")
 
-    print(f"저장: {out_dir / 'v10_predictions.csv'}")
-    print(f"저장: {out_dir / 'v10_calibration_linear_wifi.csv'}")
-    print(f"저장: {out_dir / 'v10_knn_sweep_logs.csv'}")
-    print(f"저장: {out_dir / 'v10_validation_diagnostic_bundle.csv'}")
-    print(f"저장: {out_dir / 'v10_run_summary.json'}")
-    print(
-        "시각화: v10_cdf_steps.png, v10_rmse_bar.png, "
-        "v10_confidence_map.png, v10_error_vectors_true_to_pred.png"
-    )
-
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(
+        Path(__file__),
+        main,
+        output_artifact_include_prefixes=("v10_",),
+        output_artifact_exclude_prefixes=("v10_opt_",),
+    )

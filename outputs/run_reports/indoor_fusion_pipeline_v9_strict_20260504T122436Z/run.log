@@ -1,0 +1,26 @@
+# run_id=indoor_fusion_pipeline_v9_strict_20260504T122436Z
+# started_utc=2026-05-04T12:24:36.801987+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v9_strict.py']
+
+
+[V9 Strict] 학습 270행 | 검증 100행 | Train K-Fold=3
+[V9 Strict] Train CV로 gate_threshold 탐색 중…
+
+========================================================================
+V9 Strict — gate: Train K-Fold CV | 검증: 단일 Forward
+========================================================================
+  [Train CV] Step B 평균 RMSE (게이트 선택 기준) = 2.5709 m @ gate=1.3800 m
+  [Validation] Step A  RMSE=1.5538 m  MAE=1.1192 m
+  [Validation] Step B  RMSE=1.6236 m  MAE=1.2174 m
+========================================================================
+
+========================================================================
+[indoor_fusion_pipeline_v9_strict] 산출물 요약 (총 5개)
+------------------------------------------------------------------------
+  outputs\v9_strict_gate_grid_trainCV.csv  (1,003 bytes)
+  outputs\v9_strict_predictions.csv  (14,868 bytes)
+  outputs\v9_strict_step_cdf.png  (85,441 bytes)
+  outputs\v9_strict_summary.json  (564 bytes)
+  outputs\v9_strict_uwb_kill_log.csv  (221 bytes)
+========================================================================

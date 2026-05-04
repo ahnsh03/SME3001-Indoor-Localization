@@ -794,16 +794,12 @@ def main() -> int:
 
     pred.to_csv(out_dir / "v11_predictions.csv", index=False, encoding="utf-8-sig")
 
-    print(f"\n저장: {out_dir / 'v11_predictions.csv'}")
-    print(f"저장: {out_dir / 'v11_summary.json'}")
-    print(f"저장: {out_dir / 'v11_cdf_steps.png'}")
-    print(f"저장: {out_dir / 'v11_robust_calibration_wifi.csv'}")
-    print(f"저장: {out_dir / 'v11_calibration_grid_log.csv'}")
-    print(f"저장: {out_dir / 'v11_irls_grid_log.csv'}")
-    print(f"저장: {out_dir / 'v11_knn_grid_log.csv'}")
-
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    from pathlib import Path
+
+    from script_run_io import cli_entrypoint
+
+    cli_entrypoint(Path(__file__), main, output_artifact_include_prefixes=("v11_",))

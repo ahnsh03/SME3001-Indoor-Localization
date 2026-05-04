@@ -1,0 +1,35 @@
+# run_id=indoor_fusion_pipeline_v12_20260504T123215Z
+# started_utc=2026-05-04T12:32:15.777861+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\indoor_fusion_pipeline_v12.py']
+
+
+[V12] 학습 270행 | 검증 100행
+
+========================================================================
+V12 검증 — Step A: 강건 Wi‑Fi 보정 삼변 | B: 게이트+UWB·Wi‑Fi 융합 | C: IRLS
+========================================================================
+  Step A  RMSE=1.5716 m  MAE=1.1449 m
+  Step B  RMSE=1.4467 m  MAE=1.1434 m
+  Step C  RMSE=1.4453 m  MAE=1.1403 m
+========================================================================
+검증 RMSE 개선폭 (양수 = 이전 단계 대비 개선)
+  A → B: ΔRMSE +0.1249 m   | MAE 1.1449 → 1.1434
+  B → C: ΔRMSE +0.0014 m   | MAE 1.1434 → 1.1403
+  A → C: ΔRMSE +0.1263 m   | MAE 1.1449 → 1.1403
+
+[선택 하이퍼파라미터] calib=identity, feat=bias_sub, huber_f_wifi=1.35, gate=1.550 m, uwb_var_inflate=10.0, huber_f_fusion=1.35, IRLS_thresh=3.10, IRLS_iter=2
+
+========================================================================
+[indoor_fusion_pipeline_v12] 산출물 요약 (총 9개)
+------------------------------------------------------------------------
+  outputs\v12_cdf_steps.png  (85,326 bytes)
+  outputs\v12_grid_phaseA.csv  (301 bytes)
+  outputs\v12_grid_phaseBC.csv  (12,291 bytes)
+  outputs\v12_map_error_vectors_stepC.png  (231,183 bytes)
+  outputs\v12_map_stepC_pairwise_truth_pred.png  (258,932 bytes)
+  outputs\v12_map_true_vs_predicted_steps.png  (247,058 bytes)
+  outputs\v12_predictions.csv  (18,810 bytes)
+  outputs\v12_summary.json  (4,085 bytes)
+  outputs\v12_wifi_calibration_coefs.csv  (121 bytes)
+========================================================================
