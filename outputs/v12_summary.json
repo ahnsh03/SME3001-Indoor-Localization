@@ -1,0 +1,74 @@
+{
+  "objective": "Minimize validation RMSE after Step C (IRLS). Top Phase-A candidates forwarded to Phase B/C.",
+  "val_metrics": {
+    "step_A_RMSE_m": 1.5716031362024965,
+    "step_A_MAE_m": 1.1448911334521266,
+    "step_B_RMSE_m": 1.4466804779563518,
+    "step_B_MAE_m": 1.1434108719730003,
+    "step_C_RMSE_m": 1.4453084716212174,
+    "step_C_MAE_m": 1.1403329739225243,
+    "delta_RMSE_A_to_B_m": 0.12492265824614468,
+    "delta_RMSE_B_to_C_m": 0.0013720063351343459,
+    "delta_RMSE_A_to_C_m": 0.12629466458127903
+  },
+  "selected_hyperparameters": {
+    "wifi_calibration_kind": "identity",
+    "wifi_calibration_huber_epsilon": 1.35,
+    "wifi_calibration_huber_alpha": 0.0001,
+    "wifi_calibration_ransac_residual_thresh": 4.0,
+    "feat_mode": "bias_sub",
+    "huber_f_scale_wifi_only_trilateration": 1.35,
+    "uwb_geometric_gate_threshold_m": 1.55,
+    "uwb_variance_inflate_multiplier": 10.0,
+    "huber_f_scale_fusion_trilateration": 1.35,
+    "irls_residual_threshold_m": 3.1,
+    "irls_max_iterations": 2,
+    "phase_A_top_K_evaluated": 3
+  },
+  "searched_grids_documentation": {
+    "feat_modes": [
+      "bias_sub"
+    ],
+    "huber_f_wifi_candidates": [
+      1.0,
+      1.35
+    ],
+    "huber_f_fusion_candidates": [
+      1.0,
+      1.35
+    ],
+    "gate_threshold_m_candidates": [
+      1.25,
+      1.55,
+      1.9,
+      2.35,
+      2.95
+    ],
+    "uwb_variance_inflate_candidates": [
+      10.0,
+      24.0
+    ],
+    "irls_residual_threshold_m": [
+      2.2,
+      3.1
+    ],
+    "irls_max_iter": [
+      2
+    ],
+    "calibration_specs": "v12_calibration_spec_list() — identity + 2×Huber + 2×RANSAC (런타임 제한)"
+  },
+  "runtime_note_grid_size": "초기 구현 전체 Cartesian(캘리브×게이트×IRLS 조합 과다)는 수백 만 회 least_squares 호출로 10분+ 소요되어, 현재 레포에서는 Phase A 후보 소비·후보 Calibration 축약·Gate/IRLS 샘플링 폭 조정으로 균형함. 필요 시 GATE_THRESH_GRID 확장 또는 v12_calibration_spec_list에 RANSAC(낮은 max_trials) 추가 권장.",
+  "rationale_plain_ko": "① Step A에서 V11과 동일한 강건 Wi‑Fi AP별 거리 선형 보정(허버·항등) 후 Wi‑Fi만 삼변해 극단 UWB 노이즈와 분리된 '안심 좌표'를 만든다. 본 검증에서는 항등(Train 미피팅)·bias_sub가 최적이었다. ② Step B는 V9와 같이 |d_geom(안심)−d_UWB)|가 게이트를 넘는 UWB만 하드 탈락시키고, 통과 UWB에는 분산을 곱 인플레이트해 초저분산 UWB 과신을 억제한 뒤 보정 Wi‑Fi와 융합한다. ③ Step C는 V11식 IRLS(Tukey×Huber)로 잔차 기반 재가중. 단일 검증 폴드에서 그리드를 택해 과적합 위험을 줄였다.",
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  },
+  "visualizations": [
+    "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v12_map_true_vs_predicted_steps.png",
+    "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v12_map_error_vectors_stepC.png",
+    "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v12_map_stepC_pairwise_truth_pred.png",
+    "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v12_cdf_steps.png"
+  ]
+}

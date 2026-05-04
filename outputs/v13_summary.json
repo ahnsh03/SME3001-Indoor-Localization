@@ -1,0 +1,83 @@
+{
+  "pipeline": "V13",
+  "integrity": "Optuna minimizes train K-fold mean Step C RMSE only (with Fast2 blended Step-A guide inside folds). Validation Truth used once post full-train refit.",
+  "wall_clock_sec": 85.22057459999633,
+  "train_kfold_splits": 3,
+  "calibration_catalog_size": 13,
+  "top_calibration_ranks_cached": 13,
+  "calibration_cache_merge_tags_head": [
+    "forced_turbo_like_identity_hf1",
+    "forced_v12_oracle_identity_hf135",
+    "forced_fast2_joint_huber_eps135_hf12",
+    "forced_huber_eps135_hf135",
+    "pure_calib_stepA_cv_sorted",
+    "pure_calib_stepA_cv_sorted",
+    "pure_calib_stepA_cv_sorted",
+    "pure_calib_stepA_cv_sorted",
+    "pure_calib_stepA_cv_sorted",
+    "pure_calib_stepA_cv_sorted",
+    "pure_calib_stepA_cv_sorted",
+    "pure_calib_stepA_cv_sorted",
+    "pure_calib_stepA_cv_sorted"
+  ],
+  "v13_allow_knn_env": false,
+  "v3_profiles": [
+    {
+      "huber_f_scale": 1.35,
+      "wifi_bias_m": 2.5
+    },
+    {
+      "huber_f_scale": 1.35,
+      "wifi_bias_m": 2.0
+    },
+    {
+      "huber_f_scale": 1.35,
+      "wifi_bias_m": 3.0
+    },
+    {
+      "huber_f_scale": 1.2,
+      "wifi_bias_m": 2.25
+    },
+    {
+      "huber_f_scale": 1.45,
+      "wifi_bias_m": 2.75
+    }
+  ],
+  "train_cv_best_step_c_rmse_m": 2.530671892551341,
+  "optuna_n_trials": 42,
+  "optuna_n_jobs": -1,
+  "selected": {
+    "calibration_rank": 1,
+    "calib_kind": "identity",
+    "feat_mode": "bias_sub",
+    "huber_f_wifi_calibrated_trilat": 1.35,
+    "v3_profile_index": 0,
+    "v3_huber_f_scale": 1.35,
+    "v3_wifi_bias_m": 2.5,
+    "blend_calib_alpha": 0.5,
+    "knn_residual_neighbors_trial": 0,
+    "knn_residual_neighbors": 0,
+    "gate_m": 1.4562402842909017,
+    "uwb_variance_inflate": 12.300117932323495,
+    "huber_f_fusion": 1.2,
+    "irls_residual_thresh_m": 3.1,
+    "irls_max_iter": 2,
+    "trilat_gn_iterations_fixed": 22,
+    "irls_tukey_c_fixed": 4.685,
+    "effective_knn_for_forward": 0
+  },
+  "validation_metrics": {
+    "step_A_RMSE_m": 1.4616730700933391,
+    "step_A_MAE_m": 1.1430066718149765,
+    "step_B_RMSE_m": 1.4193544992873497,
+    "step_B_MAE_m": 1.1310365776025615,
+    "step_C_RMSE_m": 1.425174851505493,
+    "step_C_MAE_m": 1.1338729216190169
+  },
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  }
+}

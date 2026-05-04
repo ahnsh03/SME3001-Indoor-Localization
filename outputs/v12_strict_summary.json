@@ -1,0 +1,52 @@
+{
+  "pipeline": "V12 Strict",
+  "integrity": "Hyperparameters selected exclusively by K-fold cross-validation on train (True_X/Y used only inside each train fold for scoring). Validation ground truth used once for final RMSE/MAE after full-train refit.",
+  "train_kfold_splits": 3,
+  "train_kfold_splits_note": "effective_splits=min(MAX_KFOLD_SPLITS=3, resolve_kfold_n_splits(len(train)))",
+  "hyperparameter_selection_objective": "Minimize mean K-fold train CV RMSE after Step C (IRLS).",
+  "train_cv_metrics_at_selection": {
+    "phase_A_proxy_mean_RMSE_A_m": 2.651844287718037,
+    "mean_CV_RMSE_step_C_m": 2.5091783519388446
+  },
+  "validation_single_forward_metrics": {
+    "step_A_RMSE_m": 1.51037249944006,
+    "step_A_MAE_m": 1.1956694614183145,
+    "step_B_RMSE_m": 1.6081914407446434,
+    "step_B_MAE_m": 1.194120621837276,
+    "step_C_RMSE_m": 1.608563090233415,
+    "step_C_MAE_m": 1.1935084522093171,
+    "delta_RMSE_A_to_B_m": -0.09781894130458335,
+    "delta_RMSE_B_to_C_m": -0.0003716494887715527,
+    "delta_RMSE_A_to_C_m": -0.0981905907933549
+  },
+  "step_A_wifi_only_assertion": "Step A uses predict_step_a_v3_wifi_equivalent: same bias/variance/weights/huber trilateration as indoor_fusion_pipeline_v3 Wi-Fi-only path (no bounds, wifi_bias=2.5); UWB not used in Step A. Train CV Phase B/C still uses per-candidate robust AP calibration for fused distances.",
+  "step_B_gating_assertion": "row_fusion_gated_arrays: for each UWB anchor, d_geom from Step A guide vs d_meas; if |d_geom - d_meas| > gate_threshold the anchor is excluded (hard drop). Surviving UWB uses eff_var = var * uwb_variance_inflate for weight penalty.",
+  "selected_hyperparameters": {
+    "wifi_calibration_kind": "identity",
+    "wifi_calibration_huber_epsilon": 1.35,
+    "wifi_calibration_huber_alpha": 0.0001,
+    "wifi_calibration_ransac_residual_thresh": 4.0,
+    "feat_mode": "bias_sub",
+    "huber_f_scale_wifi_only_trilateration": 1.0,
+    "uwb_geometric_gate_threshold_m": 1.55,
+    "uwb_variance_inflate_multiplier": 24.0,
+    "huber_f_scale_fusion_trilateration": 1.35,
+    "irls_residual_threshold_m": 3.1,
+    "irls_max_iterations": 2,
+    "phase_A_top_K_evaluated": 3,
+    "phase_A_rank_selected": 2
+  },
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  },
+  "artifacts": {
+    "summary_json": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v12_strict_summary.json",
+    "predictions_csv": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v12_strict_predictions.csv",
+    "grid_phaseA_csv": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v12_strict_grid_phaseA.csv",
+    "grid_phaseBC_csv": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v12_strict_grid_phaseBC.csv",
+    "wifi_calibration_coefs_csv": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v12_strict_wifi_calibration_coefs.csv"
+  }
+}

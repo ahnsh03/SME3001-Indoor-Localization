@@ -1,0 +1,8 @@
+{
+  "ridge_enabled": true,
+  "mean_err_before_m": 8.371708010856022,
+  "mean_err_after_m": 5.6240186128220175,
+  "improvement_ratio": 0.6717886726170187,
+  "alpha": 28.0,
+  "n_train_fit": 270
+}

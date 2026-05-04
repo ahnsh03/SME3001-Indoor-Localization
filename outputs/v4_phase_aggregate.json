@@ -1,0 +1,19 @@
+{
+  "n_samples": 100,
+  "phase2_rule_counts": {
+    "wifi_only_uwb_dead_or_var": 190,
+    "soft_logvar": 203,
+    "asym_wifi_dom_underest": 94,
+    "asym_uwb_dom_multipath": 63,
+    "uwb_only_wifi_dead_or_bad_var": 31,
+    "nan_both_or_no_wifi": 18,
+    "nan_soft_weight": 1
+  },
+  "n_fused_per_sample": {
+    "6": 85,
+    "5": 12,
+    "4": 2,
+    "3": 1
+  },
+  "phase3_ge3": 100
+}

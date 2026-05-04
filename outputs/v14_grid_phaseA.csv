@@ -1,0 +1,5 @@
+﻿feat_mode,calib_kind,huber_f_wifi,train_CV_mean_RMSE_A_m,train_CV_mean_RMSE_A_note,kfold_splits
+bias_sub,identity,1.0,2.651844287718037,V3-equivalent Wi-Fi proxy (Phase A ordering only),3
+bias_sub,identity,1.35,2.651844287718037,V3-equivalent Wi-Fi proxy (Phase A ordering only),3
+bias_sub,huber,1.0,2.651844287718037,V3-equivalent Wi-Fi proxy (Phase A ordering only),3
+bias_sub,huber,1.35,2.651844287718037,V3-equivalent Wi-Fi proxy (Phase A ordering only),3

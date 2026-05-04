@@ -1,0 +1,37 @@
+{
+  "step_rmse_A_m": 1.5532186505981291,
+  "step_mae_A_m": 1.1171956739986415,
+  "step_rmse_B_m": 1.556730767974795,
+  "step_mae_B_m": 1.132840880895823,
+  "step_rmse_C_m": 1.5548678569287848,
+  "step_mae_C_m": 1.129038631739566,
+  "step_rmse_D_m": 1.5548678569287848,
+  "step_mae_D_m": 1.129038631739566,
+  "delta_rmse_A_to_B_m": -0.003512117376665902,
+  "delta_rmse_B_to_C_m": 0.0018629110460102183,
+  "delta_rmse_C_to_D_m": 0.0,
+  "delta_rmse_A_to_D_m": -0.0016492063306556837,
+  "grid_selection": {
+    "trilateration_huber_f_scale": 1.35,
+    "val_StepB_RMSE_gate_m": 1.556730767974795,
+    "val_StepC_RMSE_gate_m": 1.5548678569287848,
+    "calibration": {
+      "method": "identity",
+      "huber_epsilon": 1.35,
+      "huber_alpha": 0.0001,
+      "ransac_residual_threshold_m": 4.0
+    },
+    "feat_mode": "raw",
+    "irls_residual_threshold_m": 2.4,
+    "irls_max_iterations": 2,
+    "knn_neighbors": null,
+    "knn_use_log1p_mean_var": false
+  },
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  },
+  "note": "V11: sklearn HuberRegressor/RANSAC per‑AP distance map, IRLS Tukey×Huber reweighting on top of 1/Var weights, multi‑feature KNN with StandardScaler. Grids tuned on validation only."
+}

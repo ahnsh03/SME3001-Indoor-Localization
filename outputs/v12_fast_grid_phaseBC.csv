@@ -1,0 +1,7 @@
+﻿phaseA_rank,feat_mode,calib_kind,huber_f_wifi,gate_threshold_m,uwb_variance_inflate,huber_f_fusion,irls_residual_thresh_m,irls_max_iter,train_CV_mean_RMSE_C_m
+0,bias_sub,huber,1.35,1.55,24.0,1.35,2.2,2,2.676092634978033
+0,bias_sub,huber,1.35,1.9,24.0,1.35,2.2,2,2.6873901704197642
+0,bias_sub,huber,1.35,2.35,24.0,1.35,2.2,2,2.691742357043116
+1,bias_sub,identity,1.35,1.55,24.0,1.35,2.2,2,2.550424505382824
+1,bias_sub,identity,1.35,1.9,24.0,1.35,2.2,2,2.5598389210568913
+1,bias_sub,identity,1.35,2.35,24.0,1.35,2.2,2,2.5565933945285577

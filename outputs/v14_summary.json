@@ -1,0 +1,101 @@
+{
+  "pipeline": "V14 Turbo+JWT",
+  "wall_clock_sec": 342.20993860000453,
+  "optuna_n_trials": 55,
+  "optuna_n_jobs": 1,
+  "matplotlib_artifacts_saved": true,
+  "integrity": "Hyperparameters selected exclusively by minimizing mean K-fold TRAIN CV RMSE (Step C). Validation ground truth used only once for reporting after full-train calibration refit.",
+  "train_kfold_splits": 3,
+  "jwt_triangle": {
+    "base_tol_diff": 1.0,
+    "rel_tol_diff": 0.1,
+    "base_tol_sum": 0.8,
+    "rel_tol_sum": 0.08,
+    "norm": 3.0,
+    "cap": 3.0
+  },
+  "jwt_score_ransac_residual_threshold_m": 1.5,
+  "train_cv_metrics_at_selection": {
+    "mean_CV_RMSE_step_C_m": 2.528008907855351
+  },
+  "validation_single_forward_metrics": {
+    "step_A_RMSE_m": 1.51037249944006,
+    "step_B_RMSE_m": 1.8561896545476906,
+    "step_C_RMSE_m": 1.5583386744978915,
+    "step_A_MAE_m": 1.1956694614183145,
+    "step_B_MAE_m": 1.3873437037235166,
+    "step_C_MAE_m": 1.2668796450765076
+  },
+  "selected_hyperparameters": {
+    "w_jwt_triangle": 4.162213204002109,
+    "w_jwt_ransac": 1.1678651087305187,
+    "gate_threshold_m": 1.5591024442520711,
+    "uwb_variance_inflate": 12.567663137948074,
+    "huber_f_fusion": 1.1064847850358381,
+    "irls_residual_thresh_m": 2.6722807884690143,
+    "irls_mx": 2.0,
+    "iso_ap_mask_bits": 1,
+    "jwt_wifi_soft_enable": true,
+    "phase_a_rank": 2,
+    "wifi_calibration_kind": "identity",
+    "feat_mode": "bias_sub",
+    "huber_f_scale_wifi_only_trilateration": 1.0
+  },
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  },
+  "artifacts": {
+    "summary_json": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v14_summary.json",
+    "predictions_csv": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v14_predictions.csv",
+    "optuna_trials_csv": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v14_optuna_trials.csv",
+    "wifi_calibration_meta_json": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v14_wifi_calibration_meta.json",
+    "jwt_ablation_validation_csv": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs\\v14_jwt_ablation_validation.csv"
+  },
+  "jwt_ablation_validation": [
+    {
+      "stage": "S0 iso=0 JWT off (Wi‑Fi 가중=Turbo형 1/var)",
+      "RMSE_step_A_m": 1.51037249944006,
+      "RMSE_step_B_m": 1.4330399092165493,
+      "RMSE_step_C_m": 1.4435429091821286
+    },
+    {
+      "stage": "S0b iso=0 w_tri=4.162, w_ransac=0 (선형보정 유지·삼각만)",
+      "RMSE_step_A_m": 1.51037249944006,
+      "RMSE_step_B_m": 1.453716012229082,
+      "RMSE_step_C_m": 1.4730545622571882
+    },
+    {
+      "stage": "S0c iso=0 w_ransac=1.168, w_tri=0 (선형보정 유지·Score RANSAC만)",
+      "RMSE_step_A_m": 1.51037249944006,
+      "RMSE_step_B_m": 1.691839365274059,
+      "RMSE_step_C_m": 1.6881649425555383
+    },
+    {
+      "stage": "S1 iso_mask=1 JWT off (Isotonic 효과만)",
+      "RMSE_step_A_m": 1.51037249944006,
+      "RMSE_step_B_m": 1.6927773761064029,
+      "RMSE_step_C_m": 1.7024007787688653
+    },
+    {
+      "stage": "S2 iso_mask=1 w_tri=4.162, w_ransac=0 (삼각만)",
+      "RMSE_step_A_m": 1.51037249944006,
+      "RMSE_step_B_m": 1.7035481641206986,
+      "RMSE_step_C_m": 1.7202035419149284
+    },
+    {
+      "stage": "S2b iso_mask=1 w_ransac=1.168, w_tri=0 (Score RANSAC만)",
+      "RMSE_step_A_m": 1.51037249944006,
+      "RMSE_step_B_m": 1.837238064395571,
+      "RMSE_step_C_m": 1.5271901456193444
+    },
+    {
+      "stage": "S3 iso_mask=1 JWT full (w_tri=4.162, w_ransac=1.168)",
+      "RMSE_step_A_m": 1.51037249944006,
+      "RMSE_step_B_m": 1.8561896545476906,
+      "RMSE_step_C_m": 1.5583386744978915
+    }
+  ]
+}

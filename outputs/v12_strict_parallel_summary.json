@@ -1,0 +1,39 @@
+{
+  "pipeline": "V12 Strict Parallel",
+  "K_FOLD_SPLITS_global": 1,
+  "effective_train_cv_splits": 1,
+  "cv_split_mode": "K1_no_fold_self_score_on_train",
+  "parallel_workers": 8,
+  "train_cv_metrics_at_selection": {
+    "phase_A_proxy_mean_RMSE_A_m": 2.6987717335022903,
+    "mean_CV_RMSE_step_C_m": 2.5494966524489264
+  },
+  "validation_single_forward_metrics": {
+    "step_A_RMSE_m": 1.51037249944006,
+    "step_A_MAE_m": 1.1956694614183145,
+    "step_B_RMSE_m": 1.6081914407446434,
+    "step_B_MAE_m": 1.194120621837276,
+    "step_C_RMSE_m": 1.608563090233415,
+    "step_C_MAE_m": 1.1935084522093171,
+    "delta_RMSE_A_to_B_m": -0.09781894130458335,
+    "delta_RMSE_B_to_C_m": -0.0003716494887715527,
+    "delta_RMSE_A_to_C_m": -0.0981905907933549
+  },
+  "selected_hyperparameters": {
+    "wifi_calibration_kind": "identity",
+    "feat_mode": "bias_sub",
+    "huber_f_scale_wifi": 1.0,
+    "gate_m": 1.55,
+    "uwb_variance_inflate": 24.0,
+    "huber_f_fusion": 1.35,
+    "irls_residual_thresh_m": 3.1,
+    "irls_max_iter": 2,
+    "phase_A_rank": 2
+  },
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  }
+}

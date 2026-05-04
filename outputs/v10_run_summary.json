@@ -1,0 +1,28 @@
+{
+  "step_rmse_A_m": 1.5532186505981291,
+  "step_mae_A_m": 1.1171956739986415,
+  "step_rmse_B_m": 1.593303787629538,
+  "step_mae_B_m": 1.2163178695737946,
+  "step_rmse_C_m": 1.795514288767971,
+  "step_mae_C_m": 1.4789003477511713,
+  "step_rmse_D_m": 1.7387355353570109,
+  "step_mae_D_m": 1.4654179516081869,
+  "calibration_pick": {
+    "huber_f_scale": 1.35,
+    "ridge_lambda": 96.0,
+    "feature": "bias_sub",
+    "val_StepC_RMSE": 1.795514288767971
+  },
+  "stepD_knn": {
+    "val_grid_best_K": 28,
+    "val_grid_best_RMSE_m": 1.7387355353570109,
+    "hybrid_method": "VAL_GRID_HOLDOUT"
+  },
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  },
+  "note": "KNN: 검증 홀드아웃 그리드와 Train‑LOOCV 후보 검증 성능 비교 후 더 낮은 RMSE 채택. LOOCV가 오히려 악화시키면 검증 폴딩 해의 RMSE 기준 롤백 가드 호출."
+}

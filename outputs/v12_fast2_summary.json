@@ -1,0 +1,95 @@
+{
+  "pipeline": "V12 Fast2",
+  "reference_cheating_baseline": "outputs/v12_summary.json tuned hyperparameters on validation labels (biased). Fast2 never uses validation True_X/Y for selection.",
+  "integrity": "Step A bundle + Phase B/C selected only by train K-fold CV; validation used once.",
+  "runtime_seconds": 413.865,
+  "train_kfold_splits": 2,
+  "train_cv_step_A_mean_RMSE_m": 2.5818017063970595,
+  "train_cv_step_A_pool_min_RMSE_m": 2.5777482270413206,
+  "step_A_phase_BC_joint_selection": "Among top-5 Step-A candidates by (train_CV_step_A_RMSE, calib_simplicity), each runs full Phase B grid then IRLS subgrid; pick lexicographic minimum (train_CV_step_C_RMSE, train_CV_step_B_RMSE, train_CV_step_A_RMSE, calib_simplicity). Validation labels never used for selection.",
+  "step_A_top_indices_by_train_CV_A": [
+    25,
+    24,
+    26,
+    20,
+    23
+  ],
+  "train_resub_step_A_RMSE_m_chosen_candidate": 2.597104859827229,
+  "train_cv_step_B_mean_RMSE_m": 2.6114653079096444,
+  "train_cv_step_C_mean_RMSE_m": 2.618080111606732,
+  "validation_metrics": {
+    "step_A_RMSE_m": 1.4280305151304404,
+    "step_A_MAE_m": 1.1121365036287583,
+    "step_B_RMSE_m": 1.6449039390035314,
+    "step_B_MAE_m": 1.253501223412886,
+    "step_C_RMSE_m": 1.6232792383429693,
+    "step_C_MAE_m": 1.235763621722901,
+    "delta_RMSE_A_to_B_m": -0.21687342387309094,
+    "delta_RMSE_B_to_C_m": 0.0216247006605621
+  },
+  "selected": {
+    "wifi_calibration_kind": "huber",
+    "feat_mode": "bias_sub",
+    "huber_f_wifi_calibrated_trilat": 1.2,
+    "step_A_use_v3_xy": false,
+    "step_A_hf_wifi_v3": 1.35,
+    "step_A_wifi_bias_v3": 2.5,
+    "step_A_blend_calib_alpha": 0.5,
+    "step_A_blend_hf_v3": 1.35,
+    "step_A_blend_wifi_bias_v3": 2.5,
+    "knn_residual_neighbors_train_fit": 0,
+    "gate_m": 1.4,
+    "uwb_variance_inflate": 10.0,
+    "huber_f_fusion": 1.35,
+    "irls_thresh_m": 3.1,
+    "irls_max_iter": 2
+  },
+  "grids_searched": {
+    "step_a_candidates": "iter_step_a_candidates()",
+    "gate_m": [
+      1.25,
+      1.4,
+      1.55,
+      1.7,
+      1.85,
+      2.0
+    ],
+    "uwb_inflate": [
+      8.0,
+      10.0,
+      16.0,
+      24.0
+    ],
+    "huber_f_fusion": [
+      1.0,
+      1.2,
+      1.35
+    ],
+    "irls_refine_grid": [
+      [
+        2.2,
+        2
+      ],
+      [
+        2.75,
+        2
+      ],
+      [
+        3.1,
+        2
+      ]
+    ]
+  },
+  "v12_validation_tuned_reference_from_outputs_v12_summary": {
+    "note": "검증 라벨로 선택된 하이퍼 — 편향된 지표",
+    "step_A_RMSE_m": 1.5716031362024965,
+    "step_B_RMSE_m": 1.4466804779563518,
+    "step_C_RMSE_m": 1.4453084716212174
+  },
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  }
+}

@@ -1,0 +1,14 @@
+﻿catalog_index,calib_kind,feat_mode,huber_f_wifi,train_CV_RMSE_pure_calibrated_step_a
+0,identity,bias_sub,1.0,2.6173060964301182
+1,identity,bias_sub,1.15,2.610761948441754
+2,identity,bias_sub,1.28,2.6062720256795022
+3,identity,bias_sub,1.35,2.6038440159091594
+4,huber,bias_sub,1.2,2.5802049828693385
+5,huber,bias_sub,1.0,2.595125547972716
+6,huber,bias_sub,1.1,2.588214101801373
+7,huber,bias_sub,1.2,2.578637410890659
+8,huber,bias_sub,1.28,2.5827924611094297
+9,huber,bias_sub,1.32,2.5721534150508547
+10,huber,bias_sub,1.35,2.5714833390678464
+11,ransac,bias_sub,1.35,2.5750971638587394
+12,ransac,bias_sub,1.35,2.591914752727663

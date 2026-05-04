@@ -1,0 +1,61 @@
+{
+  "pipeline": "V12 Fast",
+  "integrity": "Same as V12 Strict: HP from train K-fold CV only; validation labels once at end. Smaller grids and K<=2 for speed; plots optional via V12_FAST_PLOTS=1.",
+  "runtime_seconds": 38.363,
+  "train_kfold_splits": 2,
+  "fast_grid": {
+    "gate_threshold_m": [
+      1.55,
+      1.9,
+      2.35
+    ],
+    "uwb_variance_inflate": [
+      24.0
+    ],
+    "huber_f_fusion": [
+      1.35
+    ],
+    "irls_residual_threshold_m": [
+      2.2
+    ],
+    "irls_max_iter": [
+      2
+    ],
+    "huber_f_wifi": [
+      1.35
+    ],
+    "top_phase_a": 2
+  },
+  "train_cv_metrics_at_selection": {
+    "phase_A_proxy_mean_RMSE_A_m": 2.6954787126619584,
+    "mean_CV_RMSE_step_C_m": 2.550424505382824
+  },
+  "validation_single_forward_metrics": {
+    "step_A_RMSE_m": 1.51037249944006,
+    "step_A_MAE_m": 1.1956694614183145,
+    "step_B_RMSE_m": 1.6081914407446434,
+    "step_B_MAE_m": 1.194120621837276,
+    "step_C_RMSE_m": 1.6099295623473535,
+    "step_C_MAE_m": 1.1911280400165027,
+    "delta_RMSE_A_to_B_m": -0.09781894130458335,
+    "delta_RMSE_B_to_C_m": -0.001738121602710141,
+    "delta_RMSE_A_to_C_m": -0.09955706290729349
+  },
+  "selected_hyperparameters": {
+    "wifi_calibration_kind": "identity",
+    "feat_mode": "bias_sub",
+    "huber_f_scale_wifi_only_trilateration": 1.35,
+    "uwb_geometric_gate_threshold_m": 1.55,
+    "uwb_variance_inflate_multiplier": 24.0,
+    "huber_f_scale_fusion_trilateration": 1.35,
+    "irls_residual_threshold_m": 2.2,
+    "irls_max_iterations": 2,
+    "phase_A_rank_selected": 1
+  },
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  }
+}

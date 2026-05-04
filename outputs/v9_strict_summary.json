@@ -1,0 +1,16 @@
+{
+  "pipeline": "V9 Strict",
+  "integrity": "gate_threshold selected by mean K-fold train CV RMSE (Step B only). Validation labels used once for final metrics and exports.",
+  "train_kfold_splits": 3,
+  "selected_gate_threshold_m": 1.38,
+  "train_cv_at_selection": {
+    "mean_CV_RMSE_step_B_m": 2.5709353676531728
+  },
+  "validation_single_forward_metrics": {
+    "step_A_RMSE_m": 1.5538430048090894,
+    "step_A_MAE_m": 1.119198080282482,
+    "step_B_RMSE_m": 1.6235733558357326,
+    "step_B_MAE_m": 1.217355061824605
+  },
+  "gate_grid_size": 36
+}
