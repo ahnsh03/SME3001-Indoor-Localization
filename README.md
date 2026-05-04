@@ -4,8 +4,8 @@ UWB 6채널·Wi‑Fi 6채널의 **거리 중앙값·분산**으로부터 실내 
 
 **팀 명세상 최종 제출·보고용 권장 파이프라인은 V13**이다. (`docs/V13_FINAL_PIPELINE_SPEC.md`, `outputs/v13_summary.json`)
 
-- **V12 (`indoor_fusion_pipeline_v12.py`)**: 하이퍼파라미터를 **검증 RMSE**로 고르는 **레거시·비교용**(검증 라벨 누수 가능).
-- **V12 Strict / Fast / Fast2 / Turbo**: 하이퍼는 **Train 교차검증 또는 Optuna(Train 목적)**만 사용하고, 검증 정답은 **최종 순전파·지표 1회**에 한정하는 구성이 요약 JSON에 명시되어 있다.
+- **V12 (`indoor_fusion_pipeline_v12.py`)**: 하이퍼파라미터를 **검증 RMSE**로 고른다. **검증 라벨이 튜닝에 직접 들어가므로 데이터 누수(낙관적 편향)**가 있다. **레거시·비교용**으로만 쓰는 것이 좋다.
+- **V12 Turbo (`indoor_fusion_pipeline_v12_turbo.py`)**: 하이퍼는 **Train 교차검증과 Optuna(Train 목적)**만으로 선택하고, 검증 정답은 **최종 순전파·지표 1회**에만 쓰는 구성이 `outputs/v12_turbo_summary.json`의 **`integrity`** 필드에 명시되어 있다. (동일 계열의 Strict·Fast·Fast2 등은 각 스크립트·요약 JSON을 따로 확인할 것.)
 - **V14**: Turbo 골격에 팀원 **JWT** Wi‑Fi 보정·이상치 점수 등을 얹은 **실험 브랜치**이다. (`--jwt-ablation`, `--no-plots` 등)
 
 ---
@@ -64,7 +64,7 @@ midterm_project/
 | V8 | `v8` | Wi‑Fi only / UWB only / 하이브리드 / Top‑K **애블레이션** |
 | V9 | `v9`, `v9_strict` | Wi‑Fi 1차 후 UWB 기하 게이트 융합; strict는 **게이트만 Train CV** |
 | V10~V11 | `v10`, `v10_optimized`, `v11` | Pure Wi‑Fi 심화; v10_opt는 UWB 융합 변형 |
-| V12 계열 | `v12`, `v12_strict`, `v12_fast`, `v12_fast2`, `v12_turbo`, `v12_strict_parallel` | 통합 융합; **v12만 검증 튜닝**, 나머지는 요약의 **integrity** 필드 참고 |
+| V12 계열 | `v12`, `v12_strict`, `v12_fast`, `v12_fast2`, `v12_turbo`, `v12_strict_parallel` | 통합 융합; **`v12`는 검증 튜닝으로 데이터 누수**; **무결 튜닝 설명의 표준 예시는 `v12_turbo`**(`v12_turbo_summary.json`); 그 외 변형은 각 `*_summary.json`·CV 모드 확인 |
 | V13 | `v13`, `v13_fix` | **최종 권장**; Optuna + Train K‑Fold Step C 목적; `v13_fix`는 Numba 코어 분리 |
 | 실험 | `v14`, `JWT` | V14: Turbo+JWT; `JWT.py`: 동일 데이터 규격 단독 평가 |
 
