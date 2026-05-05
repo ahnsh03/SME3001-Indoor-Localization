@@ -1,0 +1,135 @@
+{
+  "pipeline": "V15",
+  "artifact_prefix": "v15_custombias_cmp",
+  "bias_profile_source": "fusion_realtime_sanitize.PHASE1_* (custom ultra-clean set)",
+  "integrity": "No import of v12 validation-tuned grids. Gate bounds from train OOF row-median UWB geom residuals (with indoor τ upper cap). V3 profiles: train-ranked with hf<=1.35 plus anchors. Single Optuna: minimize w·TrainCV_StepA_RMSE+(1-w)·TrainCV_StepC_RMSE (w=0.452). Validation labels used once post full-train refit.",
+  "two_phase": false,
+  "composite_stepa_weight": 0.452,
+  "tuning_profile": "defensive",
+  "tuning_space": {
+    "gate_lo_floor": 1.15,
+    "gate_hi_cap": 2.8,
+    "inflate_lo": 14.0,
+    "inflate_hi": 33.0,
+    "huber_f_fusion_choices": [
+      1.0,
+      1.12
+    ],
+    "irls_thresh_choices": [
+      2.45,
+      2.75,
+      3.05
+    ]
+  },
+  "train_cv_best_step_a_rmse_m": 2.5829097804194565,
+  "train_oof_gate_raw_m": {
+    "lo": 1.05,
+    "hi": 3.95
+  },
+  "train_oof_gate_bounds_m": {
+    "lo": 1.15,
+    "hi": 2.8,
+    "stats": {
+      "p50": 2.9692731814624866,
+      "p75": 4.9659884022319165,
+      "p90": 7.0567067019648455,
+      "n_rows": 268.0
+    }
+  },
+  "v3_profiles_train_ranked": [
+    {
+      "huber_f_scale": 1.35,
+      "wifi_bias_m": 2.5
+    },
+    {
+      "huber_f_scale": 1.32,
+      "wifi_bias_m": 2.35
+    },
+    {
+      "huber_f_scale": 1.25,
+      "wifi_bias_m": 2.2
+    },
+    {
+      "huber_f_scale": 1.2,
+      "wifi_bias_m": 2.5
+    },
+    {
+      "huber_f_scale": 1.32,
+      "wifi_bias_m": 3.15
+    },
+    {
+      "huber_f_scale": 1.25,
+      "wifi_bias_m": 3.15
+    },
+    {
+      "huber_f_scale": 1.32,
+      "wifi_bias_m": 2.85
+    },
+    {
+      "huber_f_scale": 1.2,
+      "wifi_bias_m": 3.15
+    }
+  ],
+  "wall_clock_sec": 271.95201030001044,
+  "train_kfold_splits": 3,
+  "calibration_catalog_size": 18,
+  "top_calibration_ranks_cached": 18,
+  "train_cv_best_step_c_rmse_m": 2.6313461932675293,
+  "optuna_n_trials_step_c": 12,
+  "optuna_n_trials_step_a": 0,
+  "optuna_n_jobs": -1,
+  "selected": {
+    "calibration_rank": 5,
+    "calib_kind": "huber",
+    "feat_mode": "bias_sub",
+    "huber_f_wifi_calibrated_trilat": 1.2,
+    "v3_profile_index": 7,
+    "v3_huber_f_scale": 1.2,
+    "v3_wifi_bias_m": 3.15,
+    "blend_calib_alpha": 0.55,
+    "knn_residual_neighbors_trial": 6,
+    "knn_residual_neighbors": 6,
+    "gate_m": 2.771015089620051,
+    "uwb_variance_inflate": 18.0331267001351,
+    "huber_f_fusion": 1.12,
+    "irls_residual_thresh_m": 3.05,
+    "irls_max_iter": 2,
+    "trilat_gn_iterations_fixed": 22,
+    "irls_tukey_c_fixed": 4.685
+  },
+  "validation_metrics": {
+    "step_A_RMSE_m": 1.6644907109398746,
+    "step_A_MAE_m": 1.403220739816894,
+    "step_B_RMSE_m": 1.562095732827293,
+    "step_B_MAE_m": 1.0973990809040932,
+    "step_C_RMSE_m": 1.5641066380850754,
+    "step_C_MAE_m": 1.096591098221458
+  },
+  "experiment_c_then_b": {
+    "enabled": false,
+    "step_A_to_C_first_RMSE_m": null,
+    "step_A_to_C_first_MAE_m": null,
+    "step_A_to_C_then_B_RMSE_m": null,
+    "step_A_to_C_then_B_MAE_m": null
+  },
+  "experiment_conditional_c": {
+    "enabled": true,
+    "step_A_to_B_conditional_C_RMSE_m": 1.565909086065107,
+    "step_A_to_B_conditional_C_MAE_m": 1.09998661628748,
+    "meta": {
+      "enabled": true,
+      "min_improve_m": 0.02,
+      "min_count": 2,
+      "train_whitelist_cells": 5,
+      "val_rows_use_c": 3,
+      "val_rows_use_b": 97
+    }
+  },
+  "targets_note": "Requested: val Step A and Step C ideally <= 1.6 m (not enforced in objective; report only).",
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  }
+}

@@ -1,0 +1,396 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "indoor_fusion_pipeline_v15_20260505T195914Z",
+  "script_stem": "indoor_fusion_pipeline_v15",
+  "started_utc": "2026-05-05T19:59:14.453549+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\scripts",
+  "argv": [
+    ".\\indoor_fusion_pipeline_v15.py"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 123.9923,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\indoor_fusion_pipeline_v15_20260505T195914Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\v15_basebias_cmp_conditional_c_train_cell_stats.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 9213
+    },
+    {
+      "path": "outputs\\v15_basebias_cmp_experiment_c_then_b_report.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 221
+    },
+    {
+      "path": "outputs\\v15_basebias_cmp_experiment_c_then_b_report.md",
+      "kind": "file",
+      "note": "",
+      "bytes": 423
+    },
+    {
+      "path": "outputs\\v15_basebias_cmp_grid_phaseA_calib_catalog.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 860
+    },
+    {
+      "path": "outputs\\v15_basebias_cmp_optuna_trials.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 1892
+    },
+    {
+      "path": "outputs\\v15_basebias_cmp_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 22963
+    },
+    {
+      "path": "outputs\\v15_basebias_cmp_summary.json",
+      "kind": "file",
+      "note": "",
+      "bytes": 4342
+    },
+    {
+      "path": "outputs\\v15_basebias_cmp_wifi_calibration_coefs.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 121
+    },
+    {
+      "path": "outputs\\v15_cdf_steps.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 40269
+    },
+    {
+      "path": "outputs\\v15_conditional_c_train_cell_stats.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 9244
+    },
+    {
+      "path": "outputs\\v15_custombias_cdf_steps.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 40197
+    },
+    {
+      "path": "outputs\\v15_custombias_cmp_conditional_c_train_cell_stats.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 9300
+    },
+    {
+      "path": "outputs\\v15_custombias_cmp_experiment_c_then_b_report.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 218
+    },
+    {
+      "path": "outputs\\v15_custombias_cmp_experiment_c_then_b_report.md",
+      "kind": "file",
+      "note": "",
+      "bytes": 428
+    },
+    {
+      "path": "outputs\\v15_custombias_cmp_grid_phaseA_calib_catalog.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 857
+    },
+    {
+      "path": "outputs\\v15_custombias_cmp_optuna_trials.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 1893
+    },
+    {
+      "path": "outputs\\v15_custombias_cmp_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 23622
+    },
+    {
+      "path": "outputs\\v15_custombias_cmp_summary.json",
+      "kind": "file",
+      "note": "",
+      "bytes": 4342
+    },
+    {
+      "path": "outputs\\v15_custombias_cmp_wifi_calibration_coefs.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 299
+    },
+    {
+      "path": "outputs\\v15_custombias_experiment_c_then_b_report.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 162
+    },
+    {
+      "path": "outputs\\v15_custombias_experiment_c_then_b_report.md",
+      "kind": "file",
+      "note": "",
+      "bytes": 343
+    },
+    {
+      "path": "outputs\\v15_custombias_grid_phaseA_calib_catalog.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 857
+    },
+    {
+      "path": "outputs\\v15_custombias_map_true_vs_predicted_steps.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 131437
+    },
+    {
+      "path": "outputs\\v15_custombias_optuna_trials.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 1882
+    },
+    {
+      "path": "outputs\\v15_custombias_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 18236
+    },
+    {
+      "path": "outputs\\v15_custombias_summary.json",
+      "kind": "file",
+      "note": "",
+      "bytes": 4143
+    },
+    {
+      "path": "outputs\\v15_custombias_train_uwb_all_valid_with_pass_flag.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 37771
+    },
+    {
+      "path": "outputs\\v15_custombias_train_uwb_scatter_like_profiler_bias_corrected_pass_vs_filtered.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 258578
+    },
+    {
+      "path": "outputs\\v15_custombias_train_uwb_scatter_like_profiler_raw_pass_vs_filtered.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 253244
+    },
+    {
+      "path": "outputs\\v15_custombias_train_uwb_scatter_pass_vs_filtered_summary.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 285
+    },
+    {
+      "path": "outputs\\v15_custombias_wifi_calibration_coefs.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 300
+    },
+    {
+      "path": "outputs\\v15_defensive_train_uwb_scatter_bias_corrected_pass_vs_filtered.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 257660
+    },
+    {
+      "path": "outputs\\v15_defensive_train_uwb_scatter_raw_pass_vs_filtered.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 256854
+    },
+    {
+      "path": "outputs\\v15_defensive_visualization_meta.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 97
+    },
+    {
+      "path": "outputs\\v15_experiment_c_then_b_report.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 326
+    },
+    {
+      "path": "outputs\\v15_experiment_c_then_b_report.md",
+      "kind": "file",
+      "note": "",
+      "bytes": 559
+    },
+    {
+      "path": "outputs\\v15_grid_phaseA_calib_catalog.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 860
+    },
+    {
+      "path": "outputs\\v15_map_true_vs_predicted_steps.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 133002
+    },
+    {
+      "path": "outputs\\v15_optuna_trials.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 2084
+    },
+    {
+      "path": "outputs\\v15_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 18148
+    },
+    {
+      "path": "outputs\\v15_reportbias_train_uwb_all_valid_with_pass_flag.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 58322
+    },
+    {
+      "path": "outputs\\v15_reportbias_train_uwb_scatter_like_profiler_bias_corrected_pass_vs_filtered.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 257871
+    },
+    {
+      "path": "outputs\\v15_reportbias_train_uwb_scatter_like_profiler_raw_pass_vs_filtered.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 256229
+    },
+    {
+      "path": "outputs\\v15_reportbias_train_uwb_scatter_pass_vs_filtered_summary.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 285
+    },
+    {
+      "path": "outputs\\v15_reportbias_var8_bias_table.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 362
+    },
+    {
+      "path": "outputs\\v15_reportbias_var8_train_uwb_all_valid_with_pass_flag.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 55994
+    },
+    {
+      "path": "outputs\\v15_reportbias_var8_train_uwb_scatter_like_profiler_bias_corrected_pass_vs_filtered.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 264515
+    },
+    {
+      "path": "outputs\\v15_reportbias_var8_train_uwb_scatter_like_profiler_raw_pass_vs_filtered.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 254026
+    },
+    {
+      "path": "outputs\\v15_reportbias_var8_train_uwb_scatter_pass_vs_filtered_summary.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 285
+    },
+    {
+      "path": "outputs\\v15_summary.json",
+      "kind": "file",
+      "note": "",
+      "bytes": 3881
+    },
+    {
+      "path": "outputs\\v15_train_passed_uwb_scatter_bias_corrected.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 21204
+    },
+    {
+      "path": "outputs\\v15_train_passed_uwb_scatter_like_profiler.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 200369
+    },
+    {
+      "path": "outputs\\v15_train_passed_uwb_scatter_like_profiler_bias_corrected.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 213136
+    },
+    {
+      "path": "outputs\\v15_train_passed_uwb_scatter_like_profiler_bias_corrected_summary.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 219
+    },
+    {
+      "path": "outputs\\v15_train_passed_uwb_scatter_like_profiler_summary.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 241
+    },
+    {
+      "path": "outputs\\v15_train_uwb_bias_corrected_all_valid_with_pass_flag.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 46758
+    },
+    {
+      "path": "outputs\\v15_train_uwb_passed_true_vs_median.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 25273
+    },
+    {
+      "path": "outputs\\v15_train_uwb_raw_all_valid_with_pass_flag.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 50841
+    },
+    {
+      "path": "outputs\\v15_train_uwb_scatter_like_profiler_bias_corrected_pass_vs_filtered.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 257221
+    },
+    {
+      "path": "outputs\\v15_train_uwb_scatter_like_profiler_bias_corrected_pass_vs_filtered_summary.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 270
+    },
+    {
+      "path": "outputs\\v15_train_uwb_scatter_like_profiler_raw_pass_vs_filtered.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 257097
+    },
+    {
+      "path": "outputs\\v15_train_uwb_scatter_like_profiler_raw_pass_vs_filtered_summary.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 270
+    },
+    {
+      "path": "outputs\\v15_wifi_calibration_coefs.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 299
+    }
+  ]
+}

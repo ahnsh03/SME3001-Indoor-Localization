@@ -1,0 +1,24 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "validation_calibration_filter_scatter_20260505T061922Z",
+  "script_stem": "validation_calibration_filter_scatter",
+  "started_utc": "2026-05-05T06:19:22.410983+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project",
+  "argv": [
+    "scripts/validation_calibration_filter_scatter.py"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 2.3097,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\validation_calibration_filter_scatter_20260505T061922Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\validation_calibration_filter_scatter.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 470184
+    }
+  ]
+}

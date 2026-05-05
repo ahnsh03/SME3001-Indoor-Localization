@@ -1,0 +1,89 @@
+# run_id=indoor_fusion_pipeline_v15_20260505T200200Z
+# started_utc=2026-05-05T20:02:00.330386+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\scripts
+# argv=['.\\indoor_fusion_pipeline_v15.py']
+
+
+[V15] 학습 270행 | 검증 100행 | K-Fold=3
+[V15] Train-OOF τ 후보(raw→적용): [1.09,3.95]→[1.15,2.80] m | meta={'p50': 2.69327381092919, 'p75': 4.250321346779945, 'p90': 6.013400846141056, 'n_rows': 270.0}
+[V15] 탐색 프로필=defensive: inflate∈[14.0,33.0], fusion Huber∈[1.0, 1.12], IRLS(m)∈[2.45, 2.75, 3.05]
+[V15] Train CV 상위 V3 프로필 8개: [(1.35, 2.5), (1.32, 2.35), (1.25, 2.2), (1.2, 2.5), (1.32, 3.15)]…
+[V15] 캘리브 캐시 18개 (train 순수 Wi-Fi-Guide CV)
+[V15] 단일 단계: 가중 Train CV w·RMSE(Wi-Fi-Guide)+(1-w)·RMSE(Fusion-ReWeight), w=0.452
+
+========================================================================
+V15 — Train-only priors + Train CV Optuna (검증 1회)
+========================================================================
+  [Train CV] Wi-Fi-Guide (가이드 최적화 단계) mean RMSE = 2.5955 m
+  [Train CV] Fusion-ReWeight mean RMSE = 2.5404 m
+  [Validation] Wi-Fi-Guide RMSE=1.4595 | Fusion-HardGate=1.4151 | Fusion-ReWeight=1.4226 m
+  [Wall-clock] 116.65 s
+========================================================================
+
+========================================================================
+[indoor_fusion_pipeline_v15] 산출물 요약 (총 63개)
+------------------------------------------------------------------------
+  outputs\v15_basebias_cmp_conditional_c_train_cell_stats.csv  (9,213 bytes)
+  outputs\v15_basebias_cmp_experiment_c_then_b_report.csv  (221 bytes)
+  outputs\v15_basebias_cmp_experiment_c_then_b_report.md  (423 bytes)
+  outputs\v15_basebias_cmp_grid_phaseA_calib_catalog.csv  (860 bytes)
+  outputs\v15_basebias_cmp_optuna_trials.csv  (1,892 bytes)
+  outputs\v15_basebias_cmp_predictions.csv  (22,963 bytes)
+  outputs\v15_basebias_cmp_summary.json  (4,342 bytes)
+  outputs\v15_basebias_cmp_wifi_calibration_coefs.csv  (121 bytes)
+  outputs\v15_cdf_steps.png  (41,777 bytes)
+  outputs\v15_conditional_c_train_cell_stats.csv  (9,244 bytes)
+  outputs\v15_custombias_cdf_steps.png  (40,197 bytes)
+  outputs\v15_custombias_cmp_conditional_c_train_cell_stats.csv  (9,300 bytes)
+  outputs\v15_custombias_cmp_experiment_c_then_b_report.csv  (218 bytes)
+  outputs\v15_custombias_cmp_experiment_c_then_b_report.md  (428 bytes)
+  outputs\v15_custombias_cmp_grid_phaseA_calib_catalog.csv  (857 bytes)
+  outputs\v15_custombias_cmp_optuna_trials.csv  (1,893 bytes)
+  outputs\v15_custombias_cmp_predictions.csv  (23,622 bytes)
+  outputs\v15_custombias_cmp_summary.json  (4,342 bytes)
+  outputs\v15_custombias_cmp_wifi_calibration_coefs.csv  (299 bytes)
+  outputs\v15_custombias_experiment_c_then_b_report.csv  (162 bytes)
+  outputs\v15_custombias_experiment_c_then_b_report.md  (343 bytes)
+  outputs\v15_custombias_grid_phaseA_calib_catalog.csv  (857 bytes)
+  outputs\v15_custombias_map_true_vs_predicted_steps.png  (131,437 bytes)
+  outputs\v15_custombias_optuna_trials.csv  (1,882 bytes)
+  outputs\v15_custombias_predictions.csv  (18,236 bytes)
+  outputs\v15_custombias_summary.json  (4,143 bytes)
+  outputs\v15_custombias_train_uwb_all_valid_with_pass_flag.csv  (37,771 bytes)
+  outputs\v15_custombias_train_uwb_scatter_like_profiler_bias_corrected_pass_vs_filtered.png  (258,578 bytes)
+  outputs\v15_custombias_train_uwb_scatter_like_profiler_raw_pass_vs_filtered.png  (253,244 bytes)
+  outputs\v15_custombias_train_uwb_scatter_pass_vs_filtered_summary.csv  (285 bytes)
+  outputs\v15_custombias_wifi_calibration_coefs.csv  (300 bytes)
+  outputs\v15_defensive_train_uwb_scatter_bias_corrected_pass_vs_filtered.png  (257,660 bytes)
+  outputs\v15_defensive_train_uwb_scatter_raw_pass_vs_filtered.png  (256,854 bytes)
+  outputs\v15_defensive_visualization_meta.csv  (97 bytes)
+  outputs\v15_experiment_c_then_b_report.csv  (326 bytes)
+  outputs\v15_experiment_c_then_b_report.md  (559 bytes)
+  outputs\v15_grid_phaseA_calib_catalog.csv  (860 bytes)
+  outputs\v15_map_true_vs_predicted_steps.png  (120,116 bytes)
+  outputs\v15_optuna_trials.csv  (2,073 bytes)
+  outputs\v15_predictions.csv  (17,936 bytes)
+  outputs\v15_reportbias_train_uwb_all_valid_with_pass_flag.csv  (58,322 bytes)
+  outputs\v15_reportbias_train_uwb_scatter_like_profiler_bias_corrected_pass_vs_filtered.png  (257,871 bytes)
+  outputs\v15_reportbias_train_uwb_scatter_like_profiler_raw_pass_vs_filtered.png  (256,229 bytes)
+  outputs\v15_reportbias_train_uwb_scatter_pass_vs_filtered_summary.csv  (285 bytes)
+  outputs\v15_reportbias_var8_bias_table.csv  (362 bytes)
+  outputs\v15_reportbias_var8_train_uwb_all_valid_with_pass_flag.csv  (55,994 bytes)
+  outputs\v15_reportbias_var8_train_uwb_scatter_like_profiler_bias_corrected_pass_vs_filtered.png  (264,515 bytes)
+  outputs\v15_reportbias_var8_train_uwb_scatter_like_profiler_raw_pass_vs_filtered.png  (254,026 bytes)
+  outputs\v15_reportbias_var8_train_uwb_scatter_pass_vs_filtered_summary.csv  (285 bytes)
+  outputs\v15_summary.json  (3,885 bytes)
+  outputs\v15_train_passed_uwb_scatter_bias_corrected.csv  (21,204 bytes)
+  outputs\v15_train_passed_uwb_scatter_like_profiler.png  (200,369 bytes)
+  outputs\v15_train_passed_uwb_scatter_like_profiler_bias_corrected.png  (213,136 bytes)
+  outputs\v15_train_passed_uwb_scatter_like_profiler_bias_corrected_summary.csv  (219 bytes)
+  outputs\v15_train_passed_uwb_scatter_like_profiler_summary.csv  (241 bytes)
+  outputs\v15_train_uwb_bias_corrected_all_valid_with_pass_flag.csv  (46,758 bytes)
+  outputs\v15_train_uwb_passed_true_vs_median.csv  (25,273 bytes)
+  outputs\v15_train_uwb_raw_all_valid_with_pass_flag.csv  (50,841 bytes)
+  outputs\v15_train_uwb_scatter_like_profiler_bias_corrected_pass_vs_filtered.png  (257,221 bytes)
+  outputs\v15_train_uwb_scatter_like_profiler_bias_corrected_pass_vs_filtered_summary.csv  (270 bytes)
+  outputs\v15_train_uwb_scatter_like_profiler_raw_pass_vs_filtered.png  (257,097 bytes)
+  outputs\v15_train_uwb_scatter_like_profiler_raw_pass_vs_filtered_summary.csv  (270 bytes)
+  outputs\v15_wifi_calibration_coefs.csv  (121 bytes)
+========================================================================

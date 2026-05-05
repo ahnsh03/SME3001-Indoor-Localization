@@ -1,0 +1,12 @@
+# run_id=fusion_data_audit_20260505T061923Z
+# started_utc=2026-05-05T06:19:23.023994+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts/fusion_data_audit.py', '--write-md', 'outputs/audit_smoke.md']
+
+Train: median_test_kgh_corrected.csv / variance_test_kgh_corrected.csv
+  → sanitize 후 행 수: 270
+Validation: median_validation.csv / variance_validation.csv
+  → sanitize 후 행 수: 100
+Markdown 저장: outputs\audit_smoke.md
+
+[산출물] outputs/ 직하위에서 이번 규칙으로 매칭된 파일 없음.

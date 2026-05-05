@@ -1,0 +1,60 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "sensor_spatial_profiler_20260505T133040Z",
+  "script_stem": "sensor_spatial_profiler",
+  "started_utc": "2026-05-05T13:30:40.581855+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\scripts",
+  "argv": [
+    ".\\sensor_spatial_profiler.py"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 3.3908,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\sensor_spatial_profiler_20260505T133040Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\sensor_profiler_eda_calibration_scatter.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 356905
+    },
+    {
+      "path": "outputs\\sensor_profiler_eda_error_boxplot.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 52190
+    },
+    {
+      "path": "outputs\\sensor_profiler_eda_spatial_error_heatmap.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 125377
+    },
+    {
+      "path": "outputs\\sensor_profiler_robust_bias_table.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 1402
+    },
+    {
+      "path": "outputs\\sensor_profiler_uwb_clean_abs_error_pool.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 283
+    },
+    {
+      "path": "outputs\\sensor_profiler_uwb_clean_anchor_mean_error.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 251
+    },
+    {
+      "path": "outputs\\uwb_filter_sequential_filtering.png",
+      "kind": "file",
+      "note": "",
+      "bytes": 369610
+    }
+  ]
+}

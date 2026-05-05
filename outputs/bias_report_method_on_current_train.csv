@@ -1,0 +1,13 @@
+﻿sensor,type,bias_m,n_used,n_after_hard,method
+110394ab,UWB,-1.8914720927804067,121,186,uwb_seq(hard->var<6->MAD)_mean_error
+4e610206,UWB,-1.1046909716497757,101,195,uwb_seq(hard->var<6->MAD)_mean_error
+8e610981,UWB,-0.8256948397850679,119,203,uwb_seq(hard->var<6->MAD)_mean_error
+d1044709,UWB,-1.153502483811502,101,182,uwb_seq(hard->var<6->MAD)_mean_error
+d10485af,UWB,-1.9135643895295205,93,196,uwb_seq(hard->var<6->MAD)_mean_error
+e63ce2f,UWB,-3.7403542577206648,118,187,uwb_seq(hard->var<6->MAD)_mean_error
+SW_11,Wi-Fi,0.6409995003702145,213,267,wifi_trimmed_mean_after_|err|<=15m
+SW_4,Wi-Fi,0.300237613157708,213,267,wifi_trimmed_mean_after_|err|<=15m
+SW_5,Wi-Fi,-0.07695785234306275,215,269,wifi_trimmed_mean_after_|err|<=15m
+SW_6,Wi-Fi,0.24480379324869975,215,269,wifi_trimmed_mean_after_|err|<=15m
+SW_first_team,Wi-Fi,0.4328104652211298,216,270,wifi_trimmed_mean_after_|err|<=15m
+볼링공,Wi-Fi,0.1639383015535037,214,268,wifi_trimmed_mean_after_|err|<=15m

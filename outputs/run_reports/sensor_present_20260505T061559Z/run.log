@@ -1,0 +1,17 @@
+# run_id=sensor_present_20260505T061559Z
+# started_utc=2026-05-05T06:15:59.933266+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts\\sensor_present.py', '--dataset', 'validation', '--out', 'outputs\\present_smoke', 'fusion-grid']
+
+[present] 출력: outputs\present_smoke | dataset=validation | cmd=fusion-grid
+
+========================================================================
+[sensor_present] 산출물 요약 (총 6개)
+------------------------------------------------------------------------
+  outputs\sensor_profiler_eda_calibration_scatter.png  (360,409 bytes)
+  outputs\sensor_profiler_eda_error_boxplot.png  (59,202 bytes)
+  outputs\sensor_profiler_eda_spatial_error_heatmap.png  (131,006 bytes)
+  outputs\sensor_profiler_robust_bias_table.csv  (1,402 bytes)
+  outputs\sensor_profiler_uwb_clean_abs_error_pool.csv  (323 bytes)
+  outputs\sensor_profiler_uwb_clean_anchor_mean_error.csv  (251 bytes)
+========================================================================

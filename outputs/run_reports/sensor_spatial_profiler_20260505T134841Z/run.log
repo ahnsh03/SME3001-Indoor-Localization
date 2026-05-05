@@ -1,0 +1,44 @@
+# run_id=sensor_spatial_profiler_20260505T134841Z
+# started_utc=2026-05-05T13:48:41.520689+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['.\\scripts\\sensor_spatial_profiler.py', 'uwb']
+
+
+=== [uwb] UWB Sequential Filter ===
+Stage 0 (long rows): n = 1176
+Stage 1 (Hard limits): kept = 1149, dropped = 27
+Stage 2 (Variance < 16.6): kept = 800, dropped = 349
+Stage 3 (MAD per anchor): kept = 706, dropped = 94
+
+최종 Clean 데이터 기준 Mean Error (Measured - True), 앵커별 (m):
+  110394ab: -2.007836  (n=125)
+  e63ce2f: -3.638850  (n=124)
+  8e610981: -0.812866  (n=125)
+  d10485af: -2.003023  (n=102)
+  d1044709: -1.264725  (n=110)
+  4e610206: -1.296787  (n=120)
+
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\sensor_profiler_uwb_clean_anchor_mean_error.csv
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\sensor_profiler_uwb_clean_abs_error_pool.csv
+
+V9 하이브리드 gate_threshold 참고 (|오차| 분포):
+------------------------------------------------------------
+  전체 Clean 레코드: 706
+  MAE:   2.821266 m
+  MedAE: 2.018400 m
+  P90:   6.817627 m
+------------------------------------------------------------
+
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\uwb_filter_sequential_filtering.png
+
+========================================================================
+[sensor_spatial_profiler] 산출물 요약 (총 7개)
+------------------------------------------------------------------------
+  outputs\sensor_profiler_eda_calibration_scatter.png  (356,905 bytes)
+  outputs\sensor_profiler_eda_error_boxplot.png  (52,190 bytes)
+  outputs\sensor_profiler_eda_spatial_error_heatmap.png  (125,377 bytes)
+  outputs\sensor_profiler_robust_bias_table.csv  (1,402 bytes)
+  outputs\sensor_profiler_uwb_clean_abs_error_pool.csv  (282 bytes)
+  outputs\sensor_profiler_uwb_clean_anchor_mean_error.csv  (251 bytes)
+  outputs\uwb_filter_sequential_filtering.png  (369,902 bytes)
+========================================================================

@@ -1,0 +1,15 @@
+# run_id=sensor_present_20260505T061907Z
+# started_utc=2026-05-05T06:19:07.445157+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts/sensor_present.py', '--dataset', 'validation', 'fusion-grid']
+
+[present] 출력: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\present_20260505T061907Z | dataset=validation | cmd=fusion-grid
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\present_20260505T061907Z\present_fusion_filter_stages_validation_20260505T061907Z.png
+
+========================================================================
+[sensor_present] 산출물 요약 (총 3개)
+------------------------------------------------------------------------
+  outputs\present_20260505T061623Z\present_fusion_filter_stages_validation_20260505T061623Z.png  (468,805 bytes)
+  outputs\present_20260505T061907Z\present_fusion_filter_stages_validation_20260505T061907Z.png  (468,805 bytes)
+  outputs\present_smoke\present_fusion_filter_stages_validation_20260505T061559Z.png  (468,805 bytes)
+========================================================================

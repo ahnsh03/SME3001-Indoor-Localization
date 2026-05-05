@@ -1,0 +1,7 @@
+﻿sensor,n_total,stage1_pass,stage1_drop,stage2_pass,stage2_drop_from_stage1,stage3_pass,stage3_drop_from_stage2
+110394ab,188,186,2,123,63,121,2
+e63ce2f,191,187,4,122,65,118,4
+8e610981,206,203,3,132,71,119,13
+d10485af,202,196,6,124,72,93,31
+d1044709,188,182,6,115,67,101,14
+4e610206,201,195,6,127,68,101,26

@@ -1,0 +1,112 @@
+# run_id=sensor_spatial_profiler_20260505T133032Z
+# started_utc=2026-05-05T13:30:32.882615+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['.\\scripts\\sensor_spatial_profiler.py', 'all']
+
+
+=== [spatial] Sensor Spatial Profiler ===
+Median:   C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\data\train\median_test_kgh_corrected.csv
+Variance: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\data\train\variance_test_kgh_corrected.csv
+Grid→m: ×0.6
+=== Analysis A: 기기별 강건 편향 및 분산 백분위 ===
+
+       Sensor  Type  Robust Bias (m)  Trimmed Mean Err (m)  Catastrophic %  Var P50  Var P90      Var P99
+     110394ab   UWB          -1.9267               -2.6493         30.7407   0.3000   6.2580 104,488.3564
+      e63ce2f   UWB          -3.6430               -3.3731         29.2593   0.4100   7.3320   3,314.9390
+     8e610981   UWB          -0.5155               -1.1264         23.7037   0.3700   5.2820  91,684.6529
+     d10485af   UWB          -2.0511               -3.2988         25.5556   0.3300   6.8000  71,773.8300
+     d1044709   UWB          -0.9961               -1.5168         30.3704   0.5450   9.9000  48,024.0435
+     4e610206   UWB          -0.6074               -1.7156         25.5556   0.3050   8.3220  58,173.9621
+SW_first_team Wi-Fi           0.4400                0.4328          0.0000   0.1450   4.5720      20.6048
+         SW_4 Wi-Fi           0.4482                0.3002          1.1111   0.1650   2.6160      13.7341
+         SW_5 Wi-Fi           0.2768               -0.0770          0.3704   0.0800   1.1820      10.1084
+         SW_6 Wi-Fi           0.2626                0.2448          0.3704   0.1400   1.8820      11.9360
+        SW_11 Wi-Fi           0.4973                0.6410          1.1111   0.2300   3.9300      22.4021
+          볼링공 Wi-Fi           0.3074                0.1639          0.7407   0.1350   2.9550      25.3380
+
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\sensor_profiler_robust_bias_table.csv
+
+=== Analysis B: 공간(Spatial) ===
+
+[UWB 결측(NaN) 최다 사각지대 Top 5 - 그리드 (Node_x, Node_y), UWB NaN 건수]
+  (4, 3): UWB NaN count = 4
+  (8, 15): UWB NaN count = 3
+  (10, 10): UWB NaN count = 3
+  (10, 25): UWB NaN count = 3
+  (5, 25): UWB NaN count = 3
+
+[측정/실제 비율 평균이 가장 큰 좌표 Top 5 - 다중경로/과대평가 의심]
+  (3, 2): mean(median/true) over sensors = 1.856
+  (3, 4): mean(median/true) over sensors = 1.847
+  (0, 5): mean(median/true) over sensors = 1.684
+  (14, 23): mean(median/true) over sensors = 1.643
+  (1, 6): mean(median/true) over sensors = 1.601
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\sensor_profiler_eda_calibration_scatter.png
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\sensor_profiler_eda_error_boxplot.png
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\sensor_profiler_eda_spatial_error_heatmap.png
+
+========================================================================
+Actionable 요약 (알고리즘 설계용)
+========================================================================
+
+1) Calibration Offsets - Robust Bias (m):
+  110394ab: -1.9267
+  e63ce2f: -3.6430
+  8e610981: -0.5155
+  d10485af: -2.0511
+  d1044709: -0.9961
+  4e610206: -0.6074
+  SW_first_team: +0.4400
+  SW_4: +0.4482
+  SW_5: +0.2768
+  SW_6: +0.2626
+  SW_11: +0.4973
+  볼링공: +0.3074
+
+2) Variance P95 (cap 참고):
+   UWB:  16.563
+   Wi-Fi: 6.519
+========================================================================
+
+
+[V9 참고] UWB 순차 필터 Stage2 분산 한계: 17.0 (fusion_realtime_sanitize VAR_CAP_UWB_FUSION)
+
+
+=== [uwb] UWB Sequential Filter ===
+Stage 0 (long rows): n = 1176
+Stage 1 (Hard limits): kept = 1149, dropped = 27
+Stage 2 (Variance < 17.0): kept = 801, dropped = 348
+Stage 3 (MAD per anchor): kept = 707, dropped = 94
+
+최종 Clean 데이터 기준 Mean Error (Measured - True), 앵커별 (m):
+  110394ab: -2.007836  (n=125)
+  e63ce2f: -3.638850  (n=124)
+  8e610981: -0.812866  (n=125)
+  d10485af: -2.052669  (n=103)
+  d1044709: -1.264725  (n=110)
+  4e610206: -1.296787  (n=120)
+
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\sensor_profiler_uwb_clean_anchor_mean_error.csv
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\sensor_profiler_uwb_clean_abs_error_pool.csv
+
+V9 하이브리드 gate_threshold 참고 (|오차| 분포):
+------------------------------------------------------------
+  전체 Clean 레코드: 707
+  MAE:   2.827341 m
+  MedAE: 2.029658 m
+  P90:   6.826917 m
+------------------------------------------------------------
+
+저장: C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project\outputs\uwb_filter_sequential_filtering.png
+
+========================================================================
+[sensor_spatial_profiler] 산출물 요약 (총 7개)
+------------------------------------------------------------------------
+  outputs\sensor_profiler_eda_calibration_scatter.png  (356,905 bytes)
+  outputs\sensor_profiler_eda_error_boxplot.png  (52,190 bytes)
+  outputs\sensor_profiler_eda_spatial_error_heatmap.png  (125,377 bytes)
+  outputs\sensor_profiler_robust_bias_table.csv  (1,402 bytes)
+  outputs\sensor_profiler_uwb_clean_abs_error_pool.csv  (283 bytes)
+  outputs\sensor_profiler_uwb_clean_anchor_mean_error.csv  (251 bytes)
+  outputs\uwb_filter_sequential_filtering.png  (369,610 bytes)
+========================================================================

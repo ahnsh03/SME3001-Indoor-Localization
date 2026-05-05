@@ -4,12 +4,12 @@ V15 — Train·경험적 상수만으로 하이퍼를 정하고, 검증 정답�
 설계 원칙 (간접 누수 차단)
 -------------------------
 - ``indoor_fusion_pipeline_v12.py`` 의 검증튜닝 이산 그리드(GATE_THRESH_GRID 등)를 **import하지 않는다**.
-- 게이트 Optuna 구간은 **train K-Fold OOF**에서 Wi‑Fi Step A 기준 UWB 기하 잔차(행별 중앙값) 분위수로 계산한다.
-- V3 (무경계 Wi‑Fi 삼변) 후보 튜플 ``(huber_f_scale, wifi_bias_m)`` 은 **train CV Step A RMSE**로 순위를 매겨 상위 K개만 Optuna에 넘긴다.
+- 게이트 Optuna 구간은 **train K-Fold OOF**에서 **Wi‑Fi‑Guide** 기준 UWB 기하 잔차(행별 중앙값) 분위수로 계산한다.
+- V3 (무경계 Wi‑Fi 삼변) 후보 튜플 ``(huber_f_scale, wifi_bias_m)`` 은 **train CV Wi‑Fi‑Guide RMSE**로 순위를 매겨 상위 K개만 Optuna에 넘긴다.
 - Wi‑Fi 보정 캘리브 후보 목록은 v12 모듈 상수에 의존하지 않고, 이 파일의 ``v15_calibration_catalog()`` 에만 둔다.
 - Optuna enqueue warmstart **없음**.
 
-수식 골격은 v13-fix와 동일(``fusion_turbo_numba_core`` Numba Step B/C, 블렌드·선택적 KNN).
+수식 골격은 v13-fix와 동일(``fusion_turbo_numba_core`` Numba **Fusion‑HardGate** / **Fusion‑ReWeight**, 블렌드·선택적 KNN).
 """
 
 from __future__ import annotations
@@ -91,6 +91,10 @@ if sys.platform == "win32":
 plt.rcParams["axes.unicode_minus"] = False
 
 ART_PREFIX = "v15"
+# 산출물·로그·플롯 범례용 (구 Step A/B/C 표기).
+STAGE_WIFI_GUIDE = "Wi-Fi-Guide"
+STAGE_FUSION_HARDGATE = "Fusion-HardGate"
+STAGE_FUSION_REWEIGHT = "Fusion-ReWeight"
 MAX_KFOLD_SPLITS = int(os.environ.get("V15_MAX_KFOLD", "3"))
 N_OPTUNA_TRIALS = int(os.environ.get("V15_OPTUNA_TRIALS", "120"))
 N_OPTUNA_TRIALS_STEPA = int(os.environ.get("V15_OPTUNA_TRIALS_STEPA", "48"))
@@ -217,7 +221,7 @@ def train_oof_gate_row_median_stats(
     loc: FusionLocalizerV8,
     n_splits: int,
 ) -> Tuple[float, float, Dict[str, float]]:
-    """Train K-Fold OOF: Wi‑Fi Step A 기준 UWB 앵커별 |d_geom−d_meas| 의 **행 중앙값** 분포."""
+    """Train K-Fold OOF: Wi‑Fi‑Guide 기준 UWB 앵커별 |d_geom−d_meas| 의 **행 중앙값** 분포."""
     n_splits = max(2, min(int(n_splits), len(train_imp)))
     kf = KFold(n_splits=n_splits, shuffle=True, random_state=42)
     row_medians: List[float] = []
@@ -368,7 +372,7 @@ def warmup_numba_v15(lg: LocGeomPack, n_prof: int) -> None:
 
 
 def mean_cv_rmse_step_a_from_assembled(fold_np: List[Dict[str, Any]], **trial_kw: Any) -> float:
-    """블렌드+KNN까지 반영한 Step A 좌표의 Train 폴드 평균 RMSE."""
+    """블렌드+KNN까지 반영한 Wi‑Fi‑Guide 좌표의 Train 폴드 평균 RMSE."""
     rmses: List[float] = []
     rank = int(trial_kw["calib_rank"])
     v3_idx = int(trial_kw["v3_idx"])
@@ -392,7 +396,7 @@ def make_objective_v15_composite(
     w_stepa: float,
     tuning: Dict[str, Any],
 ) -> Callable[[optuna.Trial], float]:
-    """Train CV: w·StepA_RMSE + (1-w)·StepC_RMSE — Wi‑Fi 가이드와 융합을 동시에 고려(검증 미사용)."""
+    """Train CV: w·RMSE(Wi‑Fi‑Guide) + (1-w)·RMSE(Fusion‑ReWeight) — 가이드와 재가중 융합 동시 고려(검증 미사용)."""
     nr = max(1, int(n_rank))
     npv = max(1, int(n_prof))
     glo = float(min(gate_lo, gate_hi))
@@ -445,8 +449,8 @@ def make_objective_v15_composite(
         )
         loss = wa * float(rm_a) + (1.0 - wa) * float(rm_c)
         trial.set_user_attr("cv_kw", kw)
-        trial.set_user_attr("mean_cv_rmse_step_a_m", float(rm_a))
-        trial.set_user_attr("mean_cv_rmse_step_c_m", float(rm_c))
+        trial.set_user_attr("mean_cv_rmse_wifi_guide_m", float(rm_a))
+        trial.set_user_attr("mean_cv_rmse_fusion_reweight_m", float(rm_c))
         trial.set_user_attr("composite_loss", float(loss))
         return float(loss)
 
@@ -459,7 +463,7 @@ def make_objective_v15_stepa_only(
     n_prof: int,
     tuning: Dict[str, Any],
 ) -> Callable[[optuna.Trial], float]:
-    """융합 하이퍼 고정 없이 Step A(가이드) Train CV RMSE만 최소화 — 2단계 전용."""
+    """융합 하이퍼 고정 없이 Wi‑Fi‑Guide Train CV RMSE만 최소화 — 2단계 전용."""
     nr = max(1, int(n_rank))
     npv = max(1, int(n_prof))
     allow_knn = V15_ALLOW_KNN
@@ -497,7 +501,7 @@ def make_objective_v15_stepc_fixed_blend(
     fixed: Dict[str, Any],
     tuning: Dict[str, Any],
 ) -> Callable[[optuna.Trial], float]:
-    """Step A 가이드(캘리브·V3·블렌드·KNN) 고정, 융합·IRLS만 탐색."""
+    """Wi‑Fi‑Guide(캘리브·V3·블렌드·KNN) 고정, Fusion‑HardGate·Fusion‑ReWeight 하이퍼만 탐색."""
     glo = float(min(gate_lo, gate_hi))
     ghi = float(max(gate_lo, gate_hi))
     br = int(fixed["calib_rank"])
@@ -549,9 +553,9 @@ def save_plots_v15(
 ) -> None:
     fig, axes = plt.subplots(1, 3, figsize=(16.5, 5.2), sharex=True, sharey=True)
     triples = [
-        (xy_a[:, 0], xy_a[:, 1], "Step A (V15 블렌드+KNN)", rmse_a),
-        (preds_b[:, 0], preds_b[:, 1], "Step B", rmse_b),
-        (preds_c[:, 0], preds_c[:, 1], "Step C", rmse_c),
+        (xy_a[:, 0], xy_a[:, 1], f"{STAGE_WIFI_GUIDE} (V15 블렌드+KNN)", rmse_a),
+        (preds_b[:, 0], preds_b[:, 1], STAGE_FUSION_HARDGATE, rmse_b),
+        (preds_c[:, 0], preds_c[:, 1], STAGE_FUSION_REWEIGHT, rmse_c),
     ]
     for ax, (px, py, ttl, rm) in zip(axes, triples):
         m = np.isfinite(tx) & np.isfinite(ty) & np.isfinite(px) & np.isfinite(py)
@@ -573,7 +577,11 @@ def save_plots_v15(
 
 def save_cdf_v15(out_dir: Path, ea: np.ndarray, eb: np.ndarray, ec: np.ndarray, ra: float, rb: float, rc: float) -> None:
     plt.figure(figsize=(8.2, 5.0))
-    for errs, lbl, rm in [(ea, "Step A", ra), (eb, "Step B", rb), (ec, "Step C", rc)]:
+    for errs, lbl, rm in [
+        (ea, STAGE_WIFI_GUIDE, ra),
+        (eb, STAGE_FUSION_HARDGATE, rb),
+        (ec, STAGE_FUSION_REWEIGHT, rc),
+    ]:
         e = np.sort(errs[np.isfinite(errs)])
         if e.size == 0:
             continue
@@ -632,7 +640,7 @@ def main() -> int:
     raw_cap = V15_TOP_CALIB
     max_ranks = len(catalog) if raw_cap <= 0 else min(raw_cap, len(catalog))
     calib_ranks, calib_rank_tags = merge_calib_ranks_train_cv_only(catalog, scored_full, max_ranks=max_ranks)
-    print(f"[V15] 캘리브 캐시 {len(calib_ranks)}개 (train 순수 Step A CV)", flush=True)
+    print(f"[V15] 캘리브 캐시 {len(calib_ranks)}개 (train 순수 {STAGE_WIFI_GUIDE} CV)", flush=True)
 
     fold_np = build_fold_num_pack(train_imp, loc, tri_ref, calib_ranks, v3_profiles, n_splits)
     warmup_numba_v15(lg, len(v3_profiles))
@@ -644,11 +652,11 @@ def main() -> int:
     trials_rows: List[Dict[str, Any]] = []
     if V15_TWO_PHASE:
         print(
-            f"[V15] 2단계: (1) Train CV Step A 최소화 {N_OPTUNA_TRIALS_STEPA} trials "
-            f"(2) 가이드 고정 후 융합·IRLS {N_OPTUNA_TRIALS} trials",
+            f"[V15] 2단계: (1) Train CV {STAGE_WIFI_GUIDE} 최소화 {N_OPTUNA_TRIALS_STEPA} trials "
+            f"(2) 가이드 고정 후 Fusion‑HardGate / Fusion‑ReWeight {N_OPTUNA_TRIALS} trials",
             flush=True,
         )
-        study_a = optuna.create_study(direction="minimize", sampler=sampler_a, study_name="v15_stepA")
+        study_a = optuna.create_study(direction="minimize", sampler=sampler_a, study_name="v15_wifi_guide")
         study_a.optimize(
             make_objective_v15_stepa_only(fold_np, len(calib_ranks), len(v3_profiles), tuning),
             n_trials=N_OPTUNA_TRIALS_STEPA,
@@ -670,10 +678,10 @@ def main() -> int:
             if tr.state != optuna.trial.TrialState.COMPLETE:
                 continue
             trials_rows.append(
-                {"phase": "stepA_only", "trial": tr.number, "mean_cv_rmse_step_a_m": float(tr.value), **tr.params}
+                {"phase": "wifi_guide_only", "trial": tr.number, "mean_cv_rmse_wifi_guide_m": float(tr.value), **tr.params}
             )
 
-        study_b = optuna.create_study(direction="minimize", sampler=sampler_b, study_name="v15_stepC_fixed_guide")
+        study_b = optuna.create_study(direction="minimize", sampler=sampler_b, study_name="v15_fusion_reweight_fixed_guide")
         study_b.optimize(
             make_objective_v15_stepc_fixed_blend(
                 fold_np, lg, len(calib_ranks), len(v3_profiles), gate_lo, gate_hi, fixed_guide, tuning
@@ -693,9 +701,9 @@ def main() -> int:
                 continue
             trials_rows.append(
                 {
-                    "phase": "stepC_fusion",
+                    "phase": "fusion_reweight_tuning",
                     "trial": tr.number,
-                    "mean_cv_rmse_step_c_m": float(tr.value),
+                    "mean_cv_rmse_fusion_reweight_m": float(tr.value),
                     **tr.params,
                     **{f"fixed_{k}": v for k, v in fixed_guide.items()},
                 }
@@ -703,7 +711,8 @@ def main() -> int:
     else:
         study = optuna.create_study(direction="minimize", sampler=sampler_b)
         print(
-            f"[V15] 단일 단계: 가중 Train CV 목표 w·StepA+(1-w)·StepC, w={V15_STEPA_LOSS_WEIGHT:.3f}",
+            f"[V15] 단일 단계: 가중 Train CV w·RMSE({STAGE_WIFI_GUIDE})+(1-w)·RMSE({STAGE_FUSION_REWEIGHT}), "
+            f"w={V15_STEPA_LOSS_WEIGHT:.3f}",
             flush=True,
         )
         obj = make_objective_v15_composite(
@@ -725,21 +734,23 @@ def main() -> int:
         uinf = float(bt.params["uwb_variance_inflate"])
         hf_fus = float(bt.params["huber_f_fusion"])
         ith = float(bt.params["irls_residual_thresh_m"])
-        best_cv = float(bt.user_attrs.get("mean_cv_rmse_step_c_m", bt.value))
-        best_cv_a = float(bt.user_attrs["mean_cv_rmse_step_a_m"]) if "mean_cv_rmse_step_a_m" in bt.user_attrs else None
+        best_cv = float(bt.user_attrs.get("mean_cv_rmse_fusion_reweight_m", bt.value))
+        best_cv_a = (
+            float(bt.user_attrs["mean_cv_rmse_wifi_guide_m"]) if "mean_cv_rmse_wifi_guide_m" in bt.user_attrs else None
+        )
         for tr in study.trials:
             if tr.state != optuna.trial.TrialState.COMPLETE:
                 continue
             row: Dict[str, Any] = {
-                "phase": "composite_stepA_stepC",
+                "phase": "composite_wifi_guide_fusion_reweight",
                 "trial": int(tr.number),
                 "composite_loss": float(tr.value),
             }
             ua = tr.user_attrs or {}
-            if "mean_cv_rmse_step_a_m" in ua:
-                row["mean_cv_rmse_step_a_m"] = float(ua["mean_cv_rmse_step_a_m"])
-            if "mean_cv_rmse_step_c_m" in ua:
-                row["mean_cv_rmse_step_c_m"] = float(ua["mean_cv_rmse_step_c_m"])
+            if "mean_cv_rmse_wifi_guide_m" in ua:
+                row["mean_cv_rmse_wifi_guide_m"] = float(ua["mean_cv_rmse_wifi_guide_m"])
+            if "mean_cv_rmse_fusion_reweight_m" in ua:
+                row["mean_cv_rmse_fusion_reweight_m"] = float(ua["mean_cv_rmse_fusion_reweight_m"])
             row.update({k: v for k, v in tr.params.items()})
             trials_rows.append(row)
 
@@ -868,9 +879,12 @@ def main() -> int:
     print("V15 — Train-only priors + Train CV Optuna (검증 1회)")
     print("=" * 72)
     if best_cv_a_final is not None:
-        print(f"  [Train CV] Step A (가이드 최적화 단계) mean RMSE = {best_cv_a_final:.4f} m", flush=True)
-    print(f"  [Train CV] Step C mean RMSE = {best_cv:.4f} m", flush=True)
-    print(f"  [Validation] Step A RMSE={rmse_a:.4f} | B={rmse_b:.4f} | C={rmse_c:.4f} m")
+        print(f"  [Train CV] {STAGE_WIFI_GUIDE} (가이드 최적화 단계) mean RMSE = {best_cv_a_final:.4f} m", flush=True)
+    print(f"  [Train CV] {STAGE_FUSION_REWEIGHT} mean RMSE = {best_cv:.4f} m", flush=True)
+    print(
+        f"  [Validation] {STAGE_WIFI_GUIDE} RMSE={rmse_a:.4f} | {STAGE_FUSION_HARDGATE}={rmse_b:.4f} | "
+        f"{STAGE_FUSION_REWEIGHT}={rmse_c:.4f} m"
+    )
     print(f"  [Wall-clock] {elapsed:.2f} s")
     print("=" * 72)
 
@@ -881,12 +895,20 @@ def main() -> int:
             "No import of v12 validation-tuned grids. Gate bounds from train OOF row-median UWB geom residuals "
             "(with indoor τ upper cap). V3 profiles: train-ranked with hf<=1.35 plus anchors. "
             + (
-                "Two-phase Optuna: Step A then Step C (train CV). "
+                f"Two-phase Optuna: {STAGE_WIFI_GUIDE} then {STAGE_FUSION_REWEIGHT} (train CV). "
                 if V15_TWO_PHASE
-                else f"Single Optuna: minimize w·TrainCV_StepA_RMSE+(1-w)·TrainCV_StepC_RMSE (w={V15_STEPA_LOSS_WEIGHT}). "
+                else (
+                    f"Single Optuna: minimize w·TrainCV_RMSE({STAGE_WIFI_GUIDE})+(1-w)·TrainCV_RMSE({STAGE_FUSION_REWEIGHT}) "
+                    f"(w={V15_STEPA_LOSS_WEIGHT}). "
+                )
             )
             + "Validation labels used once post full-train refit."
         ),
+        "stage_display_names": {
+            "wifi_guide": STAGE_WIFI_GUIDE,
+            "fusion_hardgate": STAGE_FUSION_HARDGATE,
+            "fusion_reweight": STAGE_FUSION_REWEIGHT,
+        },
         "two_phase": bool(V15_TWO_PHASE),
         "composite_stepa_weight": float(V15_STEPA_LOSS_WEIGHT),
         "tuning_profile": str(tuning["name"]),
@@ -898,7 +920,7 @@ def main() -> int:
             "huber_f_fusion_choices": [float(x) for x in tuning["huber_f_fusion_choices"]],
             "irls_thresh_choices": [float(x) for x in tuning["irls_thresh_choices"]],
         },
-        "train_cv_best_step_a_rmse_m": best_cv_a_final,
+        "train_cv_best_wifi_guide_rmse_m": best_cv_a_final,
         "train_oof_gate_raw_m": {"lo": float(gate_lo_raw), "hi": float(gate_hi_raw)},
         "train_oof_gate_bounds_m": {"lo": float(gate_lo), "hi": float(gate_hi), "stats": gate_meta},
         "v3_profiles_train_ranked": [{"huber_f_scale": h, "wifi_bias_m": w} for h, w in v3_profiles],
@@ -906,9 +928,9 @@ def main() -> int:
         "train_kfold_splits": int(n_splits),
         "calibration_catalog_size": len(catalog),
         "top_calibration_ranks_cached": len(calib_ranks),
-        "train_cv_best_step_c_rmse_m": float(best_cv),
-        "optuna_n_trials_step_c": N_OPTUNA_TRIALS,
-        "optuna_n_trials_step_a": (N_OPTUNA_TRIALS_STEPA if V15_TWO_PHASE else 0),
+        "train_cv_best_fusion_reweight_rmse_m": float(best_cv),
+        "optuna_n_trials_fusion_reweight": N_OPTUNA_TRIALS,
+        "optuna_n_trials_wifi_guide": (N_OPTUNA_TRIALS_STEPA if V15_TWO_PHASE else 0),
         "optuna_n_jobs": OPTUNA_N_JOBS,
         "selected": {
             "calibration_rank": br,
@@ -930,14 +952,17 @@ def main() -> int:
             "irls_tukey_c_fixed": tukey_c,
         },
         "validation_metrics": {
-            "step_A_RMSE_m": float(rmse_a),
-            "step_A_MAE_m": float(mae_a),
-            "step_B_RMSE_m": float(rmse_b),
-            "step_B_MAE_m": float(mae_b),
-            "step_C_RMSE_m": float(rmse_c),
-            "step_C_MAE_m": float(mae_c),
+            "wifi_guide_RMSE_m": float(rmse_a),
+            "wifi_guide_MAE_m": float(mae_a),
+            "fusion_hardgate_RMSE_m": float(rmse_b),
+            "fusion_hardgate_MAE_m": float(mae_b),
+            "fusion_reweight_RMSE_m": float(rmse_c),
+            "fusion_reweight_MAE_m": float(mae_c),
         },
-        "targets_note": "Requested: val Step A and Step C ideally <= 1.6 m (not enforced in objective; report only).",
+        "targets_note": (
+            f"Requested: val {STAGE_WIFI_GUIDE} and {STAGE_FUSION_REWEIGHT} ideally <= 1.6 m "
+            "(not enforced in objective; report only)."
+        ),
         "data_paths": {
             "train_median": str(pref.train_median),
             "train_variance": str(pref.train_variance),
@@ -948,15 +973,15 @@ def main() -> int:
     (out_dir / f"{ART_PREFIX}_summary.json").write_text(json.dumps(summ, indent=2, ensure_ascii=False), encoding="utf-8")
 
     pred = val_imp[["Node_x", "Node_y", "True_X", "True_Y"]].copy()
-    pred["StepA_X"] = xy_a_val[:, 0]
-    pred["StepA_Y"] = xy_a_val[:, 1]
-    pred["StepB_X"] = preds_b[:, 0]
-    pred["StepB_Y"] = preds_b[:, 1]
-    pred["StepC_X"] = preds_c[:, 0]
-    pred["StepC_Y"] = preds_c[:, 1]
-    pred["ErrA_m"] = ea
-    pred["ErrB_m"] = eb
-    pred["ErrC_m"] = ec
+    pred["WiFiGuide_X"] = xy_a_val[:, 0]
+    pred["WiFiGuide_Y"] = xy_a_val[:, 1]
+    pred["FusionHardGate_X"] = preds_b[:, 0]
+    pred["FusionHardGate_Y"] = preds_b[:, 1]
+    pred["FusionReWeight_X"] = preds_c[:, 0]
+    pred["FusionReWeight_Y"] = preds_c[:, 1]
+    pred["ErrWiFiGuide_m"] = ea
+    pred["ErrFusionHardGate_m"] = eb
+    pred["ErrFusionReWeight_m"] = ec
     pred.to_csv(out_dir / f"{ART_PREFIX}_predictions.csv", index=False, encoding="utf-8-sig")
     pd.DataFrame(phase_a_rows).to_csv(out_dir / f"{ART_PREFIX}_grid_phaseA_calib_catalog.csv", index=False, encoding="utf-8-sig")
 
