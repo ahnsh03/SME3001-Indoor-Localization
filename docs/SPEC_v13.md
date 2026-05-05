@@ -136,3 +136,8 @@ Step B가 최저 RMSE, Step C는 평균은 소폭 상승하나 MAE/P90 측면의
 - `scripts/indoor_fusion_pipeline_v13.py`
 - `scripts/indoor_fusion_pipeline_v13_fix.py`
 
+---
+
+## 7) 후속 파이프라인 V15 (참고)
+
+**Train-OOF 게이트**, **composite/2단계 Optuna**, **`V15_TUNING_PROFILE`(balanced/defensive/v13_fix)** 로 v13-fix 골격을 확장한 실험용 파이프라인이다. 세부 무결성·환경변수는 **[`V15_PIPELINE_SPEC.md`](V15_PIPELINE_SPEC.md)** 를 본다.

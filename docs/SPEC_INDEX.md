@@ -9,6 +9,7 @@
 | [SPEC_evolution_v08_v11.md](SPEC_evolution_v08_v11.md) | `v8` ~ `v11`, `v9_strict`, `v10_optimized` |
 | [SPEC_v12.md](SPEC_v12.md) | `v12.py`, `v12_strict`, `v12_fast`, `v12_fast2`, `v12_turbo`, `v12_strict_parallel` (v12 계열 단독 상세) |
 | [SPEC_v13.md](SPEC_v13.md) | `v13.py`, `v13_fix.py` (v13 계열 단독 상세) |
+| [V15_PIPELINE_SPEC.md](V15_PIPELINE_SPEC.md) | `v15.py`: Train-OOF 게이트, 탐색 프로필, composite Optuna |
 | [SPEC_v14.md](SPEC_v14.md) | `v14.py` 단독 상세 + JWT ablation 해석 |
 | [SPEC_v12_v13_family.md](SPEC_v12_v13_family.md) | V12~V14 공통 수식/관계 요약(요약본) |
 | [SPEC_analysis_and_JWT.md](SPEC_analysis_and_JWT.md) | `sensor_spatial_profiler.py`, `validation_calibration_filter_scatter.py`, `indoor_fusion_pipeline_JWT.py` |
@@ -19,8 +20,9 @@
 |------|------|
 | [V12_TURBO_PIPELINE_SPEC.md](V12_TURBO_PIPELINE_SPEC.md) | V12 Turbo 전용: Phase A 의미, Optuna, Numba, 산출물 |
 | [V13_FINAL_PIPELINE_SPEC.md](V13_FINAL_PIPELINE_SPEC.md) | 최종 선정 V13: 실행, 환경변수, Optuna 공간, 산출물 |
+| [V15_PIPELINE_SPEC.md](V15_PIPELINE_SPEC.md) | V15: 무결성·환경변수·balanced/defensive/v13_fix 프로필 |
 
-위 두 파일 상단에는 본 색인으로 오는 링크를 추가하였다.
+위 집중 명세 파일 상단에는 본 색인으로 오는 링크를 두는 편이 좋다.
 
 ---
 
@@ -38,6 +40,7 @@
 | `indoor_fusion_pipeline_v12*.py` | SPEC_v12.md, V12_TURBO_PIPELINE_SPEC.md |
 | `indoor_fusion_pipeline_v13*.py` | SPEC_v13.md, V13_FINAL_PIPELINE_SPEC.md |
 | `indoor_fusion_pipeline_v14.py` | SPEC_v14.md |
+| `indoor_fusion_pipeline_v15.py` | [V15_PIPELINE_SPEC.md](V15_PIPELINE_SPEC.md) |
 | `sensor_spatial_profiler.py` | SPEC_analysis_and_JWT.md |
 | `validation_calibration_filter_scatter.py` | SPEC_analysis_and_JWT.md |
 | `indoor_fusion_pipeline_JWT.py` | SPEC_analysis_and_JWT.md |

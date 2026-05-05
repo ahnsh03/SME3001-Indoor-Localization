@@ -1,6 +1,6 @@
 # V12 계열 · V13 · V13-fix · V14 명세 (요약본)
 
-[← 색인](SPEC_INDEX.md) · [V12 단독 상세](SPEC_v12.md) · [V13 단독 상세](SPEC_v13.md) · [V14 단독 상세](SPEC_v14.md) · [V12 Turbo 집중본](V12_TURBO_PIPELINE_SPEC.md) · [V13 최종본](V13_FINAL_PIPELINE_SPEC.md)
+[← 색인](SPEC_INDEX.md) · [V12 단독 상세](SPEC_v12.md) · [V13 단독 상세](SPEC_v13.md) · [V15](V15_PIPELINE_SPEC.md) · [V14 단독 상세](SPEC_v14.md) · [V12 Turbo 집중본](V12_TURBO_PIPELINE_SPEC.md) · [V13 최종본](V13_FINAL_PIPELINE_SPEC.md)
 
 ---
 
