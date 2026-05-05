@@ -6,7 +6,7 @@
     "optuna_enqueue_warmstarts": false
   },
   "integrity": "Optuna minimizes train K-fold mean Step C RMSE only (with Fast2 blended Step-A guide inside folds). Validation Truth used once post full-train refit.",
-  "wall_clock_sec": 164.41527270000006,
+  "wall_clock_sec": 82.68704570000409,
   "train_kfold_splits": 3,
   "calibration_catalog_size": 13,
   "top_calibration_ranks_cached": 13,
@@ -48,23 +48,23 @@
       "wifi_bias_m": 2.75
     }
   ],
-  "train_cv_best_step_c_rmse_m": 2.5387736009781086,
+  "train_cv_best_step_c_rmse_m": 2.536115646456208,
   "optuna_n_trials": 42,
   "optuna_n_jobs": -1,
   "selected": {
-    "calibration_rank": 9,
+    "calibration_rank": 10,
     "calib_kind": "identity",
     "feat_mode": "bias_sub",
-    "huber_f_wifi_calibrated_trilat": 1.35,
+    "huber_f_wifi_calibrated_trilat": 1.28,
     "v3_profile_index": 3,
     "v3_huber_f_scale": 1.2,
     "v3_wifi_bias_m": 2.25,
     "blend_calib_alpha": 0.0,
-    "knn_residual_neighbors_trial": 6,
+    "knn_residual_neighbors_trial": 0,
     "knn_residual_neighbors": 0,
-    "gate_m": 1.3818726444205724,
-    "uwb_variance_inflate": 23.52459823660603,
-    "huber_f_fusion": 1.2,
+    "gate_m": 1.589415061133808,
+    "uwb_variance_inflate": 11.674159547610536,
+    "huber_f_fusion": 1.0,
     "irls_residual_thresh_m": 3.05,
     "irls_max_iter": 2,
     "trilat_gn_iterations_fixed": 22,
@@ -74,10 +74,10 @@
   "validation_metrics": {
     "step_A_RMSE_m": 1.5034858097286283,
     "step_A_MAE_m": 1.1952003031133778,
-    "step_B_RMSE_m": 1.4163085609420183,
-    "step_B_MAE_m": 1.1253611668806076,
-    "step_C_RMSE_m": 1.4217769273338137,
-    "step_C_MAE_m": 1.1279258929195626
+    "step_B_RMSE_m": 1.439009250312173,
+    "step_B_MAE_m": 1.1367510099199443,
+    "step_C_RMSE_m": 1.4477590310064958,
+    "step_C_MAE_m": 1.1416999158642622
   },
   "data_paths": {
     "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",

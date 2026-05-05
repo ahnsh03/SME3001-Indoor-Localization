@@ -1,0 +1,31 @@
+# run_id=indoor_fusion_pipeline_v15_20260504T202713Z
+# started_utc=2026-05-04T20:27:13.770331+00:00
+# cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\midterm_project
+# argv=['scripts/indoor_fusion_pipeline_v15.py', '--no-plots']
+
+
+[V15] 학습 270행 | 검증 100행 | K-Fold=3
+[V15] Train-OOF 게이트 구간(행 중앙값 분위): [1.09, 7.85] m | meta={'p50': 2.69327381092919, 'p75': 4.250321346779945, 'p90': 6.013400846141056, 'n_rows': 270.0}
+[V15] Train CV 상위 V3 프로필 8개: [(1.45, 3.15), (1.38, 3.15), (1.45, 2.85), (1.32, 3.15), (1.38, 2.85)]…
+[V15] 캘리브 캐시 18개 (train 순수 Step A CV)
+[V15] 2단계: (1) Train CV Step A 최소화 20 trials (2) 가이드 고정 후 융합·IRLS 40 trials
+
+========================================================================
+V15 — Train-only priors + Train CV Optuna (검증 1회)
+========================================================================
+  [Train CV] Step A (가이드 최적화 단계) mean RMSE = 2.4844 m
+  [Train CV] Step C mean RMSE = 2.5476 m
+  [Validation] Step A RMSE=1.6810 | B=1.8078 | C=1.8277 m
+  [Wall-clock] 122.51 s
+========================================================================
+[V15] --no-plots: PNG 생략
+
+========================================================================
+[indoor_fusion_pipeline_v15] 산출물 요약 (총 5개)
+------------------------------------------------------------------------
+  outputs\v15_grid_phaseA_calib_catalog.csv  (860 bytes)
+  outputs\v15_optuna_trials.csv  (5,594 bytes)
+  outputs\v15_predictions.csv  (18,079 bytes)
+  outputs\v15_summary.json  (3,240 bytes)
+  outputs\v15_wifi_calibration_coefs.csv  (296 bytes)
+========================================================================

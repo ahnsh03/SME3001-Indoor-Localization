@@ -1,0 +1,113 @@
+{
+  "pipeline": "V15",
+  "integrity": "No import of v12 validation-tuned grids. Gate bounds from train OOF row-median UWB geom residuals (with indoor τ upper cap). V3 profiles: train-ranked with hf<=1.35 plus anchors. Single Optuna: minimize w·TrainCV_StepA_RMSE+(1-w)·TrainCV_StepC_RMSE (w=0.452). Validation labels used once post full-train refit.",
+  "two_phase": false,
+  "composite_stepa_weight": 0.452,
+  "tuning_profile": "defensive",
+  "tuning_space": {
+    "gate_lo_floor": 1.15,
+    "gate_hi_cap": 2.8,
+    "inflate_lo": 14.0,
+    "inflate_hi": 33.0,
+    "huber_f_fusion_choices": [
+      1.0,
+      1.12
+    ],
+    "irls_thresh_choices": [
+      2.45,
+      2.75,
+      3.05
+    ]
+  },
+  "train_cv_best_step_a_rmse_m": 2.610761948441754,
+  "train_oof_gate_raw_m": {
+    "lo": 1.09,
+    "hi": 3.95
+  },
+  "train_oof_gate_bounds_m": {
+    "lo": 1.15,
+    "hi": 2.8,
+    "stats": {
+      "p50": 2.69327381092919,
+      "p75": 4.250321346779945,
+      "p90": 6.013400846141056,
+      "n_rows": 270.0
+    }
+  },
+  "v3_profiles_train_ranked": [
+    {
+      "huber_f_scale": 1.35,
+      "wifi_bias_m": 2.5
+    },
+    {
+      "huber_f_scale": 1.32,
+      "wifi_bias_m": 2.35
+    },
+    {
+      "huber_f_scale": 1.25,
+      "wifi_bias_m": 2.2
+    },
+    {
+      "huber_f_scale": 1.2,
+      "wifi_bias_m": 2.5
+    },
+    {
+      "huber_f_scale": 1.32,
+      "wifi_bias_m": 3.15
+    },
+    {
+      "huber_f_scale": 1.25,
+      "wifi_bias_m": 3.15
+    },
+    {
+      "huber_f_scale": 1.32,
+      "wifi_bias_m": 2.85
+    },
+    {
+      "huber_f_scale": 1.2,
+      "wifi_bias_m": 3.15
+    }
+  ],
+  "wall_clock_sec": 110.9659748999984,
+  "train_kfold_splits": 3,
+  "calibration_catalog_size": 18,
+  "top_calibration_ranks_cached": 18,
+  "train_cv_best_step_c_rmse_m": 2.5537586181924774,
+  "optuna_n_trials_step_c": 12,
+  "optuna_n_trials_step_a": 0,
+  "optuna_n_jobs": -1,
+  "selected": {
+    "calibration_rank": 14,
+    "calib_kind": "identity",
+    "feat_mode": "bias_sub",
+    "huber_f_wifi_calibrated_trilat": 1.15,
+    "v3_profile_index": 6,
+    "v3_huber_f_scale": 1.32,
+    "v3_wifi_bias_m": 2.85,
+    "blend_calib_alpha": 1.0,
+    "knn_residual_neighbors_trial": 0,
+    "knn_residual_neighbors": 0,
+    "gate_m": 2.151787504263966,
+    "uwb_variance_inflate": 24.29414183504039,
+    "huber_f_fusion": 1.0,
+    "irls_residual_thresh_m": 2.75,
+    "irls_max_iter": 2,
+    "trilat_gn_iterations_fixed": 22,
+    "irls_tukey_c_fixed": 4.685
+  },
+  "validation_metrics": {
+    "step_A_RMSE_m": 1.5718071493837682,
+    "step_A_MAE_m": 1.1379831908200697,
+    "step_B_RMSE_m": 1.443945626183589,
+    "step_B_MAE_m": 1.1451802085369325,
+    "step_C_RMSE_m": 1.4546829236089491,
+    "step_C_MAE_m": 1.1503008960505514
+  },
+  "targets_note": "Requested: val Step A and Step C ideally <= 1.6 m (not enforced in objective; report only).",
+  "data_paths": {
+    "train_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\median_test_kgh_corrected.csv",
+    "train_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\train\\variance_test_kgh_corrected.csv",
+    "val_median": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\median_validation.csv",
+    "val_variance": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\data\\validation\\variance_validation.csv"
+  }
+}

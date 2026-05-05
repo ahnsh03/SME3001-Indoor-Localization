@@ -1,0 +1,49 @@
+{
+  "schema": "midterm_script_run_v1",
+  "run_id": "indoor_fusion_pipeline_v15_20260504T203813Z",
+  "script_stem": "indoor_fusion_pipeline_v15",
+  "started_utc": "2026-05-04T20:38:13.608145+00:00",
+  "cwd": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project",
+  "argv": [
+    "scripts/indoor_fusion_pipeline_v15.py",
+    "--no-plots"
+  ],
+  "python_version": "3.10.2 (tags/v3.10.2:a58ebcc, Jan 17 2022, 14:12:15) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "win32",
+  "exit_code": 0,
+  "elapsed_sec": 114.7389,
+  "outputs_dir": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\midterm_project\\outputs",
+  "run_log": "outputs\\run_reports\\indoor_fusion_pipeline_v15_20260504T203813Z\\run.log",
+  "artifacts": [
+    {
+      "path": "outputs\\v15_grid_phaseA_calib_catalog.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 860
+    },
+    {
+      "path": "outputs\\v15_optuna_trials.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 18401
+    },
+    {
+      "path": "outputs\\v15_predictions.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 17830
+    },
+    {
+      "path": "outputs\\v15_summary.json",
+      "kind": "file",
+      "note": "",
+      "bytes": 3259
+    },
+    {
+      "path": "outputs\\v15_wifi_calibration_coefs.csv",
+      "kind": "file",
+      "note": "",
+      "bytes": 121
+    }
+  ]
+}
