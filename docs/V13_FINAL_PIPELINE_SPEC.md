@@ -1,15 +1,15 @@
 # V13 실내 융합 파이프라인 — 최종 프로젝트 명세서
 
 > **전체 코드 명세 색인**: [`SPEC_INDEX.md`](SPEC_INDEX.md) — V1~V14·분석 스크립트의 **진화 흐름·수식·분석 결과 해석**은 [`SPEC_v12_v13_family.md`](SPEC_v12_v13_family.md), [`SPEC_evolution_v01_v07.md`](SPEC_evolution_v01_v07.md), [`SPEC_evolution_v08_v11.md`](SPEC_evolution_v08_v11.md), [`SPEC_analysis_and_JWT.md`](SPEC_analysis_and_JWT.md) 등을 참고합니다.  
-> **후속 무결 확장 안**: Train-OOF 게이트·composite Optuna — [`V15_PIPELINE_SPEC.md`](V15_PIPELINE_SPEC.md) (**팀 권장 최종안은 여전히 본 V13 문서 기준**).
+> **팀 코드 기준 변경**: 과제 저장소에서는 **제출 최종 파이프라인이 V15**로 정해졌다. Train-OOF 게이트·탐색 프로필은 [`V15_PIPELINE_SPEC.md`](V15_PIPELINE_SPEC.md)를 본다. 본 문서는 **당시 검증 우수 결과를 낸 V13**의 역할·선정 근거·실행 방법을 보관한다.
 
-본 문서는 팀 워크스페이스용 **최종 선정 코드**인 `scripts/indoor_fusion_pipeline_v13.py`의 역할, 설계 원칙, 실행 방법, 산출물을 정리한 것입니다.
+본 문서는 **기준선(비교용) 파이프라인**으로서 `scripts/indoor_fusion_pipeline_v13.py`의 역할, 설계 원칙, 실행 방법, 산출물을 정리한 것입니다.
 
 ---
 
-## 1. 최종 선정 사유
+## 1. 당시 기준 성능 우위(역사 보관)
 
-동일 학습·검증 데이터(`data/train`, `data/validation`)와 무결성 규약 하에서 **V12 Turbo·V14(JWT)**와 비교했을 때, 검증 세트에서 **Step A/B/C RMSE 모두 최저**였습니다.
+동일 학습·검증 데이터(`data/train`, `data/validation`)와 무결성 규약 하에서 **V12 Turbo·V14(JWT)**와 비교했을 때, 검증 세트에서 **Step A/B/C RMSE 모두 최저**였고, 그에 따라 과거에 「최종 선정 후보」로 정리했다.
 
 | 지표 | V13 (최종) | 참고 (V12 Turbo) |
 |------|------------|-------------------|

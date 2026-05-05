@@ -1,8 +1,8 @@
 # V15 실내 융합 파이프라인 — 상세 명세서
 
-[← 명세 색인](SPEC_INDEX.md) · [V13 최종 명세](V13_FINAL_PIPELINE_SPEC.md) · [v13-fix와 수식 공통 요약](SPEC_v12_v13_family.md)
+[← 명세 색인](SPEC_INDEX.md) · [V13 기준선 명세](V13_FINAL_PIPELINE_SPEC.md) · [v13-fix와 수식 공통 요약](SPEC_v12_v13_family.md)
 
-본 문서는 `scripts/indoor_fusion_pipeline_v15.py`의 **설계 원칙**, **무결성**, **환경 변수**, **탐색 프로필**(balanced / defensive / v13_fix), **산출물**을 코드와 일치하도록 정리한 것이다.
+본 문서는 팀 **최종 제출용** `scripts/indoor_fusion_pipeline_v15.py`의 **설계 원칙**, **무결성**, **환경 변수**, **탐색 프로필**(balanced / defensive / v13_fix), **산출물·실행 로그**를 코드와 일치하도록 정리한 것이다.
 
 ---
 
@@ -13,10 +13,10 @@
 
 ---
 
-## 2. 팀 권장 파이프라인과의 관계
+## 2. 팀 제출 코드와 비교 실험
 
-- 팀 README 기준 **최종 제출·보고 권장**은 여전히 **V13**(`docs/V13_FINAL_PIPELINE_SPEC.md`)이다.
-- **V15**는 **간접 누수를 더 엄격히 피하려는 실험/보조 파이프라인**으로 추가되었다. 보고서에서는 V13과 **목적 함수·게이트 출처·탐색 공간**이 다름을 명시하고 비교한다.
+- **본 V15 파이프라인**이 과제 저장소에서 **제출·보고 최종 분기점**이다.
+- **V13**(`docs/V13_FINAL_PIPELINE_SPEC.md`)은 당시 검증 수치 우수 결과를 바탕으로 정리된 **기준선·설계 참고 문서**로 둔다. **목적 함수**(V13은 Step C만, V15는 composite 또는 2단계), **게이트**(V13은 고정 박스 vs V15는 Train OOF(+프로필)), **캘리브·V3 풀**이 다르다는 점은 보고서에 명시한다.
 
 ---
 
@@ -145,7 +145,20 @@ py -3 .\scripts\indoor_fusion_pipeline_v15.py --no-plots
 
 ---
 
-## 9. 산출물
+## 9. 실행 로그(터미널 출력 Tee)
+
+스크립트는 `script_run_io.cli_entrypoint`로 감싸져 있으며, **표준 출력·표준 에러가 콘솔과 동시에 단일 로그 파일**에 기록된다.
+
+| 경로 | 내용 |
+|------|------|
+| `outputs/run_reports/indoor_fusion_pipeline_v15_<UTC>/run.log` | `[V15] 학습 …` 부터 요약 블록, `[run_reports]` 안내 줄까지 **터미널에 나온 그대로**. UTF-8, 맨 위에 `# run_id=…`, `# argv=…` 메타 줄이 붙음. |
+| 같은 폴더의 `manifest.json` | 종료 코드, 경과 시간, 이 실행에서 스캔된 `outputs/` 산출물 목록 등. |
+
+메트릭·재현 필드만 필요하면 **`v15_summary.json`**을 우선하고, 피어리뷰·제출 증적용 텍스트는 **`run.log`**를 첨부한다.
+
+---
+
+## 10. 산출물 (`outputs/` 직하)
 
 | 파일 | 설명 |
 |------|------|
@@ -161,7 +174,7 @@ py -3 .\scripts\indoor_fusion_pipeline_v15.py --no-plots
 
 ---
 
-## 10. V13-fix와의 차이(요약)
+## 11. V13-fix와의 차이(요약)
 
 | 항목 | V13-fix | V15(기본) |
 |------|---------|-----------|
@@ -175,7 +188,7 @@ py -3 .\scripts\indoor_fusion_pipeline_v15.py --no-plots
 
 ---
 
-## 11. 보고 시 주의
+## 12. 보고 시 주의
 
 - Composite 목적으로 인해 **Train CV 최적점과 검증 Step A 불일치**가 날 수 있다.
 - **`V15_OPTUNA_TRIALS`가 작으면** 분산·우연 의존도가 커진다.

@@ -2,9 +2,11 @@
 
 UWB 6채널·Wi‑Fi 6채널의 **거리 중앙값·분산**으로부터 실내 **2D 위치**를 추정하는 실험 코드 모음이다. 초기에는 **분산 가중 Huber 삼변측량**과 **K‑NN 잔차 보정**에서 출발하였고, 이후 **경계 제약·다단계 그리드·Pure Wi‑Fi·Wi‑Fi 가이드 UWB 기하 게이팅·IRLS·Train K‑Fold / Optuna 무결 튜닝**까지 단계적으로 확장하였다.
 
-**팀 명세상 최종 제출·보고용 권장 파이프라인은 V13**이다. (`docs/V13_FINAL_PIPELINE_SPEC.md`, `outputs/v13_summary.json`)
+**팀 최종 제출·보고용 파이프라인은 V15**이다. (`docs/V15_PIPELINE_SPEC.md`, `outputs/v15_summary.json`)  
+실행 시 콘솔 출력은 자동으로 **`outputs/run_reports/indoor_fusion_pipeline_v15_<UTC>/run.log`** 에도 기록된다(`script_run_io` Tee).
 
-- **V15 (`indoor_fusion_pipeline_v15.py`)**: v12 **검증튜닝 그리드 미사용**. Train K-Fold **OOF**로 UWB 게이트 τ 구간을 정하고, **`V15_TUNING_PROFILE`**(`balanced` / `defensive` / `v13_fix`)별 Optuna 탐색 박스와 **composite 또는 2단계** Train CV 목적을 쓴다. 상세는 **`docs/V15_PIPELINE_SPEC.md`**.
+- **V15 (`indoor_fusion_pipeline_v15.py`)**: v12 **검증튜닝 그리드 미사용**. Train K-Fold **OOF**로 UWB 게이트 τ 구간을 정하고, **`V15_TUNING_PROFILE`**(`balanced` / `defensive` / `v13_fix`)별 Optuna 탐색 박스와 **composite 또는 2단계** Train CV 목적을 쓴다.
+- **V13 (`indoor_fusion_pipeline_v13.py`)**: 이전에 검증 우수 성능 기준으로 **비교용·기준선** 명세가 정리되어 있다. (`docs/V13_FINAL_PIPELINE_SPEC.md`)
 - **V12 (`indoor_fusion_pipeline_v12.py`)**: 하이퍼파라미터를 **검증 RMSE**로 고른다. **검증 라벨이 튜닝에 직접 들어가므로 데이터 누수(낙관적 편향)**가 있다. **레거시·비교용**으로만 쓰는 것이 좋다.
 - **V12 Turbo (`indoor_fusion_pipeline_v12_turbo.py`)**: 하이퍼는 **Train 교차검증과 Optuna(Train 목적)**만으로 선택하고, 검증 정답은 **최종 순전파·지표 1회**에만 쓰는 구성이 `outputs/v12_turbo_summary.json`의 **`integrity`** 필드에 명시되어 있다. (동일 계열의 Strict·Fast·Fast2 등은 각 스크립트·요약 JSON을 따로 확인할 것.)
 - **V14**: Turbo 골격에 팀원 **JWT** Wi‑Fi 보정·이상치 점수 등을 얹은 **실험 브랜치**이다. (`--jwt-ablation`, `--no-plots` 등)
@@ -22,7 +24,7 @@ midterm_project/
 │   └── reference/
 ├── docs/
 │   ├── V12_TURBO_PIPELINE_SPEC.md   # V12 Turbo: Phase A/B/C, Numba, Optuna, 무결성
-│   ├── V13_FINAL_PIPELINE_SPEC.md   # 최종 V13: 흐름, 실행, 선정 사유
+│   ├── V13_FINAL_PIPELINE_SPEC.md   # V13: 흐름·선정 사유(역사적 비교)
 │   └── V15_PIPELINE_SPEC.md         # V15: OOF 게이트, 탐색 프로필, 환경변수
 ├── scripts/
 │   ├── fusion_realtime_sanitize.py    # 로드·헤더 정규화·Wi‑Fi 분산 캡·Phase1 바이어스·경로 해석
@@ -43,7 +45,7 @@ midterm_project/
 │   ├── indoor_fusion_pipeline_v12_fast.py
 │   ├── indoor_fusion_pipeline_v12_fast2.py      # Step A 블렌드 + Joint Train CV
 │   ├── indoor_fusion_pipeline_v12_turbo.py    # Optuna + Numba Step B/C
-│   ├── indoor_fusion_pipeline_v13.py          # 최종 선정: Fast2류 Step A + Turbo B/C + Optuna
+│   ├── indoor_fusion_pipeline_v13.py          # Fast2류 Step A + Turbo B/C + Optuna (기준선)
 │   ├── indoor_fusion_pipeline_v13_fix.py       # Numba는 fusion_turbo_numba_core만 사용하는 변형
 │   ├── indoor_fusion_pipeline_v14.py          # Turbo + JWT(Wi‑Fi)·실험 플래그
 │   ├── indoor_fusion_pipeline_v15.py          # Train-OOF 게이트 + 프로필별 Optuna(v13_fix 재사용 헬퍼)
@@ -70,8 +72,8 @@ midterm_project/
 | V9 | `v9`, `v9_strict` | Wi‑Fi 1차 후 UWB 기하 게이트 융합; strict는 **게이트만 Train CV** |
 | V10~V11 | `v10`, `v10_optimized`, `v11` | Pure Wi‑Fi 심화; v10_opt는 UWB 융합 변형 |
 | V12 계열 | `v12`, `v12_strict`, `v12_fast`, `v12_fast2`, `v12_turbo`, `v12_strict_parallel` | 통합 융합; **`v12`는 검증 튜닝으로 데이터 누수**; **무결 튜닝 설명의 표준 예시는 `v12_turbo`**(`v12_turbo_summary.json`); 그 외 변형은 각 `*_summary.json`·CV 모드 확인 |
-| V13 | `v13`, `v13_fix` | **최종 권장**; Optuna + Train K‑Fold Step C 목적; `v13_fix`는 Numba 코어 분리 |
-| V15 | `v15` | Train-OOF 게이트 τ; `balanced`/`defensive`/`v13_fix` 탐색 프로필; composite·2단계 Optuna; 검증 1회 평가 (`V15_PIPELINE_SPEC.md`) |
+| V13 | `v13`, `v13_fix` | **기준선**; Optuna + Train K‑Fold Step C 목적; `v13_fix`는 Numba 코어 분리 |
+| V15 | `v15` | **팀 최종** — Train-OOF 게이트 τ; `balanced`/`defensive`/`v13_fix` 탐색 프로필; composite·2단계 Optuna; 검증 1회 (`V15_PIPELINE_SPEC.md`) |
 | 실험 | `v14`, `JWT` | V14: Turbo+JWT; `JWT.py`: 동일 데이터 규격 단독 평가 |
 
 ---
@@ -191,9 +193,9 @@ py -3 -m pip install pandas numpy scipy scikit-learn matplotlib openpyxl numba o
 - **요약 JSON:** `outputs/v*_summary.json`, `v*_run_summary.json`, `v13_fix_summary.json`, **`v15_summary.json`** 등. **`integrity` 또는 `objective` 필드**로 튜닝에 검증 라벨이 쓰였는지 구분한다.
 - **그리드·로그:** `v12_*_grid_phaseA.csv`, `v12_turbo_optuna_trials.csv`, `v9_uwb_kill_log.csv` 등.
 - **PNG:** CDF·오차맵 등은 스크립트·플래그에 따라 생성된다(예: `v12_cdf_steps.png`, `v9_step_cdf.png`, `v13_*_map_*.png`). 실행 후 `outputs/` 목록을 확인한다.
-- **실행 리포트(run_reports):** 모든 실행 가능한 스크립트는 `outputs/run_reports/<script>_<UTC시각>/`에 `run.log`와 `manifest.json`을 남긴다. `manifest.json`에는 `argv`, 실행시간, 종료코드, 산출물 목록(파일 크기 포함)이 들어간다.
+- **실행 리포트(run_reports):** `script_run_io`를 쓰는 스크립트(V15 등)는 실행할 때마다 **`outputs/run_reports/<스크립트명>_<UTC시각>/`** 를 만든다. **`run.log`**: 화면에 찍힌 stdout/stderr와 동일 내용 전체 Tee. **`manifest.json`**: `argv`, `cwd`, 시작 시각·경과 시간, 종료 코드, 생성된 산출물 상대경로·바이트 등.
 
-최종 수치·무결성 문구는 **`outputs/v13_summary.json`** 및 **`docs/V13_FINAL_PIPELINE_SPEC.md`** 를 우선한다.
+제출 재현 시 **무결성·수치 우선 순위**: **`outputs/v15_summary.json`**, **`docs/V15_PIPELINE_SPEC.md`**. V13 대비 참고는 `v13_summary.json`, `docs/V13_FINAL_PIPELINE_SPEC.md`.
 
 ---
 
@@ -215,7 +217,8 @@ py -3 -m pip install pandas numpy scipy scikit-learn matplotlib openpyxl numba o
 | V12 Turbo | Train CV + Optuna | **1.452** | `v12_turbo_summary.json` |
 | V12 Strict / Fast / Parallel | Train CV | **1.609** 전후 | `v12_strict_summary.json` 등 |
 | V12 Fast2 | Train CV | **1.623** | `v12_fast2_summary.json` |
-| V13 | Train CV + Optuna | **1.425** | `v13_summary.json` (팀 최종 권장) |
+| V13 | Train CV + Optuna | **1.425** | `v13_summary.json` (기준선) |
+| V15 | Train CV + Optuna (설정별) | `v15_summary.json` 참조 | **`V15_TUNING_PROFILE`** 등 재현 필수 기록됨 |
 | V9 Strict | Train CV (게이트만) | Step B **1.624** | `v9_strict_summary.json` |
 
 Pure Wi‑Fi 바닥은 V8·V9 Step A 등에서 **약 1.55 m** 전후가 반복된다. 초기 V1~V7은 버전별 CSV·콘솔로 확인한다.
@@ -230,7 +233,7 @@ Pure Wi‑Fi 바닥은 V8·V9 Step A 등에서 **약 1.55 m** 전후가 반복�
 | [docs/SPEC_v12.md](docs/SPEC_v12.md) | **V12 단독 상세** — 기본/Strict/Fast/Fast2/Turbo/Parallel + outputs 전수 해석 |
 | [docs/SPEC_v13.md](docs/SPEC_v13.md) | **V13 단독 상세** — V13/V13-fix, Optuna·grid·predictions 해석 |
 | [docs/SPEC_v14.md](docs/SPEC_v14.md) | **V14 단독 상세** — JWT/Isotonic 실험, ablation CSV 해석 |
-| [docs/V13_FINAL_PIPELINE_SPEC.md](docs/V13_FINAL_PIPELINE_SPEC.md) | V13 최종 흐름, 실행 옵션, 선정 근거 |
+| [docs/V13_FINAL_PIPELINE_SPEC.md](docs/V13_FINAL_PIPELINE_SPEC.md) | V13 기준선: 흐름·선정 근거(역사 비교용) |
 | [docs/V15_PIPELINE_SPEC.md](docs/V15_PIPELINE_SPEC.md) | V15 무결성, OOF 게이트, 탐색 프로필, 환경변수, 산출물 |
 | [docs/V12_TURBO_PIPELINE_SPEC.md](docs/V12_TURBO_PIPELINE_SPEC.md) | V12 Turbo Phase A/B/C, Numba, Optuna |
 
@@ -242,7 +245,7 @@ Pure Wi‑Fi 바닥은 V8·V9 Step A 등에서 **약 1.55 m** 전후가 반복�
 
 - **회귀 방지:** `fusion_data_audit.py` + `--no-plots` 짧은 스모크로 행 수·상한 검사.
 - **그리드 자동화:** 게이트·IRLS 임계·캘리브 카탈로그의 체계적 스윕과 표 자동 생성.
-- **CI:** 플롯 없이 Turbo/V13 한 번만 돌리는 워크플로 검토.
+- **CI:** 플롯 없이 Turbo/V15 한 번만 돌리는 워크플로 검토.
 
 ---
 
