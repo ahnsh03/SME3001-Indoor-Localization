@@ -18,3 +18,12 @@ Thumbs.db
 # Local env secrets (if any)
 .env
 .env.local
+
+# Scratch EDA (regenerate from scripts)
+final_project/_eda_inf_mat.py
+final_project/_eda_inf_mat_stats.json
+
+# Temp clones / stash (should not appear)
+_remote_check/
+_stash_midterm/
+_stash_final/

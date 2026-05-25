@@ -1,0 +1,130 @@
+{
+  "pipelines": [
+    {
+      "name": "v1",
+      "status": "ok",
+      "sec": 14.5
+    },
+    {
+      "name": "v2",
+      "status": "ok",
+      "sec": 11.44
+    },
+    {
+      "name": "v3",
+      "status": "ok",
+      "sec": 6.51
+    },
+    {
+      "name": "v4",
+      "status": "ok",
+      "sec": 4.54
+    },
+    {
+      "name": "v5",
+      "status": "ok",
+      "sec": 7.89
+    },
+    {
+      "name": "v6",
+      "status": "ok",
+      "sec": 5.69
+    },
+    {
+      "name": "v7",
+      "status": "ok",
+      "sec": 42.58
+    },
+    {
+      "name": "v8",
+      "status": "ok",
+      "sec": 7.48
+    },
+    {
+      "name": "v9",
+      "status": "ok",
+      "sec": 21.74
+    },
+    {
+      "name": "v9_strict",
+      "status": "ok",
+      "sec": 69.35
+    },
+    {
+      "name": "v10",
+      "status": "ok",
+      "sec": 121.26
+    },
+    {
+      "name": "v10_opt",
+      "status": "ok",
+      "sec": 120.91
+    },
+    {
+      "name": "v11",
+      "status": "ok",
+      "sec": 78.94
+    },
+    {
+      "name": "v12",
+      "status": "ok",
+      "sec": 130.95
+    },
+    {
+      "name": "v12_strict",
+      "status": "ok",
+      "sec": 187.58
+    },
+    {
+      "name": "v12_strict_parallel",
+      "status": "ok",
+      "sec": 69.88
+    },
+    {
+      "name": "v12_fast",
+      "status": "ok",
+      "sec": 15.88
+    },
+    {
+      "name": "v12_fast2",
+      "status": "ok",
+      "sec": 374.51
+    },
+    {
+      "name": "v12_turbo",
+      "status": "ok",
+      "sec": 7.46
+    },
+    {
+      "name": "v13",
+      "status": "ok",
+      "sec": 85.22
+    },
+    {
+      "name": "v13_fix",
+      "status": "ok",
+      "sec": 102.34
+    },
+    {
+      "name": "v14",
+      "status": "ok",
+      "sec": 215.33
+    },
+    {
+      "name": "v15",
+      "status": "ok",
+      "sec": 135.8
+    },
+    {
+      "name": "v16",
+      "status": "ok",
+      "sec": 138.7
+    },
+    {
+      "name": "JWT",
+      "status": "ok",
+      "sec": 14.42
+    }
+  ],
+  "root": "C:\\Users\\ahnsh\\OneDrive\\Desktop\\26-1 Smart Mobility Engineering Experiment 2\\project\\midterm_project"
+}

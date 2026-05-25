@@ -1,0 +1,19 @@
+﻿version,rmse_m,description,tuning
+V13-fix C,1.416,Numba 분리,무결
+V12 Turbo C,1.441,Optuna Train CV,무결
+V13 Step C,1.444,Optuna Train CV,무결
+V12 Step C,1.445,검증 그리드,검증튜닝
+V15 HardGate,1.462,최종 OOF+Optuna,무결
+V9 Step B,1.467,WiFi가이드+게이트,검증튜닝
+V3 Wi-Fi,1.488,Wi-Fi만,바닥
+V8 Wi-Fi,1.554,애블레이션,바닥
+V11 Step C,1.555,IRLS,검증튜닝
+V9 strict B,1.624,게이트 Train CV,무결
+V10 Step D,1.739,Pure WiFi+KNN,검증KNN
+V16 HardGate,1.827,목적함수 실험,무결
+V1 Wi-Fi,2.036,Wi-Fi만,바닥
+V14 Step C,2.228,JWT 실험,무결
+V8 Hybrid,3.508,애블레이션,실패
+V3 Hybrid B,4.394,UWB 융합,실패
+V8 UWB,7.11,애블레이션,실패
+V1 융합,7.307,초기 KNN+융합,실패
