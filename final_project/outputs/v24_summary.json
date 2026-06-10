@@ -1,0 +1,83 @@
+{
+  "version": "v24",
+  "description": "v17 + MLP 학습 시 d_hat 노이즈 증강",
+  "config": {
+    "loss": "huber",
+    "huber_f_scale": 1.0,
+    "calib": "isotonic_mlp",
+    "gate": false,
+    "gate_tau": null,
+    "top_k": null,
+    "weight_gamma": 1.0,
+    "asym_pos_weight": 1.0,
+    "pos_blend_weight": null
+  },
+  "cv": {
+    "n_splits": 5,
+    "seed": 42
+  },
+  "oof_position": {
+    "rmse_m": 9.07389004162895,
+    "mae_m": 7.640699247474335,
+    "median_m": 6.919825784998443,
+    "p90_m": 12.439930375756592,
+    "max_m": 59.917291857258625,
+    "n": 700
+  },
+  "oof_stage_position": {
+    "after_raw_trilat": {
+      "rmse_m": 13.80479592791749,
+      "mae_m": 9.603205000864532,
+      "median_m": 7.779189121385997,
+      "p90_m": 20.050281903850763,
+      "max_m": 65.24801582175434,
+      "n": 700
+    },
+    "after_main_trilat": {
+      "rmse_m": 9.07389004162895,
+      "mae_m": 7.640699247474335,
+      "median_m": 6.919825784998443,
+      "p90_m": 12.439930375756592,
+      "max_m": 59.917291857258625,
+      "n": 700
+    }
+  },
+  "oof_dist_mae_after_calib_mean_m": 7.102605299832677,
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.814728536988229,
+      "val_dist_mae_after_calib_m": 7.004313378937073
+    },
+    {
+      "fold": 1,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.139402141657303,
+      "val_dist_mae_after_calib_m": 6.94410038922031
+    },
+    {
+      "fold": 2,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.400963335613772,
+      "val_dist_mae_after_calib_m": 7.365317414614283
+    },
+    {
+      "fold": 3,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.58497155123819,
+      "val_dist_mae_after_calib_m": 7.1654358978676145
+    },
+    {
+      "fold": 4,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 10.278533351618387,
+      "val_dist_mae_after_calib_m": 7.033859418524106
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+[run] id=run_all_versions_20260525T065609Z cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project
+
+=== v12: v06 + 반경 3구간 Isotonic (near/mid/far) ===
+OOF RMSE = 10.229 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 10.229 m
+
+Best: v12 RMSE=10.229 m
+Wrote C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project\outputs\version_catalog.json

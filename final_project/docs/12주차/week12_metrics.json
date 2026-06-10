@@ -1,0 +1,35 @@
+{
+  "week": 12,
+  "title": "기말 파이프라인 기초 구축 (EDA → v17)",
+  "production_version": "v17",
+  "cv": { "n_splits": 5, "seed": 42 },
+  "eda": {
+    "N_train": 700,
+    "corr_dtrue_dhat": 0.815,
+    "resid_mean_m": 15.9,
+    "spatial_span_m": { "x": 120, "y": 60 }
+  },
+  "versions": {
+    "v00": 22.42,
+    "v01": 16.71,
+    "v02": 12.40,
+    "v06": 10.51,
+    "v11": 9.77,
+    "v16": 9.28,
+    "v17": 8.90,
+    "v13": 10.81,
+    "v14": 10.33,
+    "v18": 38.06
+  },
+  "v17_oof": {
+    "rmse_m": 8.90,
+    "median_m": 6.88,
+    "fold_rmse_m": [8.35, 8.47, 8.42, 8.58, 8.12]
+  },
+  "spatial_zones_v17": {
+    "near": 6.56,
+    "mid": 8.68,
+    "far": 9.58
+  },
+  "rejected": ["v04_hardgate", "v14_asym_alone", "v18_posmlp"]
+}

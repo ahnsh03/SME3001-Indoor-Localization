@@ -1,0 +1,82 @@
+{
+  "version": "v13",
+  "description": "Huber + PyTorch MLP 거리 보정 (18→64→64→18 residual)",
+  "config": {
+    "loss": "huber",
+    "huber_f_scale": 1.0,
+    "calib": "mlp_dist",
+    "gate": false,
+    "gate_tau": null,
+    "top_k": null,
+    "weight_gamma": null,
+    "asym_pos_weight": 1.0
+  },
+  "cv": {
+    "n_splits": 5,
+    "seed": 42
+  },
+  "oof_position": {
+    "rmse_m": 10.811673597045626,
+    "mae_m": 9.598213561421343,
+    "median_m": 9.041029856317607,
+    "p90_m": 15.146690376446683,
+    "max_m": 46.184209217999054,
+    "n": 700
+  },
+  "oof_stage_position": {
+    "after_raw_trilat": {
+      "rmse_m": 16.705466638762623,
+      "mae_m": 13.530983577036144,
+      "median_m": 12.231705576738324,
+      "p90_m": 25.093571458066325,
+      "max_m": 67.06544532944989,
+      "n": 700
+    },
+    "after_main_trilat": {
+      "rmse_m": 10.811673597045626,
+      "mae_m": 9.598213561421344,
+      "median_m": 9.041029856317607,
+      "p90_m": 15.146690376446683,
+      "max_m": 46.184209217999054,
+      "n": 700
+    }
+  },
+  "oof_dist_mae_after_calib_mean_m": 12.244777247400272,
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 11.059295119947464,
+      "val_dist_mae_after_calib_m": 12.31342381480633
+    },
+    {
+      "fold": 1,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.752909551193682,
+      "val_dist_mae_after_calib_m": 11.861373483951791
+    },
+    {
+      "fold": 2,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 11.900523863954206,
+      "val_dist_mae_after_calib_m": 12.315192330865809
+    },
+    {
+      "fold": 3,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 10.608454020670429,
+      "val_dist_mae_after_calib_m": 12.172245036792306
+    },
+    {
+      "fold": 4,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 10.624142865953313,
+      "val_dist_mae_after_calib_m": 12.56165157058512
+    }
+  ]
+}

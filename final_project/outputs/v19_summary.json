@@ -1,0 +1,83 @@
+{
+  "version": "v19",
+  "description": "HistGradientBoosting BS별 거리 보정",
+  "config": {
+    "loss": "huber",
+    "huber_f_scale": 1.0,
+    "calib": "gbr_dist",
+    "gate": false,
+    "gate_tau": null,
+    "top_k": null,
+    "weight_gamma": null,
+    "asym_pos_weight": 1.0,
+    "pos_blend_weight": null
+  },
+  "cv": {
+    "n_splits": 5,
+    "seed": 42
+  },
+  "oof_position": {
+    "rmse_m": 11.099232048288352,
+    "mae_m": 8.879149747431853,
+    "median_m": 7.263475849655059,
+    "p90_m": 16.45371093308525,
+    "max_m": 62.395156144614056,
+    "n": 700
+  },
+  "oof_stage_position": {
+    "after_raw_trilat": {
+      "rmse_m": 16.301145207441074,
+      "mae_m": 12.88535540040217,
+      "median_m": 11.485234335439252,
+      "p90_m": 24.636471551746965,
+      "max_m": 63.2102668557142,
+      "n": 700
+    },
+    "after_main_trilat": {
+      "rmse_m": 11.099232048288352,
+      "mae_m": 8.879149747431853,
+      "median_m": 7.263475849655059,
+      "p90_m": 16.45371093308525,
+      "max_m": 62.395156144614056,
+      "n": 700
+    }
+  },
+  "oof_dist_mae_after_calib_mean_m": 9.985101110475936,
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 11.402352291144734,
+      "val_dist_mae_after_calib_m": 9.89925155740324
+    },
+    {
+      "fold": 1,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.677646854115086,
+      "val_dist_mae_after_calib_m": 9.50541435837848
+    },
+    {
+      "fold": 2,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 11.302979154742061,
+      "val_dist_mae_after_calib_m": 10.245451771562012
+    },
+    {
+      "fold": 3,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.458186957710106,
+      "val_dist_mae_after_calib_m": 9.974177462280648
+    },
+    {
+      "fold": 4,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 13.231766155917654,
+      "val_dist_mae_after_calib_m": 10.301210402755302
+    }
+  ]
+}

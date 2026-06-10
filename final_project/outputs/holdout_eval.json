@@ -1,0 +1,26 @@
+{
+  "n_train": 560,
+  "n_holdout": 140,
+  "versions": [
+    {
+      "version": "v16",
+      "holdout_rmse_m": 9.307119047071247
+    },
+    {
+      "version": "v17",
+      "holdout_rmse_m": 9.307119047071247
+    },
+    {
+      "version": "v18",
+      "holdout_rmse_m": 37.81209711166921
+    },
+    {
+      "version": "v19",
+      "holdout_rmse_m": 11.882458146484245
+    },
+    {
+      "version": "v20",
+      "holdout_rmse_m": 9.307119047071247
+    }
+  ]
+}

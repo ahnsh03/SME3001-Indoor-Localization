@@ -1,0 +1,29 @@
+[run] id=run_all_versions_20260525T062413Z cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project
+
+=== v00: B0: LS 삼변, 보정 없음 ===
+OOF RMSE = 22.417 m
+  stage after_raw_trilat: RMSE 22.417 m (diagnostic)
+  stage after_main_trilat: RMSE 22.417 m (diagnostic)
+
+=== v01: B1: Huber 삼변, 보정 없음 ===
+OOF RMSE = 16.705 m
+  stage after_raw_trilat: RMSE 16.705 m (diagnostic)
+  stage after_main_trilat: RMSE 16.705 m (diagnostic)
+
+=== v02: Huber + 전역 아핀 보정 (α,β 2개) ===
+OOF RMSE = 12.404 m
+  stage after_raw_trilat: RMSE 16.705 m (diagnostic)
+  stage after_main_trilat: RMSE 12.404 m (diagnostic)
+
+=== v03: Huber + BS별 아핀 보정 (α_k,β_k 36개) ===
+OOF RMSE = 12.517 m
+  stage after_raw_trilat: RMSE 16.705 m (diagnostic)
+  stage after_main_trilat: RMSE 12.517 m (diagnostic)
+
+=== v04: v03 + HardGate (τ는 CV/OOF로 선택) ===
+OOF RMSE = 12.776 m
+  stage after_raw_trilat: RMSE 16.705 m (diagnostic)
+  stage after_main_trilat: RMSE 12.517 m (diagnostic)
+  stage after_gate: RMSE 12.776 m (diagnostic)
+
+Wrote C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project\outputs\version_catalog.json

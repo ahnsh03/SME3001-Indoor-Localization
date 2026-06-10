@@ -1,0 +1,26 @@
+{
+  "goal": "G2_good_indoor",
+  "target_rmse_m": 7.0,
+  "best": {
+    "version": "v17",
+    "cv_rmse_m": 8.900379887541963,
+    "goal_met": false
+  },
+  "versions": [
+    {
+      "version": "v16",
+      "cv_rmse_m": 9.276857851682058,
+      "goal_met": false
+    },
+    {
+      "version": "v17",
+      "cv_rmse_m": 8.900379887541963,
+      "goal_met": false
+    },
+    {
+      "version": "v20",
+      "cv_rmse_m": 10.191503018175528,
+      "goal_met": false
+    }
+  ]
+}

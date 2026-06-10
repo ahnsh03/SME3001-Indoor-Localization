@@ -1,0 +1,83 @@
+{
+  "version": "v21",
+  "description": "v17 + min(d_hat) 3구간 Isotonic (far 전용 보정)",
+  "config": {
+    "loss": "huber",
+    "huber_f_scale": 1.0,
+    "calib": "isotonic_mlp_mindist",
+    "gate": false,
+    "gate_tau": null,
+    "top_k": null,
+    "weight_gamma": 1.0,
+    "asym_pos_weight": 1.0,
+    "pos_blend_weight": null
+  },
+  "cv": {
+    "n_splits": 5,
+    "seed": 42
+  },
+  "oof_position": {
+    "rmse_m": 8.91366763216516,
+    "mae_m": 7.657889188511009,
+    "median_m": 7.088334187422863,
+    "p90_m": 12.577900234642499,
+    "max_m": 59.196288668753326,
+    "n": 700
+  },
+  "oof_stage_position": {
+    "after_raw_trilat": {
+      "rmse_m": 13.80479592791749,
+      "mae_m": 9.603205000864532,
+      "median_m": 7.779189121385997,
+      "p90_m": 20.050281903850763,
+      "max_m": 65.24801582175434,
+      "n": 700
+    },
+    "after_main_trilat": {
+      "rmse_m": 8.91366763216516,
+      "mae_m": 7.657889188511008,
+      "median_m": 7.088334187422863,
+      "p90_m": 12.577900234642499,
+      "max_m": 59.196288668753326,
+      "n": 700
+    }
+  },
+  "oof_dist_mae_after_calib_mean_m": 7.375221177794037,
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.231708354633763,
+      "val_dist_mae_after_calib_m": 7.335665170890985
+    },
+    {
+      "fold": 1,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.109966245598704,
+      "val_dist_mae_after_calib_m": 7.14411772717802
+    },
+    {
+      "fold": 2,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.588517861937618,
+      "val_dist_mae_after_calib_m": 7.560875767668157
+    },
+    {
+      "fold": 3,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.360286842728456,
+      "val_dist_mae_after_calib_m": 7.415263029276694
+    },
+    {
+      "fold": 4,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 10.094588028327417,
+      "val_dist_mae_after_calib_m": 7.4201841939563336
+    }
+  ]
+}

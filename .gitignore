@@ -23,6 +23,12 @@ Thumbs.db
 final_project/_eda_inf_mat.py
 final_project/_eda_inf_mat_stats.json
 
+# Large local data & separate submit-repo metadata
+*.mat
+# Course submission copy (separate repo: SME-Experiment2-FinalProject-12223637)
+final_project/submit/
+final_project/data/
+
 # Temp clones / stash (should not appear)
 _remote_check/
 _stash_midterm/

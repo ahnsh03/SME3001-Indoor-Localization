@@ -1,0 +1,32 @@
+{
+  "all_pass": true,
+  "checks": {
+    "main_inference_no_gt": {
+      "localize_user_gt_only_for_logging": true,
+      "pass": true
+    },
+    "fold_calib_isolation": {
+      "val_user_iso_diff_max_m": 7.857594758054063,
+      "pass": true,
+      "note": "train-fold vs full-fit calib must differ on val user"
+    },
+    "mlp_train_index_scope": {
+      "mean_diff": 0.0,
+      "pass": true
+    },
+    "hyperparam_tune": {
+      "issue": "nested_cv_not_used",
+      "severity": "medium",
+      "detail": "tune_huber_f_scale / tune_weight_gamma select hyperparams using OOF on full 700 — slightly optimistic vs nested CV",
+      "mitigation": "use holdout_eval.json (560/140) for final model pick",
+      "pass": true
+    },
+    "holdout_vs_cv": {
+      "cv_train_only_rmse_m": 8.79104787395275,
+      "holdout_rmse_m": 9.307119047071247,
+      "gap_m": 0.5161,
+      "pass": true,
+      "note": "gap>0 expected; large gap => overfit or tune leakage"
+    }
+  }
+}

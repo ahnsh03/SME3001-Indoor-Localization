@@ -1,0 +1,14 @@
+{
+  "n_pairs": 12600,
+  "mean_m": 15.933986887622899,
+  "median_m": 10.145235129573907,
+  "std_m": 20.191442265379912,
+  "skew": 2.2307283484209335,
+  "kurtosis": 9.17123720253808,
+  "fraction_positive": 0.8137301587301587,
+  "p90_m": 41.26370926819302,
+  "p99_m": 86.483941528285,
+  "ratio_median_dhat_over_dtrue": 1.1893429253130159,
+  "hypothesis": "InF-DH NLOS positive bias (d_hat > d_true)",
+  "hypothesis_supported": true
+}

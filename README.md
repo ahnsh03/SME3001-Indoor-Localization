@@ -5,7 +5,7 @@
 | 디렉터리 | 내용 | 실행 루트 |
 |----------|------|-----------|
 | [`midterm_project/`](midterm_project/) | Wi‑Fi & UWB 융합 실내 측위 (V1~V16 파이프라인) | `midterm_project/` |
-| [`final_project/`](final_project/) | 셀룰러 RTT 기반 2D 측위 (기말 제출: `main.py`, `train.py`, `report.md`) | `final_project/` |
+| [`final_project/`](final_project/) | 셀룰러 RTT 기반 2D 측위 (개발·실험, production **v30**) | `final_project/` |
 
 ## 빠른 시작
 
@@ -41,7 +41,7 @@ py -3 main.py   # data/InF_DH_FR1.mat 포함 (README 참고)
     ├── data/           # InF_DH_FR1.mat
     ├── docs/           # 11주차 연구 계획 보고서
     ├── scripts/
-    └── (제출용 main.py, train.py, report.md — 개발 중)
+    └── scripts/, lib/, outputs/  (제출본은 별도 repo)
 ```
 
 ## Git
@@ -51,4 +51,6 @@ origin  https://github.com/ahnsh03/SME3001-Indoor-Localization.git
 branch  main
 ```
 
-기존 GitHub 이력은 **루트에 있던 midterm**을 `midterm_project/`로 옮긴 모노레포 구조로 이어집니다. `final_project/`는 기말 개발용으로 추가됩니다.
+기존 GitHub 이력은 **루트에 있던 midterm**을 `midterm_project/`로 옮긴 모노레포 구조로 이어집니다.
+
+**기말 과제 제출 저장소 (별도):** [SME-Experiment2-FinalProject-12223637](https://github.com/ahnsh03/SME-Experiment2-FinalProject-12223637)

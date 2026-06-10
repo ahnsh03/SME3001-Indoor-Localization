@@ -1,0 +1,9 @@
+[run] id=run_all_versions_20260525T071522Z cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project
+
+=== v15: v06 + Isotonic 후 shortest-k BS만 삼변 (k CV) ===
+OOF RMSE = 10.508 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 10.508 m
+
+Best: v15 RMSE=10.508 m
+Wrote C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project\outputs\version_catalog.json

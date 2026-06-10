@@ -1,0 +1,30 @@
+{
+  "versions": [
+    {
+      "version": "v13",
+      "cv_rmse_m": 10.811673597045626,
+      "calib": "mlp_dist",
+      "huber_f_scale": 1.0,
+      "weight_gamma": null,
+      "gate": false
+    },
+    {
+      "version": "v16",
+      "cv_rmse_m": 9.384819834128653,
+      "calib": "isotonic_mlp",
+      "huber_f_scale": 1.0,
+      "weight_gamma": null,
+      "gate": false,
+      "delta_vs_prev_m": -1.4269
+    }
+  ],
+  "best": {
+    "version": "v16",
+    "cv_rmse_m": 9.384819834128653,
+    "calib": "isotonic_mlp",
+    "huber_f_scale": 1.0,
+    "weight_gamma": null,
+    "gate": false,
+    "delta_vs_prev_m": -1.4269
+  }
+}

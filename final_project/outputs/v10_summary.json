@@ -1,0 +1,119 @@
+{
+  "version": "v10",
+  "description": "v06 + Huber f_scale CV 튜닝 (f_scale=0.50)",
+  "config": {
+    "loss": "huber",
+    "huber_f_scale": 0.5,
+    "calib": "per_bs_isotonic",
+    "gate": false,
+    "gate_tau": null,
+    "top_k": null,
+    "weight_gamma": null
+  },
+  "cv": {
+    "n_splits": 5,
+    "seed": 42
+  },
+  "oof_position": {
+    "rmse_m": 10.146371789321247,
+    "mae_m": 8.520769784256398,
+    "median_m": 7.431473555123324,
+    "p90_m": 15.325997946919642,
+    "max_m": 45.76281667257466,
+    "n": 700
+  },
+  "oof_stage_position": {
+    "after_raw_trilat": {
+      "rmse_m": 17.335561918468155,
+      "mae_m": 13.83646924093388,
+      "median_m": 12.537532730011069,
+      "p90_m": 25.30486229385593,
+      "max_m": 67.85458276047892,
+      "n": 700
+    },
+    "after_main_trilat": {
+      "rmse_m": 10.146371789321247,
+      "mae_m": 8.520769784256398,
+      "median_m": 7.431473555123324,
+      "p90_m": 15.325997946919642,
+      "max_m": 45.76281667257466,
+      "n": 700
+    }
+  },
+  "oof_dist_mae_after_calib_mean_m": 9.854864022377951,
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 10.113672628418474,
+      "val_dist_mae_after_calib_m": 9.765927500147544
+    },
+    {
+      "fold": 1,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.702356285571124,
+      "val_dist_mae_after_calib_m": 9.403001914760779
+    },
+    {
+      "fold": 2,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 10.606210169503145,
+      "val_dist_mae_after_calib_m": 10.122865849246223
+    },
+    {
+      "fold": 3,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.184632647344225,
+      "val_dist_mae_after_calib_m": 9.8444707642709
+    },
+    {
+      "fold": 4,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 11.0214808389052,
+      "val_dist_mae_after_calib_m": 10.138054083464311
+    }
+  ],
+  "f_scale_tuning": {
+    "grid": [
+      {
+        "huber_f_scale": 0.5,
+        "cv_rmse_m": 10.146371789321247
+      },
+      {
+        "huber_f_scale": 0.7,
+        "cv_rmse_m": 10.588991184255896
+      },
+      {
+        "huber_f_scale": 0.8,
+        "cv_rmse_m": 10.661029190925733
+      },
+      {
+        "huber_f_scale": 1.0,
+        "cv_rmse_m": 10.508105142808283
+      },
+      {
+        "huber_f_scale": 1.2,
+        "cv_rmse_m": 10.488080130737488
+      },
+      {
+        "huber_f_scale": 1.35,
+        "cv_rmse_m": 10.645492872794287
+      },
+      {
+        "huber_f_scale": 1.5,
+        "cv_rmse_m": 10.649796141815868
+      },
+      {
+        "huber_f_scale": 2.0,
+        "cv_rmse_m": 10.79251174258459
+      }
+    ],
+    "best_huber_f_scale": 0.5,
+    "best_cv_rmse_m": 10.146371789321247
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "n_user": 700,
+  "corr_dtrue_dhat": 0.8148136402355072,
+  "spearman_mean": 0.8155009668379437,
+  "resid_mean_m": 15.933986887622899,
+  "resid_median_m": 10.145235129573907,
+  "ratio_median_dhat_dtrue": 1.1893429253130159,
+  "global_affine": {
+    "alpha": 0.6066699822373112,
+    "beta": 9.172963409130952
+  },
+  "huber_rmse_raw_m": 16.705466638762626,
+  "huber_rmse_global_affine_m": 12.29068255369443,
+  "huber_rmse_per_bs_quad_fullfit_m": 11.417441685261203,
+  "regional_rmse": [
+    {
+      "zone": "near",
+      "n": 71,
+      "huber_raw_rmse_m": 14.27564243447571,
+      "huber_global_calib_rmse_m": 7.405001969053007
+    },
+    {
+      "zone": "mid",
+      "n": 193,
+      "huber_raw_rmse_m": 15.229355127067235,
+      "huber_global_calib_rmse_m": 9.074559003806092
+    },
+    {
+      "zone": "far",
+      "n": 436,
+      "huber_raw_rmse_m": 17.669126430739475,
+      "huber_global_calib_rmse_m": 14.04092197701586
+    }
+  ]
+}

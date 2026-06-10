@@ -1,0 +1,91 @@
+{
+  "version": "v34",
+  "description": "v25 + far UE 2차 위치 아핀",
+  "config": {
+    "loss": "huber",
+    "huber_f_scale": 1.0,
+    "calib": "isotonic_mlp",
+    "gate": false,
+    "gate_tau": null,
+    "top_k": null,
+    "weight_gamma": 1.0,
+    "asym_pos_weight": 1.0,
+    "pos_blend_weight": null
+  },
+  "cv": {
+    "n_splits": 5,
+    "seed": 42
+  },
+  "oof_position": {
+    "rmse_m": 8.762096454144546,
+    "mae_m": 7.290369634407345,
+    "median_m": 6.655238919870845,
+    "p90_m": 11.98209595854843,
+    "max_m": 59.12972004957894,
+    "n": 700
+  },
+  "oof_stage_position": {
+    "after_raw_trilat": {
+      "rmse_m": 13.80479592791749,
+      "mae_m": 9.603205000864532,
+      "median_m": 7.779189121385997,
+      "p90_m": 20.050281903850763,
+      "max_m": 65.24801582175434,
+      "n": 700
+    },
+    "after_main_trilat": {
+      "rmse_m": 8.900379887541963,
+      "mae_m": 7.529711165933288,
+      "median_m": 6.877697556491725,
+      "p90_m": 12.083000191571543,
+      "max_m": 58.25218354161712,
+      "n": 700
+    },
+    "after_pos_affine": {
+      "rmse_m": 8.762096454144544,
+      "mae_m": 7.290369634407345,
+      "median_m": 6.655238919870845,
+      "p90_m": 11.98209595854843,
+      "max_m": 59.12972004957894,
+      "n": 700
+    }
+  },
+  "oof_dist_mae_after_calib_mean_m": 7.109590555557699,
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.667700793833637,
+      "val_dist_mae_after_calib_m": 7.045431208998236
+    },
+    {
+      "fold": 1,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 7.8340155125311135,
+      "val_dist_mae_after_calib_m": 6.9528988031840155
+    },
+    {
+      "fold": 2,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.959852102278811,
+      "val_dist_mae_after_calib_m": 7.3639301749697195
+    },
+    {
+      "fold": 3,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.07554737929493,
+      "val_dist_mae_after_calib_m": 7.159212491980701
+    },
+    {
+      "fold": 4,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 10.09343450400865,
+      "val_dist_mae_after_calib_m": 7.026480098655827
+    }
+  ]
+}

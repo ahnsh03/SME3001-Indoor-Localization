@@ -1,0 +1,8 @@
+[run] id=run_all_versions_20260525T071406Z cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project
+
+=== v14: v06 + NLOS 비대칭 Huber (pred>d_obs 강한 penalty, CV) ===
+OOF RMSE = 10.327 m
+  stage after_raw_trilat: RMSE 12.900 m
+  stage after_main_trilat: RMSE 10.327 m
+
+=== v15: v06 + Isotonic 후 shortest-k BS만 삼변 (k CV) ===

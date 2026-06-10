@@ -1,0 +1,59 @@
+{
+  "space": {
+    "half_extent_m": {
+      "x": 60.0,
+      "y": 30.0
+    },
+    "total_span_m": {
+      "x": 120.0,
+      "y": 60.0
+    },
+    "bounds_m": {
+      "x": [
+        -62.0,
+        62.0
+      ],
+      "y": [
+        -32.0,
+        32.0
+      ]
+    },
+    "measured_ue_span_m": {
+      "x": 119.98953694316958,
+      "y": 59.68253892101819
+    },
+    "measured_ue_half_extent_m": {
+      "x": 59.9966403134389,
+      "y": 29.928620507749304
+    },
+    "measured_bs_span_m": {
+      "x": 100.0,
+      "y": 40.0
+    }
+  },
+  "note": "Design: ±60m x ±30m (total 120x60m). Bounds: lib/spatial.py",
+  "tiers": {
+    "G0_baseline": {
+      "rmse_m": 15.0,
+      "description": "Huber raw 수준 이하"
+    },
+    "G1_course_pass": {
+      "rmse_m": 10.0,
+      "p90_m": 18.0,
+      "description": "기말 합격선 — CV OOF"
+    },
+    "G2_good_indoor": {
+      "rmse_m": 7.0,
+      "median_m": 5.5,
+      "description": "대각선 ~5% 오차 (합성 NLOS 데이터 현실적 상한)"
+    },
+    "G3_stretch": {
+      "rmse_m": 5.0,
+      "description": "UWB급 — 본 데이터(+16m bias)로는 매우 어려움"
+    }
+  },
+  "current_best": {
+    "version": "v16",
+    "cv_oof_rmse_m": 9.384819834128653
+  }
+}

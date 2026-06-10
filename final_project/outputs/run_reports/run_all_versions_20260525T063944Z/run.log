@@ -1,0 +1,19 @@
+[run] id=run_all_versions_20260525T063944Z cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project
+
+=== v05: Huber + BS별 2차 보정 (a·d + b·d² + c) ===
+OOF RMSE = 11.563 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 11.563 m
+
+=== v06: Huber + BS별 Isotonic (단조) 보정 ===
+OOF RMSE = 10.508 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 10.508 m
+
+=== v09: v05 + Huber f_scale CV 튜닝 ===
+OOF RMSE = 11.478 m
+  stage after_raw_trilat: RMSE 16.865 m
+  stage after_main_trilat: RMSE 11.478 m
+
+Best: v06 RMSE=10.508 m
+Wrote C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project\outputs\version_catalog.json

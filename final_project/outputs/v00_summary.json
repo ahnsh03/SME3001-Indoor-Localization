@@ -1,0 +1,81 @@
+{
+  "version": "v00",
+  "description": "B0: LS 삼변, 보정 없음",
+  "config": {
+    "loss": "linear",
+    "huber_f_scale": 1.0,
+    "calib": "none",
+    "gate": false,
+    "gate_tau": null,
+    "top_k": null,
+    "weight_gamma": null
+  },
+  "cv": {
+    "n_splits": 5,
+    "seed": 42
+  },
+  "oof_position": {
+    "rmse_m": 22.41673108189177,
+    "mae_m": 20.60808533543424,
+    "median_m": 19.13712936518538,
+    "p90_m": 30.79989387948455,
+    "max_m": 68.43291539683594,
+    "n": 700
+  },
+  "oof_stage_position": {
+    "after_raw_trilat": {
+      "rmse_m": 22.41673108189177,
+      "mae_m": 20.60808533543424,
+      "median_m": 19.13712936518538,
+      "p90_m": 30.79989387948455,
+      "max_m": 68.43291539683594,
+      "n": 700
+    },
+    "after_main_trilat": {
+      "rmse_m": 22.41673108189177,
+      "mae_m": 20.60808533543424,
+      "median_m": 19.13712936518538,
+      "p90_m": 30.79989387948455,
+      "max_m": 68.43291539683594,
+      "n": 700
+    }
+  },
+  "oof_dist_mae_after_calib_mean_m": 16.167718701382817,
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 22.765484085896112,
+      "val_dist_mae_after_calib_m": 16.330810395578197
+    },
+    {
+      "fold": 1,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 19.754374911156173,
+      "val_dist_mae_after_calib_m": 15.443601081713119
+    },
+    {
+      "fold": 2,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 23.543711006670613,
+      "val_dist_mae_after_calib_m": 16.28171513310341
+    },
+    {
+      "fold": 3,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 22.241540221480303,
+      "val_dist_mae_after_calib_m": 15.650345479467985
+    },
+    {
+      "fold": 4,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 23.55958677065893,
+      "val_dist_mae_after_calib_m": 17.132121417051362
+    }
+  ]
+}

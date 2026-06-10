@@ -1,0 +1,14 @@
+[run] id=run_all_versions_20260525T071653Z cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project
+
+=== v13: Huber + PyTorch MLP 거리 보정 (18→64→64→18 residual) ===
+OOF RMSE = 10.812 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 10.812 m
+
+=== v16: Isotonic + MLP 잔차 보정 (2단계 학습) ===
+OOF RMSE = 9.385 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 9.385 m
+
+Best: v16 RMSE=9.385 m
+Wrote C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project\outputs\version_catalog.json

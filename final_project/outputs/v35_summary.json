@@ -1,0 +1,91 @@
+{
+  "version": "v35",
+  "description": "v21 mindist Iso+MLP + v25 아핀",
+  "config": {
+    "loss": "huber",
+    "huber_f_scale": 1.0,
+    "calib": "isotonic_mlp_mindist",
+    "gate": false,
+    "gate_tau": null,
+    "top_k": null,
+    "weight_gamma": 1.0,
+    "asym_pos_weight": 1.0,
+    "pos_blend_weight": null
+  },
+  "cv": {
+    "n_splits": 5,
+    "seed": 42
+  },
+  "oof_position": {
+    "rmse_m": 8.749626062202987,
+    "mae_m": 7.386133571519202,
+    "median_m": 6.700925725984494,
+    "p90_m": 12.762164354679804,
+    "max_m": 60.6019260726283,
+    "n": 700
+  },
+  "oof_stage_position": {
+    "after_raw_trilat": {
+      "rmse_m": 13.80479592791749,
+      "mae_m": 9.603205000864532,
+      "median_m": 7.779189121385997,
+      "p90_m": 20.050281903850763,
+      "max_m": 65.24801582175434,
+      "n": 700
+    },
+    "after_main_trilat": {
+      "rmse_m": 8.91366763216516,
+      "mae_m": 7.657889188511008,
+      "median_m": 7.088334187422863,
+      "p90_m": 12.577900234642499,
+      "max_m": 59.196288668753326,
+      "n": 700
+    },
+    "after_pos_affine": {
+      "rmse_m": 8.749626062202987,
+      "mae_m": 7.386133571519202,
+      "median_m": 6.700925725984494,
+      "p90_m": 12.762164354679804,
+      "max_m": 60.6019260726283,
+      "n": 700
+    }
+  },
+  "oof_dist_mae_after_calib_mean_m": 7.375221177794037,
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.10464362243603,
+      "val_dist_mae_after_calib_m": 7.335665170890985
+    },
+    {
+      "fold": 1,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 7.9239570414272595,
+      "val_dist_mae_after_calib_m": 7.14411772717802
+    },
+    {
+      "fold": 2,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.474445755920305,
+      "val_dist_mae_after_calib_m": 7.560875767668157
+    },
+    {
+      "fold": 3,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 8.060684048901654,
+      "val_dist_mae_after_calib_m": 7.415263029276694
+    },
+    {
+      "fold": 4,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.978260769429573,
+      "val_dist_mae_after_calib_m": 7.4201841939563336
+    }
+  ]
+}

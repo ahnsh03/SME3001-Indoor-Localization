@@ -1,0 +1,43 @@
+{
+  "week": 13,
+  "title": "구조 실험·조합 재검토·v30·제출",
+  "production_version": "v30",
+  "github_repo": "https://github.com/ahnsh03/SME-Experiment2-FinalProject-12223637",
+  "structural": {
+    "v17": 8.90,
+    "v25": 8.76,
+    "v26": 9.28,
+    "v27": 9.61
+  },
+  "ablation_vs_v17": {
+    "v21": 8.91,
+    "v22": 9.61,
+    "v23": 8.90,
+    "v24": 9.07
+  },
+  "combination_vs_v25": {
+    "v25": 8.762,
+    "v28": 8.762,
+    "v29": 8.669,
+    "v30": 7.996,
+    "v31": 8.762,
+    "v34": 8.762
+  },
+  "v30_oof": {
+    "rmse_m": 7.996,
+    "mae_m": 6.755,
+    "median_m": 6.214,
+    "p90_m": 11.183
+  },
+  "v30_asym_grid": {
+    "1.0": 8.762,
+    "5.0": 7.996,
+    "8.0": 7.999
+  },
+  "v30_stages": {
+    "after_raw_trilat": 7.474,
+    "after_main_trilat": 9.102,
+    "after_pos_affine": 7.996
+  },
+  "key_insight": "asymmetric Huber effective only after isotonic_mlp + position affine stack"
+}

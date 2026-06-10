@@ -1,0 +1,112 @@
+{
+  "version": "v14",
+  "description": "v06 + NLOS 비대칭 Huber (pred>d_obs 강한 penalty, CV) (asym_w=2.0)",
+  "config": {
+    "loss": "huber",
+    "huber_f_scale": 1.0,
+    "calib": "per_bs_isotonic",
+    "gate": false,
+    "gate_tau": null,
+    "top_k": null,
+    "weight_gamma": null,
+    "asym_pos_weight": 2.0
+  },
+  "cv": {
+    "n_splits": 5,
+    "seed": 42
+  },
+  "oof_position": {
+    "rmse_m": 10.32740539621738,
+    "mae_m": 8.839843357666535,
+    "median_m": 7.752583522056213,
+    "p90_m": 16.005837053959603,
+    "max_m": 45.84703800346858,
+    "n": 700
+  },
+  "oof_stage_position": {
+    "after_raw_trilat": {
+      "rmse_m": 12.900160612931389,
+      "mae_m": 9.515091913724994,
+      "median_m": 8.660451491606326,
+      "p90_m": 18.876889970059878,
+      "max_m": 67.06544532939598,
+      "n": 700
+    },
+    "after_main_trilat": {
+      "rmse_m": 10.32740539621738,
+      "mae_m": 8.839843357666537,
+      "median_m": 7.752583522056213,
+      "p90_m": 16.005837053959603,
+      "max_m": 45.84703800346858,
+      "n": 700
+    }
+  },
+  "oof_dist_mae_after_calib_mean_m": 9.854864022377951,
+  "folds": [
+    {
+      "fold": 0,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.765320302120053,
+      "val_dist_mae_after_calib_m": 9.765927500147544
+    },
+    {
+      "fold": 1,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 10.187512716203504,
+      "val_dist_mae_after_calib_m": 9.403001914760779
+    },
+    {
+      "fold": 2,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 10.610152933497002,
+      "val_dist_mae_after_calib_m": 10.122865849246223
+    },
+    {
+      "fold": 3,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 9.775819421412317,
+      "val_dist_mae_after_calib_m": 9.8444707642709
+    },
+    {
+      "fold": 4,
+      "n_train": 560,
+      "n_val": 140,
+      "val_rmse_m": 11.224420898693875,
+      "val_dist_mae_after_calib_m": 10.138054083464311
+    }
+  ],
+  "asym_tuning": {
+    "grid": [
+      {
+        "asym_pos_weight": 1.0,
+        "cv_rmse_m": 10.508105142808283
+      },
+      {
+        "asym_pos_weight": 1.5,
+        "cv_rmse_m": 10.479772990640134
+      },
+      {
+        "asym_pos_weight": 2.0,
+        "cv_rmse_m": 10.32740539621738
+      },
+      {
+        "asym_pos_weight": 3.0,
+        "cv_rmse_m": 10.689823153791945
+      },
+      {
+        "asym_pos_weight": 5.0,
+        "cv_rmse_m": 11.252993647321391
+      },
+      {
+        "asym_pos_weight": 8.0,
+        "cv_rmse_m": 11.828991189852278
+      }
+    ],
+    "best_asym_pos_weight": 2.0,
+    "best_cv_rmse_m": 10.32740539621738
+  }
+}

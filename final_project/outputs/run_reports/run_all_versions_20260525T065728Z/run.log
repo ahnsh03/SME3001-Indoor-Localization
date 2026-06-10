@@ -1,0 +1,49 @@
+[run] id=run_all_versions_20260525T065728Z cwd=C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project
+
+=== v00: B0: LS 삼변, 보정 없음 ===
+OOF RMSE = 22.417 m
+  stage after_raw_trilat: RMSE 22.417 m
+  stage after_main_trilat: RMSE 22.417 m
+
+=== v01: B1: Huber 삼변, 보정 없음 ===
+OOF RMSE = 16.705 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 16.705 m
+
+=== v02: Huber + 전역 아핀 보정 (α,β 2개) ===
+OOF RMSE = 12.404 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 12.404 m
+
+=== v03: Huber + BS별 아핀 보정 (α_k,β_k 36개) ===
+OOF RMSE = 12.517 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 12.517 m
+
+=== v05: Huber + BS별 2차 보정 (a·d + b·d² + c) ===
+OOF RMSE = 11.563 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 11.563 m
+
+=== v06: Huber + BS별 Isotonic (단조) 보정 ===
+OOF RMSE = 10.508 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 10.508 m
+
+=== v10: v06 + Huber f_scale CV 튜닝 ===
+OOF RMSE = 10.146 m
+  stage after_raw_trilat: RMSE 17.336 m
+  stage after_main_trilat: RMSE 10.146 m
+
+=== v11: v06 + soft 거리 가중 삼변 (gamma CV) ===
+OOF RMSE = 9.772 m
+  stage after_raw_trilat: RMSE 13.530 m
+  stage after_main_trilat: RMSE 9.772 m
+
+=== v12: v06 + 반경 3구간 Isotonic (near/mid/far) ===
+OOF RMSE = 10.229 m
+  stage after_raw_trilat: RMSE 16.705 m
+  stage after_main_trilat: RMSE 10.229 m
+
+Best: v11 RMSE=9.772 m
+Wrote C:\Users\ahnsh\OneDrive\Desktop\26-1 Smart Mobility Engineering Experiment 2\project\final_project\outputs\version_catalog.json
